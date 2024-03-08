@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Wallet;
 use App\Models\Customer;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Crypto extends Model
 {
@@ -16,9 +17,13 @@ class Crypto extends Model
      */
     public $timestamps = false;
 
-    public function customer(): BelongsTo
+    public function customer(): BelongsToMany
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsToMany(Customer::class);
+    }
+    public function wallet(): BelongsToMany
+    {
+        return $this->belongsToMany(Wallet::class);
     }
 
 }

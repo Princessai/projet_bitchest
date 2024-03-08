@@ -1,4 +1,4 @@
-regles : un client possede un ou plusieurs cryptos (1,n)
+regles : un client possede une ou plusieurs cryptos (1,n)
          une crypto peut apartenir a un ou plusieurs clients (1,n)
           un client possede un seul portefeuille (1,1)
           un portefeuille appartient a un seul client (1,1)

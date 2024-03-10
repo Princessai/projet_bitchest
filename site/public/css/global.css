@@ -1,0 +1,20 @@
+
+body{
+    background-image: linear-gradient(to top,#38618C,#1C3146);
+}
+
+
+
+
+
+.footer{
+   height: 56px;
+   background-color: white;
+   color: #38618C;
+   font-size: 21px;
+   font-weight: Celias;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

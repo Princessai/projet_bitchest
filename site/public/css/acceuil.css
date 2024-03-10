@@ -1,0 +1,41 @@
+
+button{
+    padding: 5px 25px 5px 25px;
+     border-radius: 50%;
+    background-color: #01FF19 ;
+    color: #1C3146;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.getstarted{
+    color: white;
+    font-size: 50px;
+}
+
+.signup{
+    font-size: 28px;
+    color: white;
+}
+
+.follow{
+    font-size: 18px;
+    color: white;
+}
+
+.getstarte{
+    margin-bottom: 170px;
+}
+
+.buy{
+    color: white;
+    font-size: 45px;
+}
+
+.powerful{
+    margin-top: 200px;
+}
+
+.from{
+    color: white;
+}

@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Crypto;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CryptoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+// Route::get('/login', [CryptoController::class, 'listCrypto']);
 
 
 Route::get('/login', function () {

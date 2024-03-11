@@ -143,7 +143,7 @@ Protect your cryptocurrencies with best-in-class <br>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>La meilleure stratégie de trading est comme une empreinte digitale : elle vous est propre.</strong> Elle inclut un mélange d'analyse fondamentale et d'analyse technique qui correspond à votre style de trading, <code>aux indicateurs de trading que vous préférez et à votre stratégie de gestion du risque .</code>
+        <strong>La meilleure stratégie de trading est comme une empreinte digitale : elle vous est propre.</strong> Elle inclut un mélange d'analyse fondamentale et d'analyse technique qui correspond à votre style de trading, aux indicateurs de trading que vous préférez et à votre stratégie de gestion du risque .
       </div>
     </div>
   </div>
@@ -155,7 +155,7 @@ Protect your cryptocurrencies with best-in-class <br>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong> Le scalping attire de plus en plus d'investisseurs, car le pourcentage de gain est très élevé par rapport au risque.</strong> En plus, d'une certaine manière, les débutants peuvent obtenir des gains avec le scalping.  <code>En effet, il s'agit de parier sur les tendances haussières durant quelques minutes et ensuite se retirer.</code>
+        <strong> Le scalping attire de plus en plus d'investisseurs, car le pourcentage de gain est très élevé par rapport au risque.</strong> En plus, d'une certaine manière, les débutants peuvent obtenir des gains avec le scalping.  En effet, il s'agit de parier sur les tendances haussières durant quelques minutes et ensuite se retirer.
       </div>
     </div>
   </div>
@@ -167,7 +167,7 @@ Protect your cryptocurrencies with best-in-class <br>
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>Le day trading : trader à court terme sur les marchés futures. </strong>Le day trading est un type de spéculation qui fait partie des plus rentables <code>lorsque vous maîtrisez parfaitement votre technique de trading.</code>
+        <strong>Le day trading : trader à court terme sur les marchés futures. </strong>Le day trading est un type de spéculation qui fait partie des plus rentables lorsque vous maîtrisez parfaitement votre technique de trading.
       </div>
     </div>
   </div>

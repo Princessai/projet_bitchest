@@ -65,17 +65,17 @@
       <button> <strong>Log in with Email</strong></button>
     </div>
     <div class="col-md-5 mt-1 mb-5">
-      <img src="{{ asset('images/cryptomonnaie.png') }}" width="456px" alt="">
+      <img src="{{ asset('images/cryptomonnaie.png') }}" width="75%" alt="">
     </div>
   </div>
 
 
 
   <div class="row mt-5 getstarte"><!-- BENEFICTS -->
-    <div class="col-md-5 mt-3">
-      <img src="{{ asset('images/Prime.png') }}" width="543px" alt="">
+    <div class="col-md-5  mt-3">
+      <img src="{{ asset('images/Prime.png') }}" width="75%" alt="">
     </div>
-    <div class="col-md-7 " id="beneficts">
+    <div class="col-md-7  " id="beneficts">
       <p class="buy powerful ms-5"> <strong>
           Buy, sell and store hundreds  <br>
     of cryptocurrencies
@@ -108,7 +108,7 @@ Protect your cryptocurrencies with best-in-class <br>
       <button class=""> <strong>Trade</strong></button>
     </div>
     <div class="col-md-5">
-    <img src="{{ asset('images/Advanced.png') }}" width="483px" alt="">
+    <img src="{{ asset('images/Advanced.png') }}" width="75%" alt="">
     </div>
   </div>
 

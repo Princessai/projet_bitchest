@@ -126,48 +126,48 @@ Protect your cryptocurrencies with best-in-class <br>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-      <strong>  Where can I get some?</strong> 
+      <strong>  Quel est le meilleur site de trading ?</strong> 
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>Quel site pour apprendre le trading ?  </strong> Bitchest : leader mondial des plateformes   <code>de trading social   </code>
       </div>
     </div>
   </div>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      <strong>  Where can I get some?</strong> 
+      <strong> Quel est la meilleur stratégie en trading ?</strong> 
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>La meilleure stratégie de trading est comme une empreinte digitale : elle vous est propre.</strong> Elle inclut un mélange d'analyse fondamentale et d'analyse technique qui correspond à votre style de trading, <code>aux indicateurs de trading que vous préférez et à votre stratégie de gestion du risque .</code>
       </div>
     </div>
   </div>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-      <strong>  Where can I get some?</strong> 
+      <strong> Qu'est-ce qui rapporte le plus en trading ?</strong> 
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong> Le scalping attire de plus en plus d'investisseurs, car le pourcentage de gain est très élevé par rapport au risque.</strong> En plus, d'une certaine manière, les débutants peuvent obtenir des gains avec le scalping.  <code>En effet, il s'agit de parier sur les tendances haussières durant quelques minutes et ensuite se retirer.</code>
       </div>
     </div>
   </div>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-   <strong>  Where can I get some?</strong> 
+   <strong>  Quel est le type de trading le plus rentable ?</strong> 
       </button>
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the fourth item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>Le day trading : trader à court terme sur les marchés futures. </strong>Le day trading est un type de spéculation qui fait partie des plus rentables <code>lorsque vous maîtrisez parfaitement votre technique de trading.</code>
       </div>
     </div>
   </div>

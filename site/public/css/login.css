@@ -14,7 +14,7 @@
 }
 
 input[type="password"]{
-   padding: 8px 45px 8px 45px;;
+   padding: 8px 45px 8px 45px;
    border-radius: 20px;
    border: 3px solid #38618C;
    opacity: 20%;
@@ -22,7 +22,7 @@ input[type="password"]{
 } 
 
 input[type="text"]{
- 
+   padding: 8px 45px 8px 45px;
    border-radius: 20px;
    border: 3px solid #38618C;
    opacity: 20%;
@@ -31,7 +31,7 @@ input[type="text"]{
 
 
 input[type="submit"]{
-   
+   padding: 10px;
    border-radius: 10px;
    background-color: #01FF19;
    color: #38618C;

@@ -21,7 +21,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse me-5" id="navbarText">
-      <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 d-flex w-100 justify-content-around">
+      <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 d-flex w-75 justify-content-around">
         <li class="nav-item">
           <a class="nav-link active text-light" aria-current="page" href="#beneficts"> <strong>Beneficts</strong></a>
         </li>

@@ -21,7 +21,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse me-5" id="navbarText">
-      <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
+      <ul class="navbar-nav  mb-2 mb-lg-0 ">
         <li class="nav-item">
           <a class="nav-link active text-light" aria-current="page" href="#beneficts"> <strong>Beneficts</strong></a>
         </li>
@@ -72,29 +72,34 @@
 
 
   <div class="row mt-5 getstarte"><!-- BENEFICTS -->
-    <div class="col-md-5  mt-3">
+    <div class="col-md-5  ">
       <img src="{{ asset('images/Prime.png') }}" width="100%" alt="">
     </div>
-    <div class="col-md-7  " id="beneficts">
-      <p class="buy powerful ms-5"> <strong>
+    <div class="col-md-7 d-flex align-items-center justify-content-around " id="beneficts">
+      <div>
+         <p class="buy  "> <strong>
           Buy, sell and store hundreds  <br>
     of cryptocurrencies
       </strong>
       </p>
-      <p class="from ms-5">
+      <p class="from ">
       From Bitcoin to Dogecoin, we make it easy to buy and sell cryptocurrencies.  <br>
 Protect your cryptocurrencies with best-in-class <br>
  cold storage capacity.
       </p>
-      <button class=" ms-5"> <strong>See more</strong></button>
+      <button class=" "> <strong>See more</strong></button>
+      </div>
+     
+      
     </div>
   </div> 
 
 
 
    <div class="row getstarte"><!-- TOOLS -->
-    <div class="col-md-7 " id="tools">
-    <p class="buy powerful "> <strong>
+    <div class="col-md-7 d-flex align-items-center justify-content-around " id="tools">
+      <div>
+         <p class="buy  "> <strong>
     Powerful tools designed <br>
  for the experienced trader
       </strong>
@@ -106,6 +111,8 @@ Protect your cryptocurrencies with best-in-class <br>
  order books and vast liquidity across hundreds of markets.
       </p>
       <button class=""> <strong>Trade</strong></button>
+      </div>
+   
     </div>
     <div class="col-md-5">
     <img src="{{ asset('images/Advanced.png') }}" width="100%" alt="">

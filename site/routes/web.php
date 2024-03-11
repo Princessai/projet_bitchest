@@ -23,6 +23,6 @@ Route::get('/login', function () {
 });
 
 
-Route::get('/base', function () {
-    return view('base');
+Route::get('/wallet', function () {
+    return view('layouts.userDashboard');
 });

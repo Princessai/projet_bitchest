@@ -131,7 +131,7 @@ Protect your cryptocurrencies with best-in-class <br>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>Quel site pour apprendre le trading ?  </strong> Bitchest : leader mondial des plateformes   <code>de trading social   </code>
+        <strong>Quel site pour apprendre le trading ?  </strong> Bitchest : leader mondial des plateformes   de trading social   
       </div>
     </div>
   </div>

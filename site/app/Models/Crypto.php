@@ -17,10 +17,6 @@ class Crypto extends Model
      */
     public $timestamps = false;
 
-    public function customer(): BelongsToMany
-    {
-        return $this->belongsToMany(Customer::class);
-    }
     public function wallet(): BelongsToMany
     {
         return $this->belongsToMany(Wallet::class);

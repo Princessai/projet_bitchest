@@ -10,16 +10,23 @@
     <title>Document</title>
 </head>
 <body class=" d-flex flex-column" >
-<div class="container flex-grow-1   w-50 text-center">
+<div class="container   w-50 ">
   <div class="row">
-    <div class="col-md-12">
-      <img src="{{ asset('images/bitchest_logo.png') }}" alt="" width="245px">
+    <div class="col-md-12 d-flex justify-content-center">
+      <img src="{{ asset('images/bitchest_logo.png') }}" alt="" width="75%">
     </div>
 </div>
   <div class="row d-flex">
-   <div class="col-md-12 bloc1  d-flex  justify-content-center">
-      <div class="connexion">
-            
+   <div class="col-md-12 bloc1 d-flex align-items-center justify-content-center  ">
+      <div class="connexion d-flex justify-content-center align-items-center">
+            <form action="" class="d-flex align-items-center flex-column justify-content-evenly h-50 ">
+              <h2 class="align-self-start mb-5">Log In</h2>
+              <label for=""  class=" align-self-start">Email</label> 
+              <input type="text" class="mt-3  w-100">
+              <label for="" class="mt-3 align-self-start">Password</label>
+              <input type="password" class="mt-3 w-100 ">
+              <input type="submit" value="create" class="mt-4">
+            </form>
       </div>
     </div>
   </div>

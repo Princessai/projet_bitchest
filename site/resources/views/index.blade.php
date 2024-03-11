@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('css/acceuil.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/global.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/acceuil.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Bitchest</title>
@@ -16,20 +16,20 @@
     <div class="col-12 mb-5 ">
     <nav class="navbar navbar-expand-lg ">
   <div class="container ">
-    <a class="navbar-brand me-auto" href="#"><img src="{{ asset('images/bitchest_logo.png') }}" width="155px" alt=""></a>
+    <a class="navbar-brand me-auto" href="#"><img src="{{ asset('assets/images/bitchest_logo.png') }}" width="155px" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse me-5" id="navbarText">
-      <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 d-flex w-75 justify-content-around">
+      <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 d-flex w-100 justify-content-around">
         <li class="nav-item">
           <a class="nav-link active text-light" aria-current="page" href="#beneficts"> <strong>Beneficts</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-5 text-light" href="#tools"><strong>Tools</strong></a>
+          <a class="nav-link text-light" href="#tools"><strong>Tools</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link me-5 text-light" href="#faq"> <strong>F.A.Q</strong></a>
+          <a class="nav-link text-light" href="#faq"> <strong>F.A.Q</strong></a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" href="#"> <strong>About Us</strong></a>
@@ -65,7 +65,7 @@
       <button> <strong>Log in with Email</strong></button>
     </div>
     <div class="col-md-5 mt-1 mb-5">
-      <img src="{{ asset('images/cryptomonnaie.png') }}" width="100%" alt="">
+      <img src="{{ asset('assets/images/cryptomonnaie.png') }}" width="100%" alt="">
     </div>
   </div>
 
@@ -73,7 +73,7 @@
 
   <div class="row mt-5 getstarte"><!-- BENEFICTS -->
     <div class="col-md-5  ">
-      <img src="{{ asset('images/Prime.png') }}" width="100%" alt="">
+      <img src="{{ asset('assets/images/Prime.png') }}" width="100%" alt="">
     </div>
     <div class="col-md-7 d-flex align-items-center justify-content-around " id="beneficts">
       <div>
@@ -115,7 +115,7 @@ Protect your cryptocurrencies with best-in-class <br>
    
     </div>
     <div class="col-md-5">
-    <img src="{{ asset('images/Advanced.png') }}" width="100%" alt="">
+    <img src="{{ asset('assets/images/Advanced.png') }}" width="100%" alt="">
     </div>
   </div>
 

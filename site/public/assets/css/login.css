@@ -1,0 +1,49 @@
+
+
+
+.connexion{
+   width: 450px;
+   height: 430px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 20px;
+}
+
+
+.bloc1{
+    height: 820px;
+}
+
+input[type="password"]{
+   padding: 8px 45px 8px 45px;
+   border-radius: 20px;
+   border: 3px solid #38618C;
+   opacity: 20%;
+   font-family: Celias;
+} 
+
+input[type="text"]{
+   padding: 8px 45px 8px 45px;
+   border-radius: 20px;
+   border: 3px solid #38618C;
+   opacity: 20%;
+   font-family: Celias;
+} 
+
+
+input[type="submit"]{
+   padding: 10px;
+   border-radius: 10px;
+   background-color: #01FF19;
+   color: #38618C;
+   border: 1px solid #01FF19;
+    font-family: Celias;
+} 
+
+label{
+   font-family: Celias;
+   color: #38618C;
+}
+
+h2{
+   color: #38618C !important;
+}

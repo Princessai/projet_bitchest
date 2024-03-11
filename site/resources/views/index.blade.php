@@ -126,48 +126,48 @@ Protect your cryptocurrencies with best-in-class <br>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-      <strong>  Quel est le meilleur site de trading ?</strong> 
+      <strong>  What is the best trading site?</strong> 
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>Quel site pour apprendre le trading ?  </strong> Bitchest : leader mondial des plateformes   de trading social   
+        <strong>Which site to learn trading? </strong>Bitchest: world leader in social trading platforms  
       </div>
     </div>
   </div>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      <strong> Quel est la meilleur stratégie en trading ?</strong> 
+      <strong> What is the best trading strategy?</strong> 
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>La meilleure stratégie de trading est comme une empreinte digitale : elle vous est propre.</strong> Elle inclut un mélange d'analyse fondamentale et d'analyse technique qui correspond à votre style de trading, aux indicateurs de trading que vous préférez et à votre stratégie de gestion du risque .
+        <strong>The best trading strategy is like a fingerprint: it is unique to you.</strong> It includes a blend of fundamental analysis and technical analysis that matches your trading style, your preferred trading indicators and your risk management strategy.
       </div>
     </div>
   </div>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-      <strong> Qu'est-ce qui rapporte le plus en trading ?</strong> 
+      <strong> What pays off the most in trading?</strong> 
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong> Le scalping attire de plus en plus d'investisseurs, car le pourcentage de gain est très élevé par rapport au risque.</strong> En plus, d'une certaine manière, les débutants peuvent obtenir des gains avec le scalping.  En effet, il s'agit de parier sur les tendances haussières durant quelques minutes et ensuite se retirer.
+        <strong> Scalping attracts more and more investors because the winning percentage is very high compared to the risk.</strong> Additionally, in a way, beginners can make gains with scalping. In fact, it involves betting on upward trends for a few minutes and then withdrawing.
       </div>
     </div>
   </div>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-   <strong>  Quel est le type de trading le plus rentable ?</strong> 
+   <strong> What is the most profitable type of trading?</strong> 
       </button>
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>Le day trading : trader à court terme sur les marchés futures. </strong>Le day trading est un type de spéculation qui fait partie des plus rentables lorsque vous maîtrisez parfaitement votre technique de trading.
+        <strong>Day trading: short-term trading on futures markets. </strong>Day trading is a type of speculation that is one of the most profitable when you perfectly master your trading technique.
       </div>
     </div>
   </div>

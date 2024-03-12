@@ -23,9 +23,4 @@ class Customer extends Model
         return $this->hasOne(Wallet::class);
     }
 
-    public function crypto(): BelongsToMany
-    {
-        return $this->belongsToMany(Crypto::class);
-    }
-
 }

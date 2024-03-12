@@ -1,11 +1,8 @@
-regles : un client possede une ou plusieurs cryptos (1,n)
-         une crypto peut apartenir a un ou plusieurs clients (1,n)
-          un client possede un seul portefeuille (1,1)
+regles :  un client possede un seul portefeuille (1,1)
           un portefeuille appartient a un seul client (1,1)
           un portefeuille possede un ou plusieurs cryptos (1,n)
           une crypto appartient a un ou plusieurs portefeuille (1,n)
           
           
- creation d'une table intermediaire client-crypto 
  creation d'une table intermediaire portefeuille-crypto
           

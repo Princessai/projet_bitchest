@@ -1,5 +1,5 @@
 
-<nav class="navbar border-0 h-100 navbarr navbar-expand-lg bg-body-tertiary">
+<nav class="navbar border-0  navbarr navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid d-flex">
     <a class="navbar-brand text-light" href="#"><strong>Home</strong></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

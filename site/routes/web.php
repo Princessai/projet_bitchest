@@ -26,3 +26,10 @@ Route::get('/login', function () {
     return view('Login');
 });
 
+
+
+Route::get('/wallet', function () {
+    return view('layouts.userDashboard');
+});
+
+

@@ -29,7 +29,7 @@ Route::get('/login', function () {
 
 
 Route::get('/wallet', function () {
-    return view('layouts.userDashboard');
+    return view('pages.wallet');
 });
 
 

@@ -15,5 +15,5 @@
               @yield('walletbutton')
             </a>
         </div>
-    </div>Z
+    </div>
 </div>

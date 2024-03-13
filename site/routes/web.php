@@ -32,4 +32,7 @@ Route::get('/wallet', function () {
     return view('pages.wallet');
 });
 
+Route::get('/homeadmin', function () {
+    return view('pages.homeAdmin');
+});
 

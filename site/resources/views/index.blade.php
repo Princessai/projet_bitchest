@@ -138,36 +138,36 @@ Protect your cryptocurrencies with best-in-class <br>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      <strong> What is the best trading strategy?</strong> 
+      <strong> why is bitchest the best site to use to learn trading?</strong> 
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>The best trading strategy is like a fingerprint: it is unique to you.</strong> It includes a blend of fundamental analysis and technical analysis that matches your trading style, your preferred trading indicators and your risk management strategy.
+        Because bitchest teaches you to better analyze the market, to help you learn a better strategy to make the most profit possible depending on the market that interests you
       </div>
     </div>
   </div>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-      <strong> What pays off the most in trading?</strong> 
+      <strong> WHAT does Bitchest offer better than other platforms?</strong> 
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong> Scalping attracts more and more investors because the winning percentage is very high compared to the risk.</strong> Additionally, in a way, beginners can make gains with scalping. In fact, it involves betting on upward trends for a few minutes and then withdrawing.
+      Bitchest gives you the cost values ​​according to each change that takes place. It allows you to always be up to date whatever your geographical location, whether you are going up or down, allowing you to always be ready.
       </div>
     </div>
   </div>
   <div class="accordion-item mb-3">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-   <strong> What is the most profitable type of trading?</strong> 
+   <strong> Does Bitchest allow you to choose the best to choose whether it is forex or others??</strong> 
       </button>
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>Day trading: short-term trading on futures markets. </strong>Day trading is a type of speculation that is one of the most profitable when you perfectly master your trading technique.
+      Yes with Bitchest you are not lost you know exactly where to go what to choose depending on the gains you wish to acquire
       </div>
     </div>
   </div>

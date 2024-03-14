@@ -1,8 +1,8 @@
 
 body{
     background-image: linear-gradient(to top,#38618C,#1C3146);
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
   
 }
 
@@ -31,4 +31,13 @@ body{
 .sidebar{
     background-image: linear-gradient(to bottom, #38618B,#1C3146);
     height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: celias;
+
+  
+}
+p{
+  font-family: celias;
 }

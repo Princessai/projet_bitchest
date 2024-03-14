@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $from = "wallets_cryptos";
-        $to ="crypto_wallet";
-        Schema::rename($from, $to);
+        Schema::create('cryptos', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -21,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('cryptos');
     }
 };

@@ -36,7 +36,7 @@
         </li>
       </ul>
       <span class="navbar-text ms-auto ">
-     <button> <strong>Log in</strong></button>
+      <input type="submit" value="Log In">
       </span>
     </div>
   </div>
@@ -62,10 +62,10 @@
             and start your crypto journey with us! 
       </p>
 
-      <button> <strong>Log in with Email</strong></button>
+       <input type="submit" value="Log in with Email">
     </div>
     <div class="col-md-5 mt-1 mb-5">
-      <img src="{{ asset('assets/images/cryptomonnaie.png') }}" width="100%" alt="">
+      <img src="{{ asset('assets/images/cryptomonnaie.png') }}" width="85%" alt="">
     </div>
   </div>
 
@@ -87,7 +87,7 @@
 Protect your cryptocurrencies with best-in-class <br>
  cold storage capacity.
       </p>
-      <button class=" "> <strong>See more</strong></button>
+      <input type="submit" value="See more">
       </div>
      
       
@@ -110,7 +110,7 @@ Protect your cryptocurrencies with best-in-class <br>
  sophisticated charting capabilities, real-time <br>
  order books and vast liquidity across hundreds of markets.
       </p>
-      <button class=""> <strong>Trade</strong></button>
+     <input type="submit" value="Trade"> 
       </div>
    
     </div>

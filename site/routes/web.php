@@ -29,8 +29,14 @@ Route::get('/login', function () {
 
 
 Route::get('/wallet', function () {
-    return view('layouts.userDashboard');
+    return view('pages.wallet');
 });
+
+Route::get('/homeadmin', function () {
+    return view('pages.homeAdmin');
+});
+
+
 
 // Route::get('/Vue', 
 Route::get('/Vue', function () {

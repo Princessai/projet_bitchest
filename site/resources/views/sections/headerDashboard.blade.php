@@ -12,6 +12,6 @@
         <img src="{{ asset('assets/images/utilisateur.png') }}" alt="" width="30px" class="ms-5 me-5">
     </div>
  </form>
- 
+
   </div>
 </nav>

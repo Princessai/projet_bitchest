@@ -1,25 +1,35 @@
 
 button{
     padding: 5px 25px 5px 25px;
-     border-radius: 50%;
+     border-radius: 20%;
     background-color: #01FF19 ;
     color: #1C3146;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+input[type='submit']{
+    padding: 5px 25px 5px 25px;
+    border-radius: 10px;
+   background-color: #01FF19 ;
+   color: #1C3146;
+   font-family: celias;
+   border: none;
+   
+}
+
 
 .getstarted{
     color: white;
-    font-size: 50px;
+    font-size: 38px;
 }
 
 .signup{
-    font-size: 28px;
+    font-size: 18px;
     color: white;
 }
 
 .follow{
-    font-size: 18px;
+    font-size: 8px;
     color: white;
 }
 

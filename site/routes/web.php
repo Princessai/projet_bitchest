@@ -32,4 +32,7 @@ Route::get('/wallet', function () {
     return view('layouts.userDashboard');
 });
 
-
+// Route::get('/Vue', 
+Route::get('/Vue', function () {
+    return view('Vue');
+});

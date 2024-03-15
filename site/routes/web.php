@@ -36,3 +36,6 @@ Route::get('/homeadmin', function () {
     return view('pages.homeAdmin');
 });
 
+Route::get('/dash', function () {
+    return view('layouts.userDashboard');
+});

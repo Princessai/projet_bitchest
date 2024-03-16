@@ -36,12 +36,10 @@ Route::get('/homeadmin', function () {
     return view('pages.homeAdmin');
 });
 
-<<<<<<< HEAD
 Route::get('/courcrypto', function () {
     return view('pages.courCrypto');
 });
 
-=======
 
 Route::get('/dashwallet', function () {
     return view('pages.wallet');
@@ -60,4 +58,3 @@ Route::get('/marche', function () {
 Route::get('/Vue', function () {
     return view('Vue');
 });
->>>>>>> c702b476a7d5a2cd64300e71937c3166dbde41eb

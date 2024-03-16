@@ -50,7 +50,11 @@ Route::get('/marche', function () {
 });
 
 
-// Route::get('/Vue', 
-Route::get('/Vue', function () {
-    return view('Vue');
+
+Route::get('/admin', function () {
+    return view('pages.homeAdmin');
+});
+
+Route::get('/customer', function () {
+    return view('pages.customerAdmin');
 });

@@ -36,6 +36,10 @@ Route::get('/homeadmin', function () {
     return view('pages.homeAdmin');
 });
 
+Route::get('/courcrypto', function () {
+    return view('pages.courCrypto');
+});
+
 
 Route::get('/dashwallet', function () {
     return view('pages.wallet');
@@ -58,3 +62,4 @@ Route::get('/admin', function () {
 Route::get('/customer', function () {
     return view('pages.customerAdmin');
 });
+

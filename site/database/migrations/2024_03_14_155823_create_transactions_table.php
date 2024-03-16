@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('crypto_id')->constrained();
+            $table->foreignId('wallet_id')->constrained();
+            $table->float('cours_achat');
+            $table->string('type', 50);
+            $table->timestamp('date');
+            $table->integer('quantite');
+            $table->float('montant');
+
         });
     }
 

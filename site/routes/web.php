@@ -37,6 +37,18 @@ Route::get('/homeadmin', function () {
 });
 
 
+Route::get('/dashwallet', function () {
+    return view('pages.wallet');
+});
+
+Route::get('/profile', function () {
+    return view('pages.profile');
+});
+
+Route::get('/marche', function () {
+    return view('pages.marcheCrypto');
+});
+
 
 // Route::get('/Vue', 
 Route::get('/Vue', function () {

@@ -2,11 +2,6 @@
 
 <nav class="navbar navbarr   navbar-expand-lg navbar-light">
 
- <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="navbar-brand ms-3   text-light" href="#"><strong>Home</strong></a>
-            </li>
-          </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
             <div class="collapse navbar-collapse w-75 d-flex align-self-center  justify-content-end" id="navbarSupportedContent">

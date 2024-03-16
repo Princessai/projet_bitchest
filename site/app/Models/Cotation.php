@@ -15,6 +15,7 @@ class Cotation extends Model
      *@var bool 
      */
     public $timestamps = false;
+    protected $fillable = [];
 
     public function cryptos() : BelongsTo 
     {

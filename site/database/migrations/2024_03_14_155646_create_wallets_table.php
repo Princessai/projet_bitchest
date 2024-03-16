@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->float('solde', 8, 2);
         });
     }
 

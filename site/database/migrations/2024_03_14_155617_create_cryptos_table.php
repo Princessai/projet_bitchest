@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cryptos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('label', 100);
         });
     }
 

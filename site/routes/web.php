@@ -36,3 +36,7 @@ Route::get('/homeadmin', function () {
     return view('pages.homeAdmin');
 });
 
+Route::get('/courcrypto', function () {
+    return view('pages.courCrypto');
+});
+

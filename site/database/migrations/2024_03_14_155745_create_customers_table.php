@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('firstname', 100);
+            $table->string('lastname', 100);
+            $table->integer('age');
+            $table->string('email', 100);
+            $table->string('password', 100);
+            $table->foreignId('wallet_id')->constrained();
+
+
         });
     }
 

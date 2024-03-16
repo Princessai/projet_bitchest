@@ -37,3 +37,13 @@
   </div>
 </div>
 @endsection
+@section('sidecontent')
+ <div class="container w-75 ">
+ <div class="row ">
+ <div class="col sideblock d-flex flex-column align-items-center justify-content-around mt-5">
+  <img src="{{ asset('assets/images/bitcoin.png') }}" alt="" width="15%" alt="">
+<input type="submit" value="Buy">
+ </div>
+ </div>
+ </div>
+@endsection

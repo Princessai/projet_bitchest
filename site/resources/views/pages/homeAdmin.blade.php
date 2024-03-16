@@ -5,8 +5,9 @@
     <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">firstname</th>
-        <th scope="col">lastname</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Age</th>
         <th scope="col">Email</th>
         <th  scope="col">Actions</th>
       </tr>
@@ -25,12 +26,15 @@
              {{'Coulibaly'}}
           </td>
           <td>
+             {{'25'}}
+          </td>
+          <td>
              {{'coumou1000@gmail.com'}}
           </td>
           <td>
-            <a href="" class="voir"> <img src="{{ assets('')}}" alt=""> VOIR</a>
-            <a href="" class="modifier"> <img src="{{ assets('')}}" alt=""> MODIFIER</a>
-            <a href="" class="suprimer"> <img src="{{ assets('')}}" alt=""> SUPRIMER</a>
+            <a href="" class="voir"> <img src="{{ asset('assets/images/eye.png')}}" alt="VOIR" class="img-fluid"></a>
+            <a href="" class="modifier"> <img src="{{ asset('assets/images/edit.png')}}" alt="MODIFIER" class="img-fluid"></a>
+            <a href="" class="suprimer"> <img src="{{ asset('assets/images/recycle-bin.png')}}" alt="SUPRIMER" class="img-fluid"></a>
           </td>
         </tr>
       {{-- @endforeach --}}

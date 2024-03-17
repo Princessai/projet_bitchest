@@ -36,10 +36,6 @@ Route::get('/homeadmin', function () {
     return view('pages.homeAdmin');
 });
 
-Route::get('/courcrypto', function () {
-    return view('pages.courCrypto');
-});
-
 
 Route::get('/dashwallet', function () {
     return view('pages.wallet');
@@ -49,9 +45,11 @@ Route::get('/profile', function () {
     return view('pages.profile');
 });
 
-Route::get('/marche', function () {
-    return view('pages.marcheCrypto');
-});
+Route::get('/marche', [CryptoController::class,'listCrypto']);
+
+Route::get('/courcrypto/{crypto_id}', [CryptoController::class,'courCrypto']);
+
+Route::post('/transaction/{customer_id}', [CryptoController::class,'transaction']);
 
 
 // Route::get('/Vue', 

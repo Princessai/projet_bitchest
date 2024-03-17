@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cotations', function (Blueprint $table) {
             $table->id();
-            $table->float('cours_actuel');
+            $table->float('cours_actuel', 8, 3);
             $table->foreignId('crypto_id')->constrained();
             $table->timestamp('date');
         });

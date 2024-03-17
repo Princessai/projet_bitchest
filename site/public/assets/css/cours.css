@@ -1,0 +1,14 @@
+.courbeCrypto {
+    height: 300px;
+}
+
+#myChart {
+    height: 100%;
+
+}
+
+.transactions {
+    border: solid #fff 3px;
+    border-radius: 12px;
+    padding: 5px 10px;
+}

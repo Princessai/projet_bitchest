@@ -35,15 +35,21 @@ class CotationSeeder extends Seeder
 
         // Get the timestamp of the start of the day
         $startOfDay = Carbon::today();
+        // var_dump($startOfDay);
+        $startOfDay = $startOfDay->subDays(30);
+        var_dump($startOfDay);
+
+        $prev_cotations = [];
         $timestamp = $startOfDay->timestamp;
+
        
 
 
-        for ($day = 1; $day <= 30; $day++) {
+        for ($day = 0; $day <= 30; $day++) {
 
-            if ($day !== 1) {
+            if ($day !== 0) {
                 
-                $startOfDay->subDays(1);
+                $startOfDay->addDay();
                 $timestamp = $startOfDay->timestamp;
             }
 
@@ -51,15 +57,20 @@ class CotationSeeder extends Seeder
 
             foreach ($cryptos as $crypto) {
 
-                if($day == 30){
+                if($day == 0){
                   
-                    $cours_actuel =positiveCotation("getFirstCotation",$crypto->label );
+                    $cours_actuel =getFirstCotation($crypto);
+                    
                     
                 }else{
-                    $cours_actuel=positiveCotation("getCotationFor",$crypto->label);
+                    $prev_cotation = $prev_cotations[$crypto->label];
+                    $variation_percentage = getCotationFor($crypto);
+                    $variation_value = ($prev_cotation * $variation_percentage) /100;
+
+                    $cours_actuel= $prev_cotation + $variation_value;
                     
                 }
-                // var_dump($crypto);
+                $prev_cotations[$crypto->label] = $cours_actuel;                // var_dump($crypto);
                 // $crypto_id = Crypto::select('id')->where('label', $crypto)->first()->id;
                 
                 // var_dump($cours_actuel);

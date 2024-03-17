@@ -13,24 +13,38 @@ class Transaction extends Model
 {
     use HasFactory;
 
-            /**
+    /**
      *@var bool 
      */
     public $timestamps = false;
 
-    public function crypto() : BelongsTo
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'crypto_id',
+        'wallet_id',
+        'cours_achat',
+        'date',
+        'quantite',
+        'montant',
+        'type',
+        
+    ];
+
+
+    public function crypto(): BelongsTo
     {
         return $this->belongsTo(Crypto::class);
-
     }
-    public function wallet() : BelongsTo
+    public function wallet(): BelongsTo
     {
         return $this->belongsTo(Wallet::class);
-
     }
-    public function account() : BelongsTo
+    public function account(): BelongsTo
     {
         return $this->belongsTo(Account::class);
-
     }
 }

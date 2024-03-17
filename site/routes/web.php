@@ -61,6 +61,11 @@ Route::get('/customer', function () {
     return view('pages.customerAdmin');
 });
 
+Route::get('/homeCustomer', function () {
+    return view('pages.customer.homeCustomer');
+});
+
+
 Route::get('/customer', [CustomerController::class, 'list']);
 
 Route::get('/update-customer/{id}', [CustomerController::class, 'update']);

@@ -22,7 +22,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"> <img src="{{ asset('assets/images/Bitcoin.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"> <img src="{{ asset('assets/images/Bitcoin.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Bitcoin</h6>
                                                     
@@ -33,7 +33,7 @@
                        
                       </tr> 
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ethereum.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ethereum.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Ethereum</h6>
                                                    
@@ -44,7 +44,7 @@
                       
                       </tr> 
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/cardano.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/cardano.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Cardano</h6>
                                                     
@@ -55,7 +55,7 @@
                       
                       </tr>      
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/nem.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/nem.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Nem</h6>
                                                       
@@ -66,7 +66,7 @@
                       
                       </tr> 
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/litecoin.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/litecoin.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Litecoin</h6>
                                                       
@@ -78,7 +78,7 @@
                       </tr>   
 
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/stellar.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/stellar.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Stellar</h6>
 
@@ -90,7 +90,7 @@
                       </tr>          
                       
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/iota.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/iota.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Iota</h6>
                                                       
@@ -102,7 +102,7 @@
                       </tr>          
 
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ripple.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ripple.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Ripple</h6>
                                                       
@@ -114,7 +114,7 @@
                       </tr>        
                       
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/dash.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/dash.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Dash</h6>
                                                       
@@ -126,7 +126,7 @@
                       </tr>        
 
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/bitcoin-cash.png') }}" alt="" width="20%"></h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/bitcoin-cash.png') }}" alt="" width="35%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Bitcoin cash</h6>
                                                       

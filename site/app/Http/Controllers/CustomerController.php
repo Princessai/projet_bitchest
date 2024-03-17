@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Customer;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -64,6 +67,71 @@ class CustomerController extends Controller
     return view('pages.admin.customerView', compact('customer'));
   }
 
-  
+  public function login(Request $request)
+  {
 
+
+    $request->validate([
+      'email' => 'required|email:rfc,dns',
+      'password' => 'required',
+
+    ]);
+
+    $email = $request->email;
+    $password = $request->password;
+    // $credentials = $request->only('email', 'password');
+
+    // //  dd(Auth::guard('customers')->attempt($credentials));
+    // if (Auth()->guard('customers')->attempt($credentials)) {
+    //   // Authentication successful
+    //   $request->session()->regenerate();
+    //   return redirect('/homeCustomer');
+    // } else {
+    //   // Authentication failed
+    //   return redirect()->back()->withErrors(['error' => 'Invalid credentials']);
+    // }
+    // // Checking if the user exists
+    $role = 'customer';
+    $user = Customer::where(['email' => $email])->first();
+
+    if (is_null($user)) {
+      $user = Admin::where(['email' => $email])->first();
+
+      if (!is_null($user)) {
+        $role = "admin";
+      }
+    }
+
+    if (is_null($user)) {
+      return back()->withInput()->withErrors(['email' => 'This email does not exist']);
+    } 
+
+    if (Hash::check($password, $user->password)) {
+
+      session([
+        'user' => [
+          'user_id' => $user->id,
+          'email' => $email,
+          'role' => $role,
+        ]
+      ]);
+
+      if ($role == 'customer') {
+        return redirect('/homeCustomer');
+      } else {
+        return redirect('/homeAdmin');
+      }
+
+    } else {
+      return back()->withInput()->withErrors(['password' => 'Incorrect password']);
+    }
+  }
+
+  public function logout(Request $request)
+  {
+    
+    $request->session()->forget('user');
+    // Auth::guard('customers')->logout();
+    return redirect('/login');
+  }
 }

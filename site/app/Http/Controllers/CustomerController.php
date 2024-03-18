@@ -77,61 +77,104 @@ class CustomerController extends Controller
 
     ]);
 
-    $email = $request->email;
-    $password = $request->password;
-    // $credentials = $request->only('email', 'password');
+    // $email = $request->email;
+    // $password = $request->password;
+    $credentials = $request->only('email', 'password');
+    
+    // var_dump('test');
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
 
-    // //  dd(Auth::guard('customers')->attempt($credentials));
-    // if (Auth()->guard('customers')->attempt($credentials)) {
-    //   // Authentication successful
-    //   $request->session()->regenerate();
-    //   return redirect('/homeCustomer');
-    // } else {
-    //   // Authentication failed
-    //   return redirect()->back()->withErrors(['error' => 'Invalid credentials']);
-    // }
-    // // Checking if the user exists
-    $role = 'customer';
-    $user = Customer::where(['email' => $email])->first();
 
-    if (is_null($user)) {
-      $user = Admin::where(['email' => $email])->first();
-
-      if (!is_null($user)) {
-        $role = "admin";
-      }
-    }
-
-    if (is_null($user)) {
-      return back()->withInput()->withErrors(['email' => 'This email does not exist']);
-    } 
-
-    if (Hash::check($password, $user->password)) {
-
+    //  dd(Auth::guard('customers')->attempt($credentials));
+    if (Auth()->guard('customers')->attempt($credentials)) {
+      // Authentication successful
       session([
-        'user' => [
-          'user_id' => $user->id,
-          'email' => $email,
-          'role' => $role,
-        ]
+        'isadmin' => false,
       ]);
+      $request->session()->regenerate();
+      return redirect()->intended('/homeCustomer');
+    } elseif (Auth()->guard('admins')->attempt($credentials)) {
+      // admin logged in
+      session([
+        'isadmin' => true,
+      ]);
+      $request->session()->regenerate();
+      return redirect()->intended('/homeAdmin');
+    } else {
+      // Authentication failed
+      $error = [
+        'email' => 'User not found',
+      ];
+      $user = Customer::where(['email' => $request->email])->first();
 
-      if ($role == 'customer') {
-        return redirect('/homeCustomer');
+
+      if (is_null($user)) {
+        $user = Admin::where(['email' => $request->email])->first();
+        if (!is_null($user)) {
+          $error = ['password' => 'Wrong password'];
+        }
       } else {
-        return redirect('/homeAdmin');
+        $error = ['password' => 'Wrong password'];
       }
 
-    } else {
-      return back()->withInput()->withErrors(['password' => 'Incorrect password']);
+
+      return redirect()->back()->withErrors($error)->withInput();
     }
+
+
+    // // Checking if the user exists
+    // $role = 'customer';
+    // $user = Customer::where(['email' => $email])->first();
+
+    // if (is_null($user)) {
+    //   $user = Admin::where(['email' => $email])->first();
+
+    //   if (!is_null($user)) {
+    //     $role = "admin";
+    //   }
+    // }
+
+    // if (is_null($user)) {
+    //   return back()->withInput()->withErrors(['email' => 'This email does not exist']);
+    // } 
+
+    // if (Hash::check($password, $user->password)) {
+
+    //   session([
+    //     'user' => [
+    //       'user_id' => $user->id,
+    //       'email' => $email,
+    //       'role' => $role,
+    //     ]
+    //   ]);
+
+    //   if ($role == 'customer') {
+    //     return redirect('/homeCustomer');
+    //   } else {
+    //     return redirect('/homeAdmin');
+    //   }
+
+    // } else {
+    //   return back()->withInput()->withErrors(['password' => 'Incorrect password']);
+    // }
   }
 
   public function logout(Request $request)
   {
-    
-    $request->session()->forget('user');
-    // Auth::guard('customers')->logout();
+    $guard = "customers";
+
+    if ($request->session()->get('isadmin')) {
+      $guard = "admins";
+    }
+
+    Auth::guard($guard)->logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+
     return redirect('/login');
   }
 }

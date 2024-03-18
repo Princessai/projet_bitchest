@@ -1,4 +1,4 @@
-@extends('layouts.adminDashboard');
+@extends('layouts.adminDashboard')
 @section('bodycontent')
     <div class="container w-50
  mt-3 profile shadow p-3 mb-5 rounded rounded text-center">

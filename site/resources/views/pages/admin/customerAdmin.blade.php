@@ -1,4 +1,4 @@
-@extends('layouts.adminDashboard');
+@extends('layouts.adminDashboard')
 @section('bodycontent')
     <h2 class="text-light text-start mt-3 ms-3">Liste Des Clients</h2>
     <button type="submit" class="btn btn-primary bg-gradient  w-25 mb-3"><a href="/add"

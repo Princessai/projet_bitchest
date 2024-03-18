@@ -32,15 +32,14 @@ Route::post('/login', [CustomerController::class, 'login']);
 
 
 
-
-// Route::get('/homeadmin', function () {
-//     return view('pages.homeAdmin');
-// });
-
-
-Route::get('/dashwallet', function () {
-    return view('pages.wallet');
+<<<<<<< HEAD
+Route::get('/wallet', function () {
+    return view('pages.customer.wallet');
 });
+=======
+>>>>>>> 48eb2ae83679065859da1da76c9e11aad2ae3a05
+
+
 
 Route::get('/profile', function () {
     return view('pages.profile');
@@ -71,31 +70,35 @@ Route::get('/view-customer/{id}', [CustomerController::class, 'view']);
 Route::get('/logout', [CustomerController::class, 'logout']);
 
 
-// Route::group(['middleware' => ['auth:customers,web'] ], function(){    
+Route::group(['middleware' => ['auth:customers'] ], function(){    
 
-//     Route::get('/homeCustomer', function (Request $request) {
-//         // Auth::guard('customers')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'));
-//         return view('pages.customer.homeCustomer');
-//     });
-
-// });
-
-Route::middleware(['isconnected'])->group(function () {
     Route::get('/homeCustomer', function (Request $request) {
+       
         return view('pages.customer.homeCustomer');
     });
     Route::get('/wallet', function () {
         return view('pages.customer.wallet');
     });
 
-    Route::get('/marche', [CryptoController::class, 'listCrypto']);
-
-    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto']);
-
-    Route::post('/transaction', [CryptoController::class, 'transaction']);
 });
-Route::middleware(['isadmin', 'isconnected'])->group(function () {
+
+Route::group(['middleware' => ['auth:admins'] ], function(){    
     Route::get('/homeAdmin', function () {
         return view('pages.admin.homeAdmin');
     });
+    
 });
+
+// Route::middleware(['isconnected'])->group(function () {
+//     Route::get('/homeCustomer', function (Request $request) {
+//         return view('pages.customer.homeCustomer');
+//     });
+
+//     Route::get('/marche', [CryptoController::class, 'listCrypto']);
+
+//     Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto']);
+
+//     Route::post('/transaction', [CryptoController::class, 'transaction']);
+// });
+// Route::middleware(['isadmin', 'isconnected'])->group(function () {
+// });

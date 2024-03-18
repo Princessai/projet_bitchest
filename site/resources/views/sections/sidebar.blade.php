@@ -22,7 +22,7 @@
             </a>
           </li>
           <li class="nav-item mt-4 d-flex justify-content-center ">
-            <a href="nav-link" class=" mt-3 text-decoration-none text-white" href="/marche">
+            <a class=" mt-3 text-decoration-none text-white" href="/marche">
                   <img src="{{ asset('assets/images/graphique-en-ligne.png') }}" class="w-75" alt="" > <br>
                 <span>Buy & Sell</span>
             </a>

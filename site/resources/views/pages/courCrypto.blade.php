@@ -1,30 +1,33 @@
 @extends('layouts.userDashboard')
 
-@section('body')
+@section('bodycontent')
     {{-- {{$cours}} --}}
     @php
         // dump($cours);
     @endphp
 
     {{-- {{ $cours}} --}}
-    <div>
-        <div class="">
-            <img src="{{ asset('assets/images/bitcoin.png') }}" alt="">
+    
+ <div class="container mt-5 text-center">
+  <div class="row">
+    <div class="col-md-12 d-flex  align-items-center ">
+        <img src="{{ asset('assets/images/bitcoin.png') }}" class="me-5" width="5%" alt="">
             <h1>{{ $cryptoname }}</h1>
-        </div>
     </div>
-
-    <div class="d-flex ">
-
-        <div class="maincontent col-md-7">
-
-            <div class="courbeCrypto">
+    <div class=" col-md-12 mt-5 mb-4  d-flex">
+         <h3  ><button class="shadoww__btn">Overview</button></h3> 
+    </div>
+    <div class="col-md-12 shadow-sm p-3 mb-5 bg-body rounded">
+  <div class="courbeCrypto">
                 <canvas id="myChart"></canvas>
             </div>
 
-            <div class="transactions">
-                <h3>Transactions</h3>
-                <div>
+    </div>
+
+
+ <div class="col-md-12">
+     <h3>Transactions</h3>
+         <div>
                 @if ($transactions->count()>0)
 
                     <table>
@@ -60,13 +63,20 @@
                         You  don't have any transaction yet. Please add a new one to see it here!
                     </p>
                 @endif
-                </div>
-            </div>
-        </div>
+         </div>
+     </div>
+  </div>
 
-        <div class="sidecontent col-md-5">
+</div>
+@endsection
 
-            @error('transaction_error')
+
+
+@section('sidecontent')
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+      @error('transaction_error')
                 {{ $message }}
             @enderror
 
@@ -76,19 +86,24 @@
                     @error('qte')
                         {{ $message }}
                     @enderror
-                    <div> Votre solde: {{$solde}} </div>
-                    <input type="text" name="qte" value="{{ old('qte') }}">
+                    <div> <h5> Votre solde: {{$solde}}</h5> </div>
+                    <input type="text" class="cleaninput mt-4" name="qte" value="{{ old('qte') }}">
                 </div>
-                <div>
-                    <button type="submit" name="type" value="buy">Buy</button>
-                    <button type="submit" name="type" value="sell">Sell</button>
+                <div class="mt-3">
+                    <button type="submit" class="shadoww__btn" name="type" value="buy">Buy</button>
+                    <button type="submit" class="shadoww__btn" name="type" value="sell">Sell</button>
                 </div>
 
             </form>
-        </div>
-
     </div>
+  </div>
+</div>
+
 @endsection
+
+
+
+
 
 @push('chart-scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -135,4 +150,9 @@
 
         new Chart(ctx, config)
     </script>
-@endpush
+@endpush 
+
+
+    
+
+   

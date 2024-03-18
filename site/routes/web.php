@@ -32,9 +32,6 @@ Route::post('/login', [CustomerController::class, 'login']);
 
 
 
-Route::get('/wallet', function () {
-    return view('pages.wallet');
-});
 
 // Route::get('/homeadmin', function () {
 //     return view('pages.homeAdmin');
@@ -88,7 +85,7 @@ Route::middleware(['isconnected'])->group(function () {
         return view('pages.customer.homeCustomer');
     });
     Route::get('/wallet', function () {
-        return view('pages.wallet');
+        return view('pages.customer.wallet');
     });
 
     Route::get('/marche', [CryptoController::class, 'listCrypto']);

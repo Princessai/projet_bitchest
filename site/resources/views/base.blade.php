@@ -12,7 +12,7 @@
      @stack('chart-scripts')
 
 </head>
-<body>
+
 
 <div class="loading " >
 <style>
@@ -97,7 +97,7 @@
 </style>
 
 
-
+<body>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2 px-0   col-lg-2 col-sm-3">

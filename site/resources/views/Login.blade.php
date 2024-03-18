@@ -78,7 +78,7 @@
 
             setTimeout(function () {
                 loadingScreen.style.display = 'none';
-            }, 4000);
+            }, 2000);
         });
     </script>
 
@@ -96,52 +96,20 @@
 </style>
 
 
-
-
-
-
-<body class=" d-flex flex-column" >
-<div class="containerw-50 ">
-  <div class="row">
-    <div class="col-md-12 d-flex justify-content-center">
-      <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" width="25%">
-    </div>
-</div>
-  <div class="row d-flex">
-   <div class="col-md-12 bloc1 d-flex align-items-center justify-content-center  ">
-      <!-- <div class="connexion d-flex justify-content-center align-items-center">
-            <form action="" class="d-flex align-items-center flex-column justify-content-evenly h-50 ">
-              <h2 class="align-self-center mb-5">Log In</h2>
-              <label for=""  class=" align-self-center">Email</label> 
-              <input type="text" class="mt-3  w-75">
-              <label for="" class="mt-3 align-self-center">Password</label>
-              <input type="password" class="mt-3 w-75 ">
-              <input type="submit" value="create" class="mt-4">
-            </form>
-      </div> -->
-
-        
-
-
-    </div>
-  </div>
-</div>
-@include('sections.footer')
-
-<body class=" d-flex flex-column">
-    <div class="container   w-50 ">
+<body class=" ">
+    <div class="container w-50 ">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center">
-                <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" width="75%">
+                <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" width="25%">
             </div>
         </div>
         <div class="row d-flex">
-            <div class="col-md-12 bloc1 d-flex align-items-center justify-content-center  ">
+            <div class="col-md-12 bloc1 d-flex align-items-center justify-content-center ">
                 <div class="connexion d-flex justify-content-center align-items-center">
                     <form action="/login" method="POST"
                         class="d-flex align-items-center flex-column justify-content-evenly h-50 ">
                         @csrf
-                        <h2 class="align-self-start mb-5">Log In</h2>
+                        <h2 class="align-self-center mb-5">Log In</h2>
                         @session('message')
                             <div>
                                 {{ $value }}
@@ -150,19 +118,18 @@
                         {{-- @guest('customers')
                             The user is not authenticated
                         @endguest --}}
-                        <label for="email" class=" align-self-start">Email</label>
+                        <label for="email" class=" align-self-center">Email</label>
 
                         @error('email')
                             {{ $message }}
                         @enderror
-                        <input type="text" class="mt-3  w-100" name="email">
-                        <label for="password" class="mt-3 align-self-start">Password</label>
-
+                        <input type="text" class="mt-3  w-75" name="email">
+                        <label for="password" class="mt-3  align-self-center">Password</label>
                         @error('password')
                             {{ $message }}
                         @enderror
-                        <input type="password" class="mt-3 w-100 " name="password">
-                        <input type="submit" value="create" class="mt-4">
+                        <input type="password" class="mt-3 w-75 text-dark" name="password">
+                        <input type="submit" value="Log in" class="mt-4">
                     </form>
                 </div>
             </div>

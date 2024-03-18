@@ -1,5 +1,5 @@
 .soldeAccount{
-   border: 2px solid white;
+
    border-radius: 10px;
    
 }
@@ -30,3 +30,27 @@ input[type='submit']{
     font-family: celias;
 }
 
+.shadoww__btn {
+    padding: 5px 10px;
+    border: none;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 7px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.5s;
+    transition-property: box-shadow;
+  }
+  
+  .shadoww__btn {
+    background: rgb(0,140,255);
+    box-shadow: 0 0 5px rgb(0,140,255);
+  }
+  
+  .shadoww__btn:hover {
+    box-shadow: 0 0 5px rgb(255, 255, 255),
+                0 0 15px rgb(255, 255, 255),
+                0 0 20px rgb(255, 255, 255),
+                0 0 20px rgb(255, 255, 255);
+  }

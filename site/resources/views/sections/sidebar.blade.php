@@ -1,41 +1,47 @@
-<div class="container  sidebar text-center">
-    <div class="row">
-        <div class="col-md-12 mt-3 mb-5">
-            <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" class="w-50">
-        </div>
-        @yield('homeButton')
-        <div class="col-md-12  text-light mt-3 mb-5">
-            <a href="/marche" class="text-decoration-none text-white">
-                <img src="{{ asset('assets/images/graphique-en-ligne.png') }}" alt="" width="10%"> <br>
-                <span>Buy & Sell</span>
-            </a>
-        </div>
-        <div class="col-md-12  text-light mt-3 mb-5">
-            <a href="/wallet" class="text-decoration-none text-white">
+
+<nav class="navbar navbar-dark bg-transparent ">
+  <div class="container-fluid">
+    <button class="navbar-toggler bg-primary bg-gradient" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-start side " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+      <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" class="w-75">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item  d-flex justify-content-center ">
+            <a class="nav-link "  href="#">
+                  @yield('homeButton')
+                </a>
+          </li>
+          <li class="nav-item mt-5 d-flex justify-content-center ">
+            <a class="nav-link" href="/wallet"> 
               @yield('walletbutton')
             </a>
-        </div>
-        <div class="col-md-12  text-light mt-3 mb-5">
-            
-                        <a class="nav-link nav-icon-hover" href="" data-bs-toggle="dropdown"
+          </li>
+          <li class="nav-item mt-4 d-flex justify-content-center ">
+            <a href="nav-link" class=" mt-3 text-decoration-none text-white" href="/marche">
+                  <img src="{{ asset('assets/images/graphique-en-ligne.png') }}" class="w-75" alt="" > <br>
+                <span>Buy & Sell</span>
+            </a>
+          </li>
+
+         
+          <li class="nav-item mt-4 d-flex flex-column mb-3">
+          <a class="nav-link nav-icon-hover align-self-center" href="" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{ asset('assets/images/utilisateur.png') }}" alt="" width="35"
-                                height="35" class="rounded-circle">
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
-                            <div class="message-body">
-                                <a href="" class="d-flex align-items-center gap-2 dropdown-item">
-                                    <i class="ti ti-user fs-2"></i>
-                                    <p class="mb-0 ">My Profile</p>
-                                </a>
-                                <a href="/logout" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
-                            </div>
-                        </div>
-        </div>
+                            <img src="{{ asset('assets/images/user.png') }}" alt="" 
+                                 >
+                        </a>   <span class="align-self-center text-light">My profile</span>
+          </li>
+
+  <a href="/logout" class="btx">Logout</a>
+
+        </ul>
+        
+      </div>
     </div>
-</div>
-
-
-
-
-
+  </div>
+</nav>

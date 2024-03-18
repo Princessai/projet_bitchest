@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet">
+   
     <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -78,7 +78,7 @@
 
             setTimeout(function () {
                 loadingScreen.style.display = 'none';
-            }, 2000);
+            }, 1000);
         });
     </script>
 
@@ -96,21 +96,17 @@
 </style>
 
 
-<body class=" ">
-    <div class="container w-50 ">
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" width="25%">
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-md-12 bloc1 d-flex align-items-center justify-content-center ">
-                <div class="connexion d-flex justify-content-center align-items-center">
-                    <form action="/login" method="POST"
-                        class="d-flex align-items-center flex-column justify-content-evenly h-50 ">
-                        @csrf
-                        <h2 class="align-self-center mb-5">Log In</h2>
-                        @session('message')
+<body >
+ 
+<span class="opacity-0">aa</span>
+<div class="position-absolute top-0 start-50 translate-middle-x  d-flex justify-content-center ">
+<img src="{{ asset('assets/images/bitchest_logo.png') }}" class=" w-50"  alt="" >
+</div>
+    <div class="position-absolute top-50 start-50 translate-middle "> 
+       <form class="form  shadow p-3 mb-5" action="/login" method="POST">
+          @csrf
+       <h2 class="form-title">Log in</h2>
+       @session('message')
                             <div>
                                 {{ $value }}
                             </div>
@@ -118,24 +114,30 @@
                         {{-- @guest('customers')
                             The user is not authenticated
                         @endguest --}}
-                        <label for="email" class=" align-self-center">Email</label>
 
+        <div class="input-container mb-3 d-flex justify-content-center">
+          <input class="but-input w-75" placeholder="email" name="email" type="email">
+        
                         @error('email')
                             {{ $message }}
                         @enderror
-                        <input type="text" class="mt-3  w-75" name="email">
-                        <label for="password" class="mt-3  align-self-center">Password</label>
-                        @error('password')
+      </div>
+      <div class="input-container d-flex mb-3 justify-content-center">
+          <input class="but-input w-75 m-auto" placeholder=" password" name="password" type="password">
+  @error('password')
                             {{ $message }}
                         @enderror
-                        <input type="password" class="mt-3 w-75 text-dark" name="password">
-                        <input type="submit" value="Log in" class="mt-4">
-                    </form>
-                </div>
-            </div>
         </div>
-    </div>
-    @include('sections.footer')
+        
+         <button class="submit but-login w-75 m-auto " value="Log in" type="submit">
+        Sign in
+      </button>
+
+    
+   </form></div>
+    
+   <div class="position-absolute bottom-0 start-50 translate-middle-x"> @include('sections.footer') </div>
+
 </body>
 
-</html>
+</html> 

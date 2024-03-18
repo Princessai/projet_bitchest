@@ -4,20 +4,32 @@ namespace App\Models;
 
 use App\Models\Wallet;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Customer extends Model
+
+class Customer extends Authenticatable
 {
+    use  HasFactory, Notifiable;
+    protected $guard = 'customerweb';
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+    // protected $hidden = [
+    //     'password', 'remember_token',
+    // ];
+
     use HasFactory;
 
-        /**
+    /**
      *@var bool 
      */
     public $timestamps = false;
 
-    public function wallet() : BelongsTo {
+    public function wallet(): BelongsTo
+    {
         return $this->belongsTo(Wallet::class);
     }
-
 }

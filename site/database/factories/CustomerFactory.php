@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Customer;
 use App\Models\Wallet;
+use App\Models\Customer;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,7 +27,7 @@ class CustomerFactory extends Factory
             'lastname' => fake()->lastName(),
             'age' => fake()->numberBetween(18,35),
             'email' => fake()->email(),
-            'password' => fake()->password(),
+            'password' =>  Hash::make('azerty12'),
             'wallet_id' => $wallet,
         ];
     }

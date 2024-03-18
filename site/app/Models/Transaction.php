@@ -31,7 +31,7 @@ class Transaction extends Model
         'quantite',
         'montant',
         'type',
-        
+            
     ];
 
 

@@ -37,7 +37,7 @@ class CryptoController extends Controller
         $cryptoname = Crypto::findOrFail($crypto_id)->label;
         // $cryptoname = $cryptoname->label;
 
-        $customer = Customer::find(1);
+        $customer = Customer::find($request->session()->get('user')['user_id']);
         $wallet_id = $customer->wallet_id;
 
         $solde = $customer->wallet->solde;
@@ -56,7 +56,7 @@ class CryptoController extends Controller
         return view('pages.marcheCrypto', compact('cryptos'));
     }
 
-    public function transaction(Request $request, $customer_id)
+    public function transaction(Request $request)
     {
         // Validation des champs
 
@@ -81,6 +81,7 @@ class CryptoController extends Controller
         $qte_transaction = $request->qte;
         $crypto_id = $request->crypto_id;
         $date = Carbon::now();
+        $customer_id = $request->session()->get('user')['user_id'];
         $wallet = Customer::find($customer_id)->wallet;
         $solde_initial = $wallet->solde;
         $cours_achat = getCoursActuel($crypto_id);

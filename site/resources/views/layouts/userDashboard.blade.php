@@ -1,7 +1,7 @@
 @extends('base')
 @section('homeButton')
     <div class="col-md-12 mt-3 mb-5">
-        <a href="" class="text-decoration-none text-white">
+        <a href="/homeCustomer" class="text-decoration-none text-white">
             <img src="{{ asset('assets/images/accueil.png') }}" alt="" width="10%"> <br>
             <span>Home</span>
         </a>

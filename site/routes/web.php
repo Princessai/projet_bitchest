@@ -87,6 +87,15 @@ Route::middleware(['isconnected'])->group(function () {
     Route::get('/homeCustomer', function (Request $request) {
         return view('pages.customer.homeCustomer');
     });
+    Route::get('/wallet', function () {
+        return view('pages.wallet');
+    });
+
+    Route::get('/marche', [CryptoController::class, 'listCrypto']);
+
+    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto']);
+
+    Route::post('/transaction', [CryptoController::class, 'transaction']);
 });
 Route::middleware(['isadmin', 'isconnected'])->group(function () {
     Route::get('/homeAdmin', function () {

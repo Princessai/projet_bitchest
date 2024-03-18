@@ -11,6 +11,11 @@
  
 </head>
 <body >
+
+
+
+
+
 <div class="container header w-75 ">
   <div class="row mb-5 " > <!-- header -->
     <div class="col-12 mb-5 ">
@@ -36,7 +41,7 @@
         </li>
       </ul>
       <span class="navbar-text ms-auto ">
-      <input type="submit" value="Log In">
+<a href="/login"><input type="submit" value="Log In"></a>
       </span>
     </div>
   </div>

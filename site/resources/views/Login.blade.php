@@ -9,25 +9,116 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+<div class="loading " >
+<style>
+  .loading-wave {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.loading-bar {
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #01FF19;
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+  0% {
+    height: 10px;
+  }
+
+  50% {
+    height: 50px;
+  }
+
+  100% {
+    height: 10px;
+  }
+}
+
+</style>
+<div class="loading-wave " style="align-self: center;">
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+</div>
+
+    </div>
+
+
+    <script>
+        window.addEventListener('load', function () {
+
+            var loadingScreen = document.querySelector('.loading');
+
+            loadingScreen.classList.add('loaded');
+
+            setTimeout(function () {
+                loadingScreen.style.display = 'none';
+            }, 4000);
+        });
+    </script>
+
+<style>
+  
+.loading{
+  width: 100% ;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to bottom,#38618B,#1C3146);
+  z-index: 99999; }
+</style>
+
+
+
+
+
+
 <body class=" d-flex flex-column" >
-<div class="container   w-50 ">
+<div class="containerw-50 ">
   <div class="row">
     <div class="col-md-12 d-flex justify-content-center">
-      <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" width="75%">
+      <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" width="25%">
     </div>
 </div>
   <div class="row d-flex">
    <div class="col-md-12 bloc1 d-flex align-items-center justify-content-center  ">
-      <div class="connexion d-flex justify-content-center align-items-center">
+      <!-- <div class="connexion d-flex justify-content-center align-items-center">
             <form action="" class="d-flex align-items-center flex-column justify-content-evenly h-50 ">
-              <h2 class="align-self-start mb-5">Log In</h2>
-              <label for=""  class=" align-self-start">Email</label> 
-              <input type="text" class="mt-3  w-100">
-              <label for="" class="mt-3 align-self-start">Password</label>
-              <input type="password" class="mt-3 w-100 ">
+              <h2 class="align-self-center mb-5">Log In</h2>
+              <label for=""  class=" align-self-center">Email</label> 
+              <input type="text" class="mt-3  w-75">
+              <label for="" class="mt-3 align-self-center">Password</label>
+              <input type="password" class="mt-3 w-75 ">
               <input type="submit" value="create" class="mt-4">
             </form>
-      </div>
+      </div> -->
+
+        
+
+
     </div>
   </div>
 </div>

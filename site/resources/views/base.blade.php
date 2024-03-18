@@ -13,9 +13,92 @@
 
 </head>
 <body>
+
+<div class="loading " >
+<style>
+  .loading-wave {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.loading-bar {
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #01FF19;
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+  0% {
+    height: 10px;
+  }
+
+  50% {
+    height: 50px;
+  }
+
+  100% {
+    height: 10px;
+  }
+}
+
+</style>
+<div class="loading-wave " style="align-self: center;">
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+</div>
+
+    </div>
+
+
+    <script>
+        window.addEventListener('load', function () {
+
+            var loadingScreen = document.querySelector('.loading');
+
+            loadingScreen.classList.add('loaded');
+
+            setTimeout(function () {
+                loadingScreen.style.display = 'none';
+            }, 4000);
+        });
+    </script>
+
+<style>
   
+.loading{
+  width: 100% ;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to bottom,#38618B,#1C3146);
+  z-index: 99999; }
+</style>
+
+
+
 <div class="container-fluid">
-  
   <div class="row">
     <div class="col-md-2 px-0   col-lg-2 col-sm-3">
       @include('sections.sidebar')

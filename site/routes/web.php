@@ -32,9 +32,12 @@ Route::post('/login', [CustomerController::class, 'login']);
 
 
 
+<<<<<<< HEAD
 Route::get('/wallet', function () {
     return view('pages.customer.wallet');
 });
+=======
+>>>>>>> 48eb2ae83679065859da1da76c9e11aad2ae3a05
 
 
 
@@ -72,6 +75,9 @@ Route::group(['middleware' => ['auth:customers'] ], function(){
     Route::get('/homeCustomer', function (Request $request) {
        
         return view('pages.customer.homeCustomer');
+    });
+    Route::get('/wallet', function () {
+        return view('pages.customer.wallet');
     });
 
 });

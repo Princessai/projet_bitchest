@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet">
+   
     <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -13,22 +13,100 @@
     </script>
     <title>Document</title>
 </head>
+<div class="loading " >
+<style>
+  .loading-wave {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
 
-<body class=" d-flex flex-column">
-    <div class="container   w-50 ">
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" width="75%">
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-md-12 bloc1 d-flex align-items-center justify-content-center  ">
-                <div class="connexion d-flex justify-content-center align-items-center">
-                    <form action="/login" method="POST"
-                        class="d-flex align-items-center flex-column justify-content-evenly h-50 ">
-                        @csrf
-                        <h2 class="align-self-start mb-5">Log In</h2>
-                        @session('message')
+.loading-bar {
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #01FF19;
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+  0% {
+    height: 10px;
+  }
+
+  50% {
+    height: 50px;
+  }
+
+  100% {
+    height: 10px;
+  }
+}
+
+</style>
+<div class="loading-wave " style="align-self: center;">
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+  <div class="loading-bar"></div>
+</div>
+
+    </div>
+
+
+    <script>
+        window.addEventListener('load', function () {
+
+            var loadingScreen = document.querySelector('.loading');
+
+            loadingScreen.classList.add('loaded');
+
+            setTimeout(function () {
+                loadingScreen.style.display = 'none';
+            }, 1000);
+        });
+    </script>
+
+<style>
+  
+.loading{
+  width: 100% ;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to bottom,#38618B,#1C3146);
+  z-index: 99999; }
+</style>
+
+
+<body >
+ 
+<span class="opacity-0">aa</span>
+<div class="position-absolute top-0 start-50 translate-middle-x  d-flex justify-content-center ">
+<img src="{{ asset('assets/images/bitchest_logo.png') }}" class=" w-50"  alt="" >
+</div>
+    <div class="position-absolute top-50 start-50 translate-middle "> 
+       <form class="form  shadow p-3 mb-5" action="/login" method="POST">
+          @csrf
+       <h2 class="form-title">Log in</h2>
+       @session('message')
                             <div>
                                 {{ $value }}
                             </div>
@@ -36,25 +114,30 @@
                         {{-- @guest('customers')
                             The user is not authenticated
                         @endguest --}}
-                        <label for="email" class=" align-self-start">Email</label>
 
+        <div class="input-container mb-3 d-flex justify-content-center">
+          <input class="but-input w-75" placeholder="email" name="email" type="email">
+        
                         @error('email')
                             {{ $message }}
                         @enderror
-                        <input type="text" class="mt-3  w-100" name="email">
-                        <label for="password" class="mt-3 align-self-start">Password</label>
-
-                        @error('password')
+      </div>
+      <div class="input-container d-flex mb-3 justify-content-center">
+          <input class="but-input w-75 m-auto" placeholder=" password" name="password" type="password">
+  @error('password')
                             {{ $message }}
                         @enderror
-                        <input type="password" class="mt-3 w-100 " name="password">
-                        <input type="submit" value="create" class="mt-4">
-                    </form>
-                </div>
-            </div>
         </div>
-    </div>
-    @include('sections.footer')
+        
+         <button class="submit but-login w-75 m-auto " value="Log in" type="submit">
+        Sign in
+      </button>
+
+    
+   </form></div>
+    
+   <div class="position-absolute bottom-0 start-50 translate-middle-x"> @include('sections.footer') </div>
+
 </body>
 
-</html>
+</html> 

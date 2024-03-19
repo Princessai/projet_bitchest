@@ -2,7 +2,7 @@
 
 
 @section('walletbutton')
-    <img src="{{ asset('assets/images/customer_icon.png') }}" alt="" width="10%"><br>
+    <img src="{{ asset('assets/images/customer_icon.png') }}" alt="" ><br>
     <span>Customers</span>
 @endsection
 

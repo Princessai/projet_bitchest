@@ -25,9 +25,8 @@
         </ul>
     </div>
     <div class="col-md-12 d-flex flex-column mt-5">
-      <a class="nav-link  align-self-center" href="{{route('profil.customer')}}" >
                             @yield('profilebutton') 
-           </a>   <span class="align-self-center text-light">My profile</span>
+         <span class="align-self-center text-light">My profile</span>
 
         <a href="{{ route('logout') }}" class="btx mt-3">Logout</a>
     </div>

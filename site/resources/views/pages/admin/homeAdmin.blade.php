@@ -1,143 +1,73 @@
 @extends('layouts.adminDashboard')
 
 @section('bodycontent')
+          <div class="container">
+            <div class="row">
+            <div class="col-lg-12 d-flex align-items-center mt-5">
+    <img src="{{ asset('assets/images/user2.png') }}" class="shadoww__btn" alt="" >
+        <div><h3 class="ms-4 text-light">Welcome <strong>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</strong>  </h3>
+              <small class="ms-4 text-light opacity-75">{{Auth::user()->email}}</small>
+      </div>
+            </div >
+            <div class="col-lg-12 d-flex align-items-start">
+            <div class="mt-4"><a href="{{route('profil.customer')}}"><button class="shadoww__btn">MY PROFILE</button> </a></div>
+           </div>
 
-<h5 class=" mt-3 text-start  ms-4 text-light fw-semibold mb-4">BUY & SELL</h5>
-                <div class="table-responsive w-75 rounded shadow p-3 mb-5 bg-body  rounded ">
-                  <table class="table text-nowrap   mb-5 mb-0 align-middle">
-                    <thead class="text-light fs-4">
-                      <tr>
-                       
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0"></h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Name</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">current Course</h6>
-                        </th>
-                       
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"> <img src="{{ asset('assets/images/Bitcoin.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Bitcoin</h6>
-                                                    
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                       
-                      </tr> 
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ethereum.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Ethereum</h6>
-                                                   
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                      
-                      </tr> 
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/cardano.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Cardano</h6>
-                                                    
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                      
-                      </tr>      
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/nem.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Nem</h6>
-                                                      
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                      
-                      </tr> 
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/litecoin.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Litecoin</h6>
-                                                      
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                       
-                      </tr>   
+    <div class="col-lg-12 mt-5 shadow p-3 mb-5 bg-body rounded">
+      <h3><strong>Personal info</strong></h3>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center"><h5>Firstname</h5><h5 class="me-4">{{Auth::user()->firstname}} </h5></div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center"><h5>Lastname</h5><h5 class="me-4">{{Auth::user()->lastname}}</h5></div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center"><h5>Email</h5><h5 class="me-4">{{Auth::user()->email}}</h5></div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center"><h5>Password</h5>  <input type="password" disabled  class="form-control w-50" name="password" value="{{Auth::user()->password}}" ></div>
+    </div>
+    <div class="col-lg-12 mb-5">
+  <div class="accordion accordion-flush " id="accordionFlushExample">
+  <div class="accordion-item ">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+     <strong> Edit your profile</strong> 
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+      <form method="POST" action="{{route('updateself')}}">
+       @csrf
+      <div class="accordion-body">
+      <input type="hidden" class="form-control" name="id" value="{{Auth::user()->id}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Firstname</label>
+    <input type="text" class="form-control" name="firstname" value="{{Auth::user()->firstname}}"  >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Lastname</label>
+    <input type="text" class="form-control" name="lastname" value="{{Auth::user()->lastname}}" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" value="{{Auth::user()->password}}" >
+  </div>
 
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/stellar.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Stellar</h6>
+  <input type="submit" id="TextInput" class="form-control shadoww__btn align-self-center" value="Edit">
+  
 
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                      
-                      </tr>          
-                      
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/iota.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Iota</h6>
-                                                      
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                      
-                      </tr>          
+</form> 
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+  </div>
+            </div>
+          </div>
+         
 
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ripple.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Ripple</h6>
-                                                      
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                       
-                      </tr>        
-                      
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/dash.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Dash</h6>
-                                                      
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                      
-                      </tr>        
 
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/bitcoin-cash.png') }}" alt="" width="35%"></h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Bitcoin cash</h6>
-                                                      
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10 000 $</p>
-                        </td>
-                       
-                      </tr>        
-                    </tbody>
-                  </table>
-                </div>
-        
 @endsection

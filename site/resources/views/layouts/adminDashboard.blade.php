@@ -2,8 +2,15 @@
 
 
 @section('walletbutton')
-    <img src="{{ asset('assets/images/customer_icon.png') }}" alt="" ><br>
-    <span>Customers</span>
+    <img src="{{ asset('assets/images/customer_icon.png') }}" alt="" class="butside"><br>
+    <span class="text-light">Customers</span>
+@endsection
+
+
+@section('profilebutton')
+<a class="nav-link  align-self-center" href="{{route('dashboard.admin')}}" >
+<img src="{{ asset('assets/images/user.png') }}" alt="">
+</a>
 @endsection
 
 @section('body')

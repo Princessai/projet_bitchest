@@ -13,7 +13,9 @@
 
 
 @section('profilebutton')
+<a class="nav-link  align-self-center" href="{{route('profil.customer')}}" >
 <img src="{{ asset('assets/images/user.png') }}" alt="">
+</a>
 @endsection
 
 

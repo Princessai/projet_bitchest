@@ -1,20 +1,15 @@
 
 @extends('base')
-@section('homeButton')
-        <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
-            <img src="{{ asset('assets/images/accueil.png') }}" alt=""  class="w-75 butside"> <br>
-            <span>Home</span>
-        </a>
-@endsection
 
 @section('walletbutton')
-    <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt="" class="w-75 butside" ><br>
-    <span class="text-light">Wallet</span>
+    <img src="{{ asset('assets/images/customer_icon.png') }}" alt="" class="butside"><br>
+    <span class="text-light">Customers</span>
 @endsection
+
 
 
 @section('profilebutton')
-<a class="nav-link  align-self-center" href="{{route('profil.customer')}}" >
+<a class="nav-link  align-self-center" href="{{route('dashboard.admin')}}" >
 <img src="{{ asset('assets/images/user.png') }}" alt="">
 </a>
 @endsection
@@ -31,7 +26,7 @@ include(base_path('documents/utils.php'))
     
 @endphp
 
-<h3 class=" mt-3 text-info text-start  ms-4  fw-semibold mb-4">BUY & SELL</h3>
+<h3 class=" mt-3 text-info text-start  ms-4  fw-semibold mb-4">List Crypto</h3>
     <div class="table-responsive rounded shadow p-3 mb-5 bg-body  rounded ">
         <table class="table text-nowrap   mb-5 mb-0 align-middle">
             <thead class="text-light fs-4">

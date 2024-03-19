@@ -62,7 +62,7 @@ class CryptoController extends Controller
     public function listCrypto()
     {
         $cryptos = Crypto::all();
-        return view('pages.marcheCrypto', compact('cryptos'));
+        return view('pages.admin.AdminMarcheCrypto', compact('cryptos'));
     }
 
 

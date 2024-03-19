@@ -65,6 +65,9 @@ class CustomerController extends Controller
   {
     $customer = Customer::find($id);
     return view('pages.admin.customerView', compact('customer'));
+
+
+
   }
 
   public function login(Request $request)

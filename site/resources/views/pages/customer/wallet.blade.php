@@ -4,12 +4,12 @@
   <div class="row">
     <div class="col-md-12 d-flex  flex-column mt-5 soldeAccount">
      <h6 class=" mt-3 align-self-start text-info ">Portfolio Balance</h6>
-     <h4 class="text-light align-self-start text-muted">10 .000 £</h4>
+     <h4 class="text-light align-self-start text-light">10 .000 £</h4>
 
     </div>
     <div class="col-md-12 d-flex flex-column mt-5 soldeAccount">
     <h6 class=" mt-3 align-self-start text-info ">My crypto</h6>
-     <h4 class="text-light align-self-start text-muted">0 £</h4>
+     <h4 class="text-light align-self-start text-light">0 £</h4>
      <div class="shadow p-3 mb-5 bg-body rounded me-5 ">
   <table class=" table align-middle  mb-5 mb-0 ">
                     <thead class="text-light fs-4">
@@ -60,7 +60,7 @@
   <div class="row">
     <div class="col mt-5 ">
       <div><img src="{{ asset('assets/images/user2.png') }}" alt="" class=" "></div>
-      <div> welcome <strong>(nom user)</strong></div>
+      <div class="text-light"> welcome <strong>(nom user)</strong></div>
       <div class="mt-4"><a href=""><button class="shadoww__btn">MY PROFILE</button> </a></div> 
       <div class="mt-4">  <a href=""><button class="shadoww__btn">MY TRANSACTIONS</button> </a> </div>
       

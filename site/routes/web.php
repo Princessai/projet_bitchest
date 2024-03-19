@@ -38,6 +38,8 @@ Route::get('/logout', [CustomerController::class, 'logout'])->name('logout');
 
 Route::prefix('customer')->middleware('auth:customers')->group(function () {
 
+    
+
     Route::get('/dashboard', function (Request $request) {
 
         return view('pages.customer.homeCustomer');
@@ -52,8 +54,8 @@ Route::prefix('customer')->middleware('auth:customers')->group(function () {
     Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto');
 
     Route::get('/profile', function () {
-        return view('pages.profile');
-    })->name('profil');
+        return view('pages.customer.profileCustomer');
+    })->name('profil.customer');
 
     Route::post('/transaction/{customer_id}', [CryptoController::class, 'transaction']);
 

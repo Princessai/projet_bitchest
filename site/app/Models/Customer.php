@@ -13,15 +13,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Customer extends Authenticatable
 {
     use  HasFactory, Notifiable;
-    protected $guard = 'customerweb';
+    protected $guard = 'customers';
     protected $fillable = [
         'name', 'email', 'password',
     ];
-    // protected $hidden = [
-    //     'password', 'remember_token',
-    // ];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
-    use HasFactory;
+
 
     /**
      *@var bool 

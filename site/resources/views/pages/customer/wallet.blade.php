@@ -1,4 +1,4 @@
-@extends('layouts.userDashboard');
+@extends('layouts.userDashboard')
 @section('bodycontent')
 <div class="container text-center">
   <div class="row">

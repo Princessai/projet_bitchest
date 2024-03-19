@@ -9,6 +9,7 @@ use App\Models\Cotation;
 use App\Models\Customer;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
@@ -37,13 +38,21 @@ class CryptoController extends Controller
         $cryptoname = Crypto::findOrFail($crypto_id)->label;
         // $cryptoname = $cryptoname->label;
 
-        $customer = Customer::find($request->session()->get('user')['user_id']);
+        // $customer = Customer::find($request->session()->get('user')['user_id']);
+        $guard = "customers";
+
+        if ($request->session()->get('isadmin')) {
+            $guard = "admins";
+        }
+
+        $customer = Auth::guard($guard)->user();
+        // dd($customer);
         $wallet_id = $customer->wallet_id;
 
         $solde = $customer->wallet->solde;
         // dd($solde);
 
-        $transactions = Transaction::where(["wallet_id" => $wallet_id , "crypto_id" => $crypto_id])->get();
+        $transactions = Transaction::where(["wallet_id" => $wallet_id, "crypto_id" => $crypto_id])->get();
         // dd($transactions);
 
         return view('pages.courCrypto', compact('crypto_id', 'cours', 'dates', 'cryptoname', 'transactions', 'solde'));

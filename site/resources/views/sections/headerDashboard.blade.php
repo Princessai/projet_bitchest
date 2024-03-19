@@ -5,7 +5,7 @@
             <div class="collapse navbar-collapse w-75 d-flex align-self-center  justify-content-end"
                 id="navbarSupportedContent">
 
-                <input class="form-control w-75 rounded-pill  " type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control w-75 rounded-pill" type="search" placeholder="Search" aria-label="Search">
                 <ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-icon-hover" href="" data-bs-toggle="dropdown"

@@ -18,26 +18,11 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
-// Route::get('/login', [CryptoController::class, 'listCrypto']);
-
-
-Route::get('/login', function () {
-    return view('Login');
-})->name('login');
-Route::post('/login', [CustomerController::class, 'login']);
-
-
-
-<<<<<<< HEAD
 Route::get('/wallet', function () {
     return view('pages.customer.wallet');
 });
-=======
->>>>>>> 48eb2ae83679065859da1da76c9e11aad2ae3a05
+
 
 
 

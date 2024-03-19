@@ -12,17 +12,15 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item  d-flex justify-content-center ">
-            <a class="nav-link "  href="#">
                   @yield('homeButton')
-                </a>
           </li>
           <li class="nav-item mt-5 d-flex justify-content-center ">
-            <a class="nav-link" href="/wallet"> 
+            <a class="nav-link" href="{{ route('wallet') }}"> 
               @yield('walletbutton')
             </a>
           </li>
           <li class="nav-item mt-4 d-flex justify-content-center ">
-            <a class=" mt-3 text-decoration-none text-white" href="/marche">
+            <a class=" mt-3 text-decoration-none text-white" href="{{route('list.crypto')}}">
                   <img src="{{ asset('assets/images/graphique-en-ligne.png') }}" class="w-75" alt="" > <br>
                 <span>Buy & Sell</span>
             </a>
@@ -30,14 +28,14 @@
 
          
           <li class="nav-item mt-4 d-flex flex-column mb-3">
-          <a class="nav-link nav-icon-hover align-self-center" href="" data-bs-toggle="dropdown"
+          <a class="nav-link nav-icon-hover align-self-center" href="{{route('profil')}}" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <img src="{{ asset('assets/images/user.png') }}" alt="" 
                                  >
                         </a>   <span class="align-self-center text-light">My profile</span>
           </li>
 
-  <a href="/logout" class="btx">Logout</a>
+  <a href="{{ route('logout') }}" class="btx">Logout</a>
 
         </ul>
         

@@ -1,7 +1,7 @@
 @extends('layouts.adminDashboard')
 @section('bodycontent')
     <h2 class="text-light text-start mt-3 ms-3">Liste Des Clients</h2>
-    <button type="submit" class="btn btn-primary bg-gradient  w-25 mb-3"><a href="/add"
+    <button type="submit" class="btn btn-primary bg-gradient  w-25 mb-3"><a href="{{ route('add.customer') }}"
             class="butt text-light ">Add</a></button>
     <div class="container text-center">
         <div class="row">
@@ -32,12 +32,12 @@
                                 <td>{{ $items->age }}</td>
                                 <td>{{ $items->email }}</td>
                                 <td>
-                                    <a href="/update-customer/{{ $items->id }}"><img
+                                    <a href="{{ route('modify.customer', ['id' => $items->id]) }}"><img
                                             src="{{ asset('assets/images/edit.png') }}" alt="" width="5%"></a>
-                                    <a href="/delete-customer/{{ $items->id }}"><img
+                                    <a href="{{ route('delete.customer', ['id' => $items->id]) }}"><img
                                             src="{{ asset('assets/images/recycle-bin.png') }}" alt=""
                                             width="5%"></a>
-                                    <a href="/view-customer/{{ $items->id }}"><img
+                                    <a href="{{ route('view.customer', ['id' => $items->id]) }}"><img
                                             src="{{ asset('assets/images/eye.png') }}" alt="" width="5%"></a>
                                 </td>
 

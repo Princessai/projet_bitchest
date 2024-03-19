@@ -18,76 +18,86 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
+//? home
 Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/login', [CryptoController::class, 'listCrypto']);
-
-
+//? Login
 Route::get('/login', function () {
     return view('Login');
 })->name('login');
 Route::post('/login', [CustomerController::class, 'login']);
 
-
-
-<<<<<<< HEAD
-Route::get('/wallet', function () {
-    return view('pages.customer.wallet');
-});
-=======
->>>>>>> 48eb2ae83679065859da1da76c9e11aad2ae3a05
+//? Logout
+Route::get('/logout', [CustomerController::class, 'logout'])->name('logout');
 
 
 
-Route::get('/profile', function () {
-    return view('pages.profile');
-});
+//? customer routes
 
-Route::get('/marche', [CryptoController::class, 'listCrypto']);
+Route::prefix('customer')->middleware('auth:customers')->group(function () {
 
-Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto']);
+    Route::get('/dashboard', function (Request $request) {
 
-Route::post('/transaction/{customer_id}', [CryptoController::class, 'transaction']);
-
-
-
-
-
-Route::get('/customer', [CustomerController::class, 'list']);
-
-Route::get('/update-customer/{id}', [CustomerController::class, 'update']);
-
-Route::post('/update/traitement', [CustomerController::class, 'update_traitement']);
-
-Route::get('/delete-customer/{id}', [CustomerController::class, 'delete']);
-
-Route::get('/add', [CustomerController::class, 'add']);
-
-Route::get('/view-customer/{id}', [CustomerController::class, 'view']);
-
-Route::get('/logout', [CustomerController::class, 'logout']);
-
-
-Route::group(['middleware' => ['auth:customers'] ], function(){    
-
-    Route::get('/homeCustomer', function (Request $request) {
-       
         return view('pages.customer.homeCustomer');
-    });
+    })->name('dashboard.customer');
+
     Route::get('/wallet', function () {
         return view('pages.customer.wallet');
-    });
+    })->name('wallet');
 
-});
+    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto');
 
-Route::group(['middleware' => ['auth:admins'] ], function(){    
-    Route::get('/homeAdmin', function () {
-        return view('pages.admin.homeAdmin');
-    });
+    Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto');
+
+    Route::get('/profile', function () {
+        return view('pages.profile');
+    })->name('profil');
+
+    Route::post('/transaction/{customer_id}', [CryptoController::class, 'transaction']);
+
     
 });
+
+
+
+//? Admin routes
+Route::prefix('admin')->middleware('auth:admins')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('pages.admin.homeAdmin');
+    })->name('dashboard.admin');
+
+    Route::get('/customers-list', [CustomerController::class, 'list'])->name('list.customers');
+
+    Route::get('/modify-customer/{id}', [CustomerController::class, 'update'])->name('modify.customer');
+
+    Route::post('/update/traitement', [CustomerController::class, 'update_traitement'])->name('update.treatment');
+
+    Route::get('/delete-customer/{id}', [CustomerController::class, 'delete'])->name('delete.customer');
+
+    Route::get('/add-customer', [CustomerController::class, 'add'])->name('add.customer');
+
+    Route::get('/view-customer/{id}', [CustomerController::class, 'view'])->name('view.customer');
+
+    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto');
+
+    Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto');
+
+    Route::get('/profile', function () {
+        return view('pages.profile');
+    })->name('profil');
+    
+
+});
+
+
+
+
+
+
+
+
 
 // Route::middleware(['isconnected'])->group(function () {
 //     Route::get('/homeCustomer', function (Request $request) {

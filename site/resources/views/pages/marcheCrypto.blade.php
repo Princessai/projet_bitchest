@@ -45,7 +45,7 @@ include(base_path('documents/utils.php'))
                         </td>
                         <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                                <a href="/courcrypto/{{$crypto->id}}"><button class="shadoww__btn">see more</button></a>
+                                <a href="{{route('cours.crypto', ['crypto_id'=>$crypto->id])}}"><button class="shadoww__btn">see more</button></a>
                                </div>
                             </div>
                         </td>

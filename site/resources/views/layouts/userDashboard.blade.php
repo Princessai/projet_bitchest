@@ -1,6 +1,6 @@
 @extends('base')
         @section('homeButton')
-        <a href="/homeCustomer" class="text-decoration-none text-white">
+        <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
             <img src="{{ asset('assets/images/accueil.png') }}" alt=""  class="w-75"> <br>
             <span>Home</span>
         </a>

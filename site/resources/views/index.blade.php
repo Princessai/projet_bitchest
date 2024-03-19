@@ -45,7 +45,7 @@
                                 </li>
                             </ul>
                             <span class="navbar-text ms-auto ">
-                                <a href="/login"> <input type="submit" value="Log In">
+                                <a href="{{ route('login') }}"> <input type="submit" value="Log In">
                                 </a>
 
                             </span>

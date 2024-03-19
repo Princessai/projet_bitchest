@@ -44,7 +44,7 @@ class CustomerController extends Controller
     $customer->email = $request->email;
     $customer->update();
 
-    return redirect('/customer');
+    return redirect()->route('list.customers');
   }
 
   public function delete($id)
@@ -52,7 +52,7 @@ class CustomerController extends Controller
     $customer = Customer::find($id);
     $customer->delete();
 
-    return redirect('/customer');
+    return redirect()->route('list.customers');
   }
 
   public function add()
@@ -93,14 +93,14 @@ class CustomerController extends Controller
         'isadmin' => false,
       ]);
       $request->session()->regenerate();
-      return redirect()->intended('/homeCustomer');
+      return redirect()->intended(route('dashboard.customer'));
     } elseif (Auth()->guard('admins')->attempt($credentials)) {
       // admin logged in
       session([
         'isadmin' => true,
       ]);
       $request->session()->regenerate();
-      return redirect()->intended('/homeAdmin');
+      return redirect()->intended(route('dashboard.admin'));
     } else {
       // Authentication failed
       $error = [

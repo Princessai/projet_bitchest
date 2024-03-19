@@ -7,41 +7,40 @@
     @endphp
 
     {{-- {{ $cours}} --}}
-    
- <div class="container mt-5 text-center">
-  <div class="row">
-    <div class="col-md-12 d-flex  align-items-center ">
-        <img src="{{ asset('assets/images/bitcoin.png') }}" class="me-5" width="5%" alt="">
-            <h1>{{ $cryptoname }}</h1>
-    </div>
-    <div class=" col-md-12 mt-5 mb-4  d-flex">
-         <h3  ><button class="shadoww__btn">Overview</button></h3> 
-    </div>
-    <div class="col-md-12 shadow-sm p-3 mb-5 bg-body rounded">
-  <div class="courbeCrypto">
-                <canvas id="myChart"></canvas>
+
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-md-12 d-flex  align-items-center ">
+                <img src="{{ asset('assets/images/bitcoin.png') }}" class="me-5" width="5%" alt="">
+                <h1>{{ $cryptoname }}</h1>
+            </div>
+            <div class=" col-md-12 mt-5 mb-4  d-flex">
+                <h3><button class="shadoww__btn">Overview</button></h3>
+            </div>
+            <div class="col-md-12 shadow-sm p-3 mb-5 bg-body rounded">
+                <div class="courbeCrypto">
+                    <canvas id="myChart"></canvas>
+                </div>
+
             </div>
 
-    </div>
 
+            <div class="col-md-12">
+                <h3>Transactions</h3>
+                <div>
+                    @if ($transactions->count() > 0)
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Crypto</th>
+                                    <th>Purchased rate</th>
+                                    <th>Type</th>
+                                    <th>Date</th>
+                                    <th>Quantity</th>
+                                    <th>amount</th>
+                                </tr>
+                            </thead>
 
- <div class="col-md-12">
-     <h3>Transactions</h3>
-         <div>
-                @if ($transactions->count()>0)
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Crypto</th>
-                                <th>Purchased rate</th>
-                                <th>Type</th>
-                                <th>Date</th>
-                                <th>Quantity</th>
-                                <th>amount</th>
-                            </tr>
-                        </thead>
-                      
                             <tbody>
                                 @foreach ($transactions as $transaction)
                                     <tr>
@@ -53,52 +52,51 @@
                                         <td> {{ $transaction->montant }} </td>
                                     </tr>
                                 @endforeach
-                        </tbody>
+                            </tbody>
 
-                          
 
-                    </table>
-                @else
-                    <p>
-                        You  don't have any transaction yet. Please add a new one to see it here!
-                    </p>
-                @endif
-         </div>
-     </div>
-  </div>
 
-</div>
+                        </table>
+                    @else
+                        <p>
+                            You don't have any transaction yet. Please add a new one to see it here!
+                        </p>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+    </div>
 @endsection
 
 
 
 @section('sidecontent')
-<div class="container text-center">
-  <div class="row">
-    <div class="col-md-12 mt-5">
-      @error('transaction_error')
-                {{ $message }}
-            @enderror
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12 mt-5">
 
-            <form action="/transaction/1?crypto_id={{ $crypto_id }}" method="POST">
-                @csrf
-                <div class="">
-                    @error('qte')
-                        {{ $message }}
-                    @enderror
-                    <div> <h5> Votre solde: {{$solde}}</h5> </div>
-                    <input type="text" class="cleaninput mt-4" name="qte" value="{{ old('qte') }}">
-                </div>
-                <div class="mt-3">
-                    <button type="submit" class="shadoww__btn" name="type" value="buy">Buy</button>
-                    <button type="submit" class="shadoww__btn" name="type" value="sell">Sell</button>
-                </div>
+                <form action="{{ route('transaction', ['crypto_id' => $crypto_id]) }}" method="POST">
+                    @csrf
+                    <div class="">
+                        <div>
+                            <h5> Votre solde: {{ $solde }}</h5>
+                        </div>
 
-            </form>
+                        @error('qte')
+                            {{ $message }}
+                        @enderror
+                        <input type="text" class="cleaninput mt-4" name="qte" value="{{ old('qte') }}">
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" class="shadoww__btn" name="type" value="buy">Buy</button>
+                        <button type="submit" class="shadoww__btn" name="type" value="sell">Sell</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
 @endsection
 
 
@@ -124,8 +122,8 @@
             datasets: [{
                     label: 'Dataset 1',
                     data: cours,
-                    borderColor: "green",
-                    backgroundColor: "red",
+                    borderColor: "#01FF19",
+                    backgroundColor: "#01FF19",
                 },
 
             ]
@@ -150,9 +148,4 @@
 
         new Chart(ctx, config)
     </script>
-@endpush 
-
-
-    
-
-   
+@endpush

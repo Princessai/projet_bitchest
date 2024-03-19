@@ -1,12 +1,12 @@
 @extends('layouts.userDashboard')
 
 @section('bodycontent')
-@php
-include(base_path('documents/utils.php'))
-    
-@endphp
+    @php
+        include base_path('documents/utils.php');
 
-<h5 class=" mt-3 text-info  ms-4  fw-semibold mb-4">BUY & SELL</h5>
+    @endphp
+
+    <h5 class=" mt-3 text-info  ms-4  fw-semibold mb-4">BUY & SELL</h5>
     <div class="table-responsive rounded shadow p-3 mb-5 bg-body  rounded ">
         <table class="table text-nowrap   mb-5 mb-0 align-middle">
             <thead class="text-light fs-4">
@@ -31,6 +31,16 @@ include(base_path('documents/utils.php'))
             </thead>
             <tbody>
                 @foreach ($cryptos as $crypto)
+                    @php
+                        $isAdmin = Auth::user()->isAdmin();
+
+                        $routeCourCrypto = route('cours.crypto.customer', ['crypto_id' => $crypto->id]);
+
+                        if ($isAdmin) {
+                            $routeCourCrypto = route('cours.crypto.admin', ['crypto_id' => $crypto->id]);
+                        }
+                    @endphp
+
                     <tr>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-0"> <img src="{{ asset('assets/images/Bitcoin.png') }}" alt=""
@@ -45,13 +55,13 @@ include(base_path('documents/utils.php'))
                         </td>
                         <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                                <a href="{{route('cours.crypto', ['crypto_id'=>$crypto->id])}}"><button class="shadoww__btn">see more</button></a>
-                               </div>
+                                <a href="{{ $routeCourCrypto }}"><button class="shadoww__btn">see more</button></a>
                             </div>
-                        </td>
-                    </tr>
-                @endforeach
-                {{-- <tr>
+    </div>
+    </td>
+    </tr>
+    @endforeach
+    {{-- <tr>
                         <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ethereum.png') }}" alt="" width="40%"></h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Ethereum</h6>
@@ -236,7 +246,7 @@ include(base_path('documents/utils.php'))
                           </div>
                         </td>
                       </tr>         --}}
-            </tbody>
-        </table>
+    </tbody>
+    </table>
     </div>
 @endsection

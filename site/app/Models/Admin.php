@@ -26,4 +26,8 @@ class Admin extends Authenticatable
      */
     public $timestamps = false;
 
+    public function isAdmin(){
+        return true;
+    }
+
 }

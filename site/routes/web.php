@@ -47,15 +47,15 @@ Route::prefix('customer')->middleware('auth:customers')->group(function () {
         return view('pages.customer.wallet');
     })->name('wallet');
 
-    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto');
+    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto.customer');
 
-    Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto');
+    Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto.customer');
 
     Route::get('/profile', function () {
         return view('pages.profile');
-    })->name('profil');
+    })->name('profil.customer');
 
-    Route::post('/transaction/{customer_id}', [CryptoController::class, 'transaction']);
+    Route::post('/transaction/{crypto_id}', [CryptoController::class, 'transaction'])->name('transaction');
 
     
 });
@@ -64,9 +64,7 @@ Route::prefix('customer')->middleware('auth:customers')->group(function () {
 
 //? Admin routes
 Route::prefix('admin')->middleware('auth:admins')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('pages.admin.homeAdmin');
-    })->name('dashboard.admin');
+    Route::get('/dashboard', [CryptoController::class, 'listCrypto'])->name('dashboard.admin');
 
     Route::get('/customers-list', [CustomerController::class, 'list'])->name('list.customers');
 
@@ -77,16 +75,17 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
     Route::get('/delete-customer/{id}', [CustomerController::class, 'delete'])->name('delete.customer');
 
     Route::get('/add-customer', [CustomerController::class, 'add'])->name('add.customer');
+    Route::post('/add-customer', [CustomerController::class, 'create'])->name('create.customer');
 
     Route::get('/view-customer/{id}', [CustomerController::class, 'view'])->name('view.customer');
 
-    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto');
+    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto.admin');
 
-    Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto');
+    Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto.admin');
 
     Route::get('/profile', function () {
         return view('pages.profile');
-    })->name('profil');
+    })->name('profil.admin');
     
 
 });

@@ -1,14 +1,16 @@
 @extends('base')
-        @section('homeButton')
-        <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
-            <img src="{{ asset('assets/images/accueil.png') }}" alt=""  class="w-75"> <br>
-            <span>Home</span>
-        </a>
+@section('homeButton')
+    <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
+        <img src="{{ asset('assets/images/accueil.png') }}" alt="" class="w-75"> <br>
+        <span>Home</span>
+    </a>
 @endsection
 
 @section('walletbutton')
-    <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt=""  class="w-75" ><br>
-    <span>Wallet</span>
+    <a class="nav-link" href="{{ route('wallet') }}">
+        <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt="" class="w-75"><br>
+        <span>Wallet</span>
+    </a>
 @endsection
 
 @section('body')
@@ -23,5 +25,3 @@
         </div>
     </div>
 @endsection
-
-

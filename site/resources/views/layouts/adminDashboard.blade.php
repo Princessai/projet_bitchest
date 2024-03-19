@@ -2,8 +2,10 @@
 
 
 @section('walletbutton')
-    <img src="{{ asset('assets/images/customer_icon.png') }}" alt="" ><br>
-    <span>Customers</span>
+    <a class="nav-link" href="{{ route('list.customers') }}">
+        <img src="{{ asset('assets/images/customer_icon.png') }}" alt=""><br>
+        <span>Customers</span>
+    </a>
 @endsection
 
 @section('body')

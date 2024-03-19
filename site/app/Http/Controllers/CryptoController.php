@@ -38,14 +38,8 @@ class CryptoController extends Controller
         $cryptoname = Crypto::findOrFail($crypto_id)->label;
         // $cryptoname = $cryptoname->label;
 
-        // $customer = Customer::find($request->session()->get('user')['user_id']);
-        $guard = "customers";
-
-        if ($request->session()->get('isadmin')) {
-            $guard = "admins";
-        }
-
-        $customer = Auth::guard($guard)->user();
+       
+        $customer = Auth::guard()->user();
         // dd($customer);
         $wallet_id = $customer->wallet_id;
 
@@ -65,7 +59,7 @@ class CryptoController extends Controller
         return view('pages.marcheCrypto', compact('cryptos'));
     }
 
-    public function transaction(Request $request)
+    public function transaction(Request $request, $crypto_id)
     {
         // Validation des champs
 
@@ -90,8 +84,10 @@ class CryptoController extends Controller
         $qte_transaction = $request->qte;
         $crypto_id = $request->crypto_id;
         $date = Carbon::now();
-        $customer_id = $request->session()->get('user')['user_id'];
-        $wallet = Customer::find($customer_id)->wallet;
+        $guard = $request->session()->get('guard');
+        dd(Auth::user());
+        $customer = $request->guard($guard)->user();
+        $wallet = $customer->wallet;
         $solde_initial = $wallet->solde;
         $cours_achat = getCoursActuel($crypto_id);
         $montant = $cours_achat * $qte_transaction;
@@ -103,7 +99,7 @@ class CryptoController extends Controller
         } else {
             $qte_initial = $crypto->pivot->qte_crypto;
         }
-
+        // dd($qte_initial);
         $validTransaction = true;
 
         if ($type == "sell") {
@@ -113,7 +109,7 @@ class CryptoController extends Controller
                 $error = "Vous ne possédez pas suffisamment de $crypto->label";
             } else {
                 $qte_possede = $qte_initial - $qte_transaction;
-                $solde_actuel = $solde_initial - $montant;
+                $solde_actuel = $solde_initial + $montant;
             }
         } else if ($type == "buy") {
 
@@ -122,12 +118,12 @@ class CryptoController extends Controller
                 $validTransaction = false;
                 $error = "Votre solde est insuffisant pour effectuer cette opération";
             } else {
-                $solde_actuel = $solde_initial + $montant;
+                $solde_actuel = $solde_initial - $montant;
                 $qte_possede = $qte_initial + $qte_transaction;
             }
         }
 
-        if ($validTransaction == true && $qte_transaction > 0) {
+        if ($validTransaction == true ) {
 
 
             if (($type == 'sell' || $type = 'buy') && $qte_initial > 0) {
@@ -146,6 +142,8 @@ class CryptoController extends Controller
             $transactions = Transaction::create(["crypto_id" => $crypto_id, "wallet_id" => $wallet->id, "cours_achat" => $cours_achat, "date" => $date, "type" => $type, 'quantite' => $qte_transaction, "montant" => $montant]);
             // dd($solde_actuel);
             $wallet->update(['solde' => $solde_actuel]);
+
+           return back()->with('success', "Transaction réussie ! Votre portefeuille a  été mis à jour");
         } else {
 
             return back()->withErrors(['transaction_error' => $error]) // Pass the error bag to the redirected page

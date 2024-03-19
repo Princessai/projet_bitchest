@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Wallet;
 use App\Models\Customer;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -60,6 +61,43 @@ class CustomerController extends Controller
     return view('pages.admin.customerAdd');
   }
 
+  public function create(Request $request)
+  {
+
+    // dd(app()->environment());
+
+    $request->validate([
+      'firstname' => 'required|string',
+      'lastname' => 'required|string',
+      'age' => 'required|numeric|gt:15',
+      'email' => 'required|email:rfc,dns',
+    ]);
+
+
+    // dd($request->all());
+
+
+    if (app()->environment() != "production") {
+      $wallet = Wallet::create(['solde' => 500]);
+    } else {
+      $wallet = Wallet::create();
+    }
+
+    $wallet_id = $wallet->id;
+    // dd($wallet_id);
+
+    $generatedPassword = fake()->password();
+    session([
+      'generatedPassword' => $generatedPassword,
+    ]);
+
+    $customer = Customer::make($request->all());
+    $customer->wallet_id = $wallet_id;
+    $customer->password = Hash::make($generatedPassword);
+    $customer->save();
+
+    return back()->with('success', true);
+  }
 
   public function view($id)
   {
@@ -80,7 +118,7 @@ class CustomerController extends Controller
     // $email = $request->email;
     // $password = $request->password;
     $credentials = $request->only('email', 'password');
-    
+
     // var_dump('test');
     $request->session()->invalidate();
     $request->session()->regenerateToken();
@@ -90,14 +128,14 @@ class CustomerController extends Controller
     if (Auth()->guard('customers')->attempt($credentials)) {
       // Authentication successful
       session([
-        'isadmin' => false,
+        'guard' => "customers",
       ]);
       $request->session()->regenerate();
       return redirect()->intended(route('dashboard.customer'));
     } elseif (Auth()->guard('admins')->attempt($credentials)) {
       // admin logged in
       session([
-        'isadmin' => true,
+        'guard' => "admins",
       ]);
       $request->session()->regenerate();
       return redirect()->intended(route('dashboard.admin'));
@@ -162,13 +200,10 @@ class CustomerController extends Controller
 
   public function logout(Request $request)
   {
-    $guard = "customers";
+    // dd(Auth::user());
+    // $guard = $request->session()->get('guard');
 
-    if ($request->session()->get('isadmin')) {
-      $guard = "admins";
-    }
-
-    Auth::guard($guard)->logout();
+    Auth::logout();
 
     $request->session()->invalidate();
 

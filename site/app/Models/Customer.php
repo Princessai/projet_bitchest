@@ -15,7 +15,7 @@ class Customer extends Authenticatable
     use  HasFactory, Notifiable;
     protected $guard = 'customers';
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstname','lastname','age', 'email',
     ];
     protected $hidden = [
         'password', 'remember_token',
@@ -32,4 +32,9 @@ class Customer extends Authenticatable
     {
         return $this->belongsTo(Wallet::class);
     }
+
+    public function isAdmin(){
+        return false;
+    }
+
 }

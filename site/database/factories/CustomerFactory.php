@@ -19,7 +19,7 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
-        $wallet = Wallet::create(['solde'=>0]);
+        $wallet = Wallet::create();
         $wallet = $wallet->id;
         var_dump($wallet);
         return [

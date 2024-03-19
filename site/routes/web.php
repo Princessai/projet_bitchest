@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserProfileController;
 use App\Models\Crypto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,24 +39,27 @@ Route::get('/logout', [CustomerController::class, 'logout'])->name('logout');
 
 Route::prefix('customer')->middleware('auth:customers')->group(function () {
 
-    
+    Route::post('/updateself/traitement', [UserProfileController::class, 'update_self_traitement'])->name('updateself');
 
     Route::get('/dashboard', function (Request $request) {
 
         return view('pages.customer.homeCustomer');
-    })->name('dashboard.customer');
+    },)->name('dashboard.customer');
 
-    Route::get('/wallet', function () {
-        return view('pages.customer.wallet');
-    })->name('wallet');
+    Route::get('/marche', function (Request $request) {
 
+        return view('pages.customer.marcheCrypto');
+    },)->name('marchecrypto');
+
+    Route::get('/wallet', [CryptoController::class, 'walletCrypto'])->name('wallet.crypto');
+
+    Route::get('/profile', function ()
+    {return view('pages.customer.profil');
+    })->name('profil.customer');
+   
     Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto');
 
     Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto');
-
-    Route::get('/profile', function () {
-        return view('pages.customer.profileCustomer');
-    })->name('profil.customer');
 
     Route::post('/transaction/{customer_id}', [CryptoController::class, 'transaction']);
 
@@ -86,11 +90,7 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
 
     Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto');
 
-    Route::get('/profile', function () {
-        return view('pages.profile');
-    })->name('profil');
     
-
 });
 
 

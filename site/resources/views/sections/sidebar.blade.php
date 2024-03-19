@@ -15,7 +15,7 @@
                   @yield('homeButton')
           </li>
           <li class="nav-item mt-5 d-flex justify-content-center ">
-            <a class="nav-link" href="{{ route('wallet') }}"> 
+            <a class="nav-link" href="{{ route('wallet.crypto') }}"> 
               @yield('walletbutton')
             </a>
           </li>
@@ -28,10 +28,9 @@
 
          
           <li class="nav-item mt-4 d-flex flex-column mb-3">
-          <a class="nav-link nav-icon-hover align-self-center" href="{{route('profil')}}" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <img src="{{ asset('assets/images/user.png') }}" alt="" 
-                                 >
+          <a class="nav-link  align-self-center" href="{{route('profil.customer')}}" >
+                            <img src="{{ asset('assets/images/user.png') }}">
+                            @yield('profilebutton') 
                         </a>   <span class="align-self-center text-light">My profile</span>
           </li>
 

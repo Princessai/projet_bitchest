@@ -65,6 +65,18 @@ class CryptoController extends Controller
         return view('pages.marcheCrypto', compact('cryptos'));
     }
 
+
+
+
+
+    public function walletCrypto()
+    {
+        $cryptos = Crypto::all();
+        return view('pages.customer.wallet', compact('cryptos'));
+    }
+
+
+
     public function transaction(Request $request)
     {
         // Validation des champs

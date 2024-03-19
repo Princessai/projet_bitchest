@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Admin;
 use App\Models\Customer;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
+
+
+
+
+
 
 class CustomerController extends Controller
 {
@@ -47,6 +55,7 @@ class CustomerController extends Controller
     return redirect()->route('list.customers');
   }
 
+
   public function delete($id)
   {
     $customer = Customer::find($id);
@@ -69,6 +78,12 @@ class CustomerController extends Controller
 
 
   }
+
+
+public function profilecustomer (){
+   return view('pages.customer.profil');
+}
+
 
   public function login(Request $request)
   {

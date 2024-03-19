@@ -5,7 +5,7 @@
     <div class="col-md-12 text-start mt-5 text-light">
      <h2 class="opacity-75 text-info">My Balance</h2>
 
-     <h3 class="mt-3 ms-5 text-light">500$</h3>
+     <h3 class="mt-3 ms-5 text-light"> {{ Auth::user()->wallet->solde }} €  </h3>
     </div>
     <div class="col-md-12 text-start mt-5 text-light">
       <h2 class="mb-4 text-info">News</h2>
@@ -92,7 +92,7 @@
                       <tr class=" ">
                         <td class="  border-bottom-0"><h6 class="fw-semibold mb-0"> <img src="{{ asset('assets/images/Bitcoin.png') }}" alt="" class=" "></h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold fz-5 mb-1">Bitcoin</h6>
+                            <h6 class="fw-semibold fz-5 mb-1"></h6>
                                                     
                         </td>
                         <td class="border-bottom-0 ">
@@ -100,6 +100,7 @@
                         </td>
                        
                       </tr> 
+                     
                       <tr>
                         <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ethereum.png') }}" class=" mb-3" alt=""></h6></td>
                         <td class="border-bottom-0">

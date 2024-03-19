@@ -7,9 +7,17 @@
 @endsection
 
 @section('walletbutton')
-    <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt=""  class="w-75" ><br>
+    <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt="" class="w-75" ><br>
     <span>Wallet</span>
 @endsection
+
+
+@section('profilebutton')
+<img src="{{ asset('assets/images/user.png') }}" alt="">
+@endsection
+
+
+
 
 @section('body')
     <div class="container text-center">

@@ -16,15 +16,15 @@
                             value="{{ $customer->firstname }}">
                     </div>
                     <div class="mb-3">
-                        <input type="text" id="disabledTextInput" name="lastname" class="form-control"
+                        <input type="text" id="TextInput" name="lastname" class="form-control"
                             value="{{ $customer->lastname }}">
                     </div>
                     <div class="mb-3">
-                        <input type="text" id="disabledTextInput" name="age" class="form-control"
+                        <input type="text" id="TextInput" name="age" class="form-control"
                             value="{{ $customer->age }}">
                     </div>
                     <div class="mb-3">
-                        <input type="text" id="disabledTextInput" name="email" class="form-control"
+                        <input type="text" id="TextInput" name="email" class="form-control"
                             value="{{ $customer->email }}">
                     </div>
                     <input type="submit" id="TextInput" class="form-control align-self-center" value="update">

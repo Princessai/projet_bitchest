@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/sidebar.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/wallet.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/profile.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/cours.css') }}" rel="stylesheet">
@@ -99,11 +100,10 @@
 <body>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2 col-lg-2 col-sm-3">
+    <div class="col-md-12  col-lg-2 col-sm-12">
       @include('sections.sidebar')
     </div>
-    <div class="col-md-10  px-0 col-lg-10 col-sm-9">
-        @include('sections.headerDashboard')
+    <div class="col-md-12 Width auto  px-0 col-lg-10 col-sm-12">
       @yield('body')
     </div>
   </div>

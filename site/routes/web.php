@@ -44,12 +44,12 @@ Route::prefix('customer')->middleware('auth:customers')->group(function () {
     Route::get('/dashboard', function (Request $request) {
 
         return view('pages.customer.homeCustomer');
-    },)->name('dashboard.customer');
+    })->name('dashboard.customer');
 
     Route::get('/marche', function (Request $request) {
 
         return view('pages.customer.marcheCrypto');
-    },)->name('marchecrypto');
+    })->name('marchecrypto');
 
     Route::get('/wallet', [CryptoController::class, 'walletCrypto'])->name('wallet.crypto');
 

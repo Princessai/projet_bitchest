@@ -100,9 +100,7 @@
 <body>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12  col-lg-2 col-sm-12">
       @include('sections.sidebar')
-    </div>
     <div class="col-md-12 Width auto  px-0 col-lg-10 col-sm-12">
       @yield('body')
     </div>

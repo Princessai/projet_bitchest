@@ -1,12 +1,35 @@
-@extends('layouts.userDashboard')
 
-@section('bodycontent')
-@php
+@extends('base')
+        @section('homeButton')
+        <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
+            <img src="{{ asset('assets/images/accueil.png') }}" alt=""  class="w-75"> <br>
+            <span>Home</span>
+        </a>
+@endsection
+
+@section('walletbutton')
+    <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt="" class="w-75" ><br>
+    <span>Wallet</span>
+@endsection
+
+
+@section('profilebutton')
+<img src="{{ asset('assets/images/user.png') }}" alt="">
+@endsection
+
+
+
+
+@section('body')
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+            @php
 include(base_path('documents/utils.php'))
     
 @endphp
 
-<h5 class=" mt-3 text-info  ms-4  fw-semibold mb-4">BUY & SELL</h5>
+<h3 class=" mt-3 text-info text-start  ms-4  fw-semibold mb-4">BUY & SELL</h3>
     <div class="table-responsive rounded shadow p-3 mb-5 bg-body  rounded ">
         <table class="table text-nowrap   mb-5 mb-0 align-middle">
             <thead class="text-light fs-4">
@@ -54,5 +77,8 @@ include(base_path('documents/utils.php'))
                 
             </tbody>
         </table>
+    </div>
+            </div>
+        </div>
     </div>
 @endsection

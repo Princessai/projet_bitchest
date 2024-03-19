@@ -11,7 +11,7 @@
 
     </div>
     <div class="col-md-12 d-flex flex-column mt-5 soldeAccount">
-    <h6 class=" mt-3 align-self-start text-info ">My crypto</h6>
+    <h6 class=" mt-3 align-self-start text-info "></h6>
      <h4 class="text-light align-self-start text-light"> 
     0
                           </h4>
@@ -27,7 +27,7 @@
                         <h6 class="fw-semibold mb-0">Name</h6>
                     </th>
                     <th class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">Your Quantity</h6>
+                        <h6 class="fw-semibold mb-0">  Your Quantity</h6>
                     </th>
                    
                     <th>

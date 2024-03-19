@@ -1,14 +1,14 @@
 @extends('base')
         @section('homeButton')
         <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
-            <img src="{{ asset('assets/images/accueil.png') }}" alt=""  class="w-75"> <br>
+            <img src="{{ asset('assets/images/accueil.png') }}" alt=""  class="w-75 butside"> <br>
             <span>Home</span>
         </a>
 @endsection
 
 @section('walletbutton')
-    <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt="" class="w-75" ><br>
-    <span>Wallet</span>
+    <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt="" class="w-75 butside" ><br>
+    <span class="text-light">Wallet</span>
 @endsection
 
 

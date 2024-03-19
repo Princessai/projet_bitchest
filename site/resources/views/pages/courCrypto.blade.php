@@ -8,11 +8,11 @@
 
     {{-- {{ $cours}} --}}
     
- <div class="container mt-5 text-center">
+ <div class="container-fluid mt-5 text-center">
   <div class="row">
     <div class="col-md-12 d-flex  align-items-center ">
         <img src="{{ asset('assets/images/bitcoin.png') }}" class="me-5" width="5%" alt="">
-            <h1>{{ $cryptoname }}</h1>
+            <h1 class="text-light">{{ $cryptoname }}</h1>
     </div>
     <div class=" col-md-12 mt-5 mb-4  d-flex">
          <h3  ><button class="shadoww__btn">Overview</button></h3> 
@@ -25,7 +25,7 @@
     </div>
 
 
- <div class="col-md-12">
+ <div class="col-md-12 shadow-sm p-3 mb-5 bg-body rounded">
      <h3>Transactions</h3>
          <div>
                 @if ($transactions->count()>0)
@@ -75,7 +75,7 @@
 @section('sidecontent')
 <div class="container text-center">
   <div class="row">
-    <div class="col-md-12 mt-5">
+    <div class="col-md-12 d-flex justify-content-center align-items-center  mt-3">
       @error('transaction_error')
                 {{ $message }}
             @enderror
@@ -86,7 +86,7 @@
                     @error('qte')
                         {{ $message }}
                     @enderror
-                    <div> <h5> Votre solde: {{$solde}}</h5> </div>
+                    <div> <h5 class="text-light"> Votre solde: {{$solde}}</h5> </div>
                     <input type="text" class="cleaninput mt-4" name="qte" value="{{ old('qte') }}">
                 </div>
                 <div class="mt-3">
@@ -96,6 +96,7 @@
 
             </form>
     </div>
+   
   </div>
 </div>
 

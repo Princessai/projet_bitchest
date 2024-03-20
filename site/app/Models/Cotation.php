@@ -22,12 +22,4 @@ class Cotation extends Model
         return $this->belongsTo(Crypto::class);
 
     }
-
-    public static function getCoursActuel($cryptoId)
-    {
-    
-        return static::where('crypto_id', $cryptoId)
-            ->orderBy('date', 'desc')->first()->cours_actuel;
-    }
-    
 }

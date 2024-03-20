@@ -8,6 +8,7 @@
     if ($isAdmin) {
         $routeListCrypto = route('list.crypto.admin');
         $routeProfil = route('profil.admin');
+
     }
 @endphp
 
@@ -27,35 +28,12 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    @can('do_transaction')
-                        <li class="nav-item  d-flex justify-content-center ">
-                            <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
-                                <img src="{{ asset('assets/images/accueil.png') }}" alt="" class="w-75"> <br>
-                                <span>Home</span>
-                            </a>
-                        </li>
-                    @endcan
-
-                    @cannot('do_transaction')
-                        <li class="nav-item  d-flex justify-content-center ">
-                            <a class="nav-link" href="{{ route('list.customers') }}">
-                                <img src="{{ asset('assets/images/customer_icon.png') }}" alt=""><br>
-                                <span>Customers</span>
-                            </a>
-                        </li>
-                    @endcannot
-
-                    @can('do_transaction')
-                        <li class="nav-item mt-5 d-flex justify-content-center ">
-                            <a class="nav-link" href="{{ route('wallet') }}">
-                                <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt=""
-                                    class="w-75"><br>
-                                <span>Wallet</span>
-                            </a>
-                        </li>
-                    @endcan
-
-
+                    <li class="nav-item  d-flex justify-content-center ">
+                        @yield('homeButton')
+                    </li>
+                    <li class="nav-item mt-5 d-flex justify-content-center ">
+                        @yield('walletbutton')
+                    </li>
                     <li class="nav-item mt-4 d-flex justify-content-center ">
                         <a class=" mt-3 text-decoration-none text-white" href="{{ $routeListCrypto }}">
                             <img src="{{ asset('assets/images/graphique-en-ligne.png') }}" class="w-75"

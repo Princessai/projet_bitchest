@@ -10,7 +10,6 @@ use App\Models\Customer;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,14 +24,15 @@ class CryptoController extends Controller
 
     public function courCrypto(Request $request, $crypto_id)
     {
+        //dd($crypto_id);
         $cours = Cotation::select('cours_actuel', 'date')
             ->where("crypto_id", $crypto_id)
             ->orderBy('date')
-            ->limit(30)
             ->get();
 
         $dates = [];
         $cours->transform(function ($item, $key) use (&$dates) {
+            // var_dump($item->cours_actuel);
             $dates[] = $item->date;
             return $item->cours_actuel;
         });
@@ -41,24 +41,20 @@ class CryptoController extends Controller
         $dates = json_encode($dates);
 
         $cryptoname = Crypto::findOrFail($crypto_id)->label;
+        // $cryptoname = $cryptoname->label;
 
-
-        $view_data = ['crypto_id', 'cryptoname', 'cours', 'dates'];
-
-        if (Gate::allows('do_transaction')) {
-
-            $customer = Auth::user();
-            $wallet_id = $customer->wallet_id;
-
-            $solde = $customer->wallet->solde;
-         
-            $transactions = Transaction::where(["wallet_id" => $wallet_id, "crypto_id" => $crypto_id])->get();
-            $view_data =  [...$view_data , ...['transactions', 'solde']];
-            // dd($view_data);
-        }
        
+        $customer = Auth::guard()->user();
+        // dd($customer);
+        $wallet_id = $customer->wallet_id;
 
-        return view('pages.courCrypto', compact(...$view_data));
+        $solde = $customer->wallet->solde;
+        // dd($solde);
+
+        $transactions = Transaction::where(["wallet_id" => $wallet_id, "crypto_id" => $crypto_id])->get();
+        // dd($transactions);
+
+        return view('pages.courCrypto', compact('crypto_id', 'cours', 'dates', 'cryptoname', 'transactions', 'solde'));
     }
 
 
@@ -135,18 +131,18 @@ class CryptoController extends Controller
                 ->withInput(); // Pass input data back to the form
         }
 
+        require(base_path('documents/utils.php'));
         // récupration des différents éléments pour créer une transaction
         $type = $request->type;
         $qte_transaction = $request->qte;
         $crypto_id = $request->crypto_id;
         $date = Carbon::now();
-        // $guard = $request->session()->get('guard');
-        // dd(Auth::user());
-        $customer = Auth::user();
+        $guard = $request->session()->get('guard');
+        dd(Auth::user());
+        $customer = $request->guard($guard)->user();
         $wallet = $customer->wallet;
         $solde_initial = $wallet->solde;
-        $cours_achat = Cotation::getCoursActuel($crypto_id);
-        // dd($cours_achat);
+        $cours_achat = getCoursActuel($crypto_id);
         $montant = $cours_achat * $qte_transaction;
         // var_dump($crypto_id);
         $crypto = $wallet->cryptos()->wherePivot('crypto_id', $crypto_id)->first();
@@ -180,7 +176,7 @@ class CryptoController extends Controller
             }
         }
 
-        if ($validTransaction == true) {
+        if ($validTransaction == true ) {
 
 
             if (($type == 'sell' || $type = 'buy') && $qte_initial > 0) {
@@ -200,7 +196,7 @@ class CryptoController extends Controller
             // dd($solde_actuel);
             $wallet->update(['solde' => $solde_actuel]);
 
-            return back()->with('success', "Transaction réussie ! Votre portefeuille a  été mis à jour");
+           return back()->with('success', "Transaction réussie ! Votre portefeuille a  été mis à jour");
         } else {
 
             return back()->withErrors(['transaction_error' => $error]) // Pass the error bag to the redirected page

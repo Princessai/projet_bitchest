@@ -1,7 +1,7 @@
 <?php
-function getCoursActuel($cryptoId)
-{
+// function getCoursActuel($cryptoId)
+// {
 
-    return App\Models\Cotation::where('crypto_id', $cryptoId)
-        ->orderBy('date', 'desc')->first()->cours_actuel;
-}
+//     return App\Models\Cotation::where('crypto_id', $cryptoId)
+//         ->orderBy('date', 'desc')->first()->cours_actuel;
+// }

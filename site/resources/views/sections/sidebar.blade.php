@@ -138,12 +138,6 @@
 
                 </ul>
             </div>
-            <div class="col-md-12 d-flex flex-column mt-5">
-                @yield('profilebutton')
-                <span class="align-self-center text-light">My profile</span>
-
-                <a href="{{ route('logout') }}" class="btx mt-3">Logout</a>
-            </div>
         </div>
     </div>
 </div>

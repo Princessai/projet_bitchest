@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CryptoController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\WalletController;
-
+use App\Http\Controllers\UserProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +47,8 @@ Route::prefix('customer')->middleware('auth:customers')->group(function () {
 
     Route::get('/wallet', [WalletController::class, 'showInfoWallet'])->name('wallet');
 
+    Route::post('/updateself/traitement', [UserProfileController::class, 'update_self_traitement'])->name('updateself');
+
     Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto.customer');
 
     Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto.customer');
@@ -68,6 +70,10 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
 
     Route::get('/customers-list', [CustomerController::class, 'list'])->name('list.customers');
 
+
+    Route::get('/deposit-customer/{id}', [CustomerController::class, 'deposit'])->name('deposit.customer');
+
+
     Route::get('/modify-customer/{id}', [CustomerController::class, 'update'])->name('modify.customer');
 
     Route::post('/update/traitement', [CustomerController::class, 'update_traitement'])->name('update.treatment');
@@ -78,6 +84,8 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
     Route::post('/add-customer', [CustomerController::class, 'create'])->name('create.customer');
 
     Route::get('/view-customer/{id}', [CustomerController::class, 'view'])->name('view.customer');
+
+    Route::get('/add-crypto', [CryptoController::class, 'addcrypto'])->name('addcrypto');
 
     Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto.admin');
 

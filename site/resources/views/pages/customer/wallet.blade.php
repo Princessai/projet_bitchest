@@ -1,10 +1,13 @@
 @extends('layouts.userDashboard')
 @section('bodycontent')
-    <div class=" text-center">
-        <div class="row">
-            <div class="col-md-12 d-flex  flex-column mt-5 soldeAccount">
-                <h6 class=" mt-3 align-self-start text-info ">Portfolio Balance</h6>
-                <h4 class="text-light align-self-start text-muted">10 .000 £</h4>
+<div class=" text-center">
+  <div class="row">
+    <div class="col-md-12 d-flex  flex-column mt-5 soldeAccount">
+     <h6 class=" mt-3 align-self-start text-info ">Portfolio Balance</h6>
+     <h4 class="text-light align-self-start text-light">     @auth 
+                            {{ Auth::user()->wallet->solde }}
+                            @endauth 
+                          </h4>
 
             </div>
             <div class="col-md-12 d-flex flex-column mt-5 soldeAccount">
@@ -72,16 +75,22 @@
 
 
 @section('sidecontent')
-    <div class="container text-center wallet-profile mt-5 ">
-        <div class="row">
-            <div class="col mt-5 ">
-                <div><img src="{{ asset('assets/images/user2.png') }}" alt="" class=" "></div>
-                <div> welcome <strong>(nom user)</strong></div>
-                <div class="mt-4"><a href=""><button class="shadoww__btn">MY PROFILE</button> </a></div>
-                <div class="mt-4"> <a href=""><button class="shadoww__btn">MY TRANSACTIONS</button> </a> </div>
-
-
-            </div>
-        </div>
+<div class="container text-center wallet-profile mt-5 ">
+  <div class="row">
+    <div class="col mt-5 ">
+      <div><img src="{{ asset('assets/images/user2.png') }}" alt="" class="shadoww__btn"></div>
+      <div class="text-light mt-4 "> 
+        <h4>
+        welcome <strong> 
+      @auth
+      {{Auth::user()->firstname}}  {{Auth::user()->lastname}} 
+      @endauth
+      </h4> 
+    
+    </strong></div>
+      <div class="mt-4"><a href="{{route('profil.customer')}}"><button class="shadoww__btn">MY PROFILE</button> </a></div> 
+      <div class="mt-4">  <a href=""><button class="shadoww__btn">MY TRANSACTIONS</button> </a> </div>
+      
+    
     </div>
 @endsection

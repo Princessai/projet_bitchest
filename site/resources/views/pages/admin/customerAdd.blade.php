@@ -1,58 +1,54 @@
+
+
 @extends('layouts.adminDashboard')
 @section('bodycontent')
-    <div class="container w-50
- mt-3 profile shadow p-3 mb-5 rounded rounded text-center">
-        <div class="row">
-            <div class="col-md-12 d-flex flex-column  mt-3  ">
-                <h2 class="text-light">Add</h2>
-                <form method="POST" action="{{ route('create.customer') }}">
-                    @csrf
+    <div class="container">
+            <div class="row">
+            <div class="col-lg-12 d-flex align-items-center mt-5">
+    <img src="{{ asset('assets/images/user2.png') }}" class="shadoww__btn" alt="" >
+        <div><h3 class="ms-4 text-light">Add Customer <strong></strong>  </h3>
+              <small class="ms-4 text-light opacity-75"></small>
+      </div>
+            </div >
 
-                    @if (session()->has('success') && session()->get('success') == true)
+    <div class="col-lg-12 mt-5 shadow p-3  mb-5 bg-body rounded">
+        <form method="POST"action="{{ route('create.customer') }}" class="d-flex flex-column" >
+        @csrf
+        
+        @if (session()->has('success') && session()->get('success') == true)
                         <div class="pop-up text-green border-radius-5 ">
                           <p>Customer added successfully !</p>
                           <p>Generated password : {{session()->get('generatedPassword')}} !</p>
                         </div>
                     @endif
-                    <h6 class="text-light">
-                        Customer </h6>
+      <h3><strong>Add info</strong></h3>
+      <hr>
+      
+      @error('firstname')
+                            {{ $message }}
+                        @enderror
+      <div class="d-flex justify-content-between align-items-center"><h5>Firstname</h5>  <input type="text"   class="form-control w-50"  name="firstname"  value="{{ old('firstname') }}" ></div>
+      <hr>
+      @error('lastname')
+                            {{ $message }}
+                        @enderror
+      <div class="d-flex justify-content-between align-items-center"><h5>Lastname</h5>  <input type="text"   class="form-control w-50" name="lastname" value="{{ old('lastname') }}" ></div>
+      <hr>
+      @error('age')
+                            {{ $message }}
+                        @enderror
+      <div class="d-flex justify-content-between align-items-center"><h5>Age</h5>  <input type="number"   class="form-control w-50" name="age" value="{{ old('age') }}" ></div>
+      <hr>
+      @error('email')
+                            {{ $message }}
+                        @enderror
+      <div class="d-flex justify-content-between align-items-center"><h5>Email</h5>  <input type="email"   class="form-control w-50" name="email"   value="{{ old('email') }}" ></div>
 
-                    <div class="mb-3">
-
-                        @error('firstname')
-                            {{ $message }}
-                        @enderror
-                        <input type="text" id="TextInput" name="firstname" class="form-control" placeholder="firstname"
-                            value="{{ old('firstname') }}">
-                    </div>
-                    <div class="mb-3">
-                        @error('lastname')
-                            {{ $message }}
-                        @enderror
-                        <input type="text" id="disabledTextInput" name="lastname" class="form-control"
-                            placeholder="lastname" value="{{ old('lastname') }}">
-                    </div>
-                    <div class="mb-3">
-                        @error('age')
-                            {{ $message }}
-                        @enderror
-                        <input type="text" id="disabledTextInput" name="age" class="form-control" placeholder="age"
-                            value="{{ old('age') }}">
-                    </div>
-                    <div class="mb-3">
-                        @error('email')
-                            {{ $message }}
-                        @enderror
-
-                        <input type="text" id="disabledTextInput" name="email" class="form-control" placeholder="email"
-                            value="{{ old('email') }}">
-                    </div>
-                    <input type="submit" id="TextInput" class="form-control align-self-center" value="create">
-                </form>
-            </div>
-        </div>
+        <input type="submit"  class="form-control align-self-center w-25 but-update  mt-5 " value="add">
+    </form>
     </div>
-
+ </div>
+</div>
 @endsection
 
 @php

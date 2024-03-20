@@ -26,8 +26,10 @@ class Cotation extends Model
     public static function getCoursActuel($cryptoId)
     {
     
-        return static::where('crypto_id', $cryptoId)
-            ->orderBy('date', 'desc')->first()->cours_actuel;
+        return Crypto::find($cryptoId)->cotations()->latest( 'date' )->first()->cours_actuel;
+        
+        // return static::where('crypto_id', $cryptoId)
+        //     ->orderBy('date', 'desc')->first()->cours_actuel;
     }
     
 }

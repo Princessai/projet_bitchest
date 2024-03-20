@@ -49,6 +49,7 @@ Route::prefix('customer')->middleware('auth:customers')->group(function () {
 
     Route::post('/updateself/traitement', [UserProfileController::class, 'update_self_traitement'])->name('updateself');
 
+
     Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto.customer');
 
     Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto.customer');

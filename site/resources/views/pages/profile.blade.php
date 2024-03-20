@@ -57,7 +57,7 @@
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5>Password</h5> <input type="password" disabled class="form-control w-50" name="password"
+                                <h5>Password</h5> <input type="password" disabled class="form-control w-25" name="password"
                                     value="{{ Auth::user()->password }}">
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                                                    <input type="password" class="form-control" name="password"
+                                                    <input type="password" class="form-control w-25" name="password"
                                                         value="{{ Auth::user()->password }}">
                                                 </div>
 

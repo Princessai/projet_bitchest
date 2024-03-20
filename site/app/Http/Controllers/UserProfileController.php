@@ -18,6 +18,7 @@ class UserProfileController extends Controller {
 
     public function update_self_traitement(Request $request)
     {
+      $validationRule = ['firstname', 'lastname', 'email'];
       $request->validate([
         'firstname' => 'required|string',
         'lastname' => 'required|string',
@@ -44,29 +45,29 @@ class UserProfileController extends Controller {
 
 
 
-    public function update_self_traitement_admin(Request $request)
-    {
-      $request->validate([
-        'firstname' => 'required|string',
-        'lastname' => 'required|string',
-        'email' => 'required|email:rfc,dns',
-        'password' => 'required',
+    // public function update_self_traitement_admin(Request $request)
+    // {
+    //   $request->validate([
+    //     'firstname' => 'required|string',
+    //     'lastname' => 'required|string',
+    //     'email' => 'required|email:rfc,dns',
+    //     'password' => 'required',
   
-      ]);
+    //   ]);
   
-      $user_id = Auth::user()->id;
+    //   $user_id = Auth::user()->id;
       
-    $customer = Admin::find($user_id);
-      $customer->firstname = $request->firstname ?? $customer->firstname;
-      $customer->lastname = $request->lastname ?? $customer->lastname;
-      $customer->email = $request->email ?? $customer->email;
-          $customer->password = Hash::make($request->password); 
+    // $customer = Admin::find($user_id);
+    //   $customer->firstname = $request->firstname ?? $customer->firstname;
+    //   $customer->lastname = $request->lastname ?? $customer->lastname;
+    //   $customer->email = $request->email ?? $customer->email;
+    //       $customer->password = Hash::make($request->password); 
   
   
-          $customer->update(); 
+    //       $customer->update(); 
   
-          return redirect()->route('dashboard.admin');
-    }
+    //       return redirect()->route('dashboard.admin');
+    // }
 
 
 

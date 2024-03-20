@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Crypto;
 use App\Models\Wallet;
 use App\Models\Customer;
 use Illuminate\View\View;
@@ -109,6 +110,14 @@ class CustomerController extends Controller
   {
     $customer = Customer::find($id);
     return view('pages.admin.customerView', compact('customer'));
+  }
+
+  public function showDashboard() {
+      
+    $cryptos = Crypto::limit(5)->get();
+    // dd($crypto);
+
+    return view('pages.customer.homeCustomer', compact('cryptos'));
   }
 
   public function login(Request $request)

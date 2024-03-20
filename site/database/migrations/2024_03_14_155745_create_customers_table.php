@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('firstname', 100);
             $table->string('lastname', 100);
             $table->integer('age');
-            $table->string('email', 100);
+            $table->string('email', 100)->unique();
             $table->string('password', 100);
             $table->foreignId('wallet_id')->constrained();
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Crypto;
 use App\Models\Cotation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,7 @@ class WalletController extends Controller
             $couts_totaux += $cout_total;
             
             $valeur_achat = $cout_total / $qte_crypto;
-            $cours_actuel = Cotation::getCoursActuel($id);
+            $cours_actuel = Crypto::getCoursActuel($id);
             $vt_cours_actuel = $cours_actuel * $qte_crypto;
             $plusValue = $vt_cours_actuel - $valeur_achat;
 

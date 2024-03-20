@@ -1,9 +1,5 @@
 
 
-
-
-
-
 @php
     $isAdmin = Auth::user()->isAdmin();
 
@@ -16,12 +12,6 @@
         $routeProfil = route('profil.admin');
     }
 @endphp
-
-
-
-
-
-
 
 
 <div class="col-md-12 sidebar shadow    col-lg-2 col-sm-12" style=" z-index:1;">

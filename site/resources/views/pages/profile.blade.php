@@ -1,15 +1,13 @@
-{{-- 
-        @section('homeButton')
-        <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
-            <img src="{{ asset('assets/images/accueil.png') }}" alt=""  class="w-75 butside"> <br>
-            <span>Home</span>
-        </a>
-@endsection
+@php
+    $isAdmin = Auth::user()->isAdmin();
 
-@section('walletbutton')
-    <img src="{{ asset('assets/images/application-wallet-pass.png') }}" alt="" class="w-75 butside" ><br>
-    <span class="text-light">Wallet</span>
-@endsection --}}
+    // dd(Auth::user());
+    $updateself = route('updateself.customer');
+
+    if ($isAdmin) {
+        $updateself = route('updateself.admin');
+    }
+@endphp
 
 @extends('base')
 @section('profilebutton')
@@ -46,11 +44,13 @@
                                 <h5 class="me-4">{{ Auth::user()->lastname }}</h5>
                             </div>
                             <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5>age</h5>
-                                <h5 class="me-4">{{ Auth::user()->age }}</h5>
-                            </div>
-                            <hr>
+                            @can('do_transaction')
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5>age</h5>
+                                    <h5 class="me-4">{{ Auth::user()->age }}</h5>
+                                </div>
+                                <hr>
+                            @endcan
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5>Email</h5>
                                 <h5 class="me-4">{{ Auth::user()->email }}</h5>
@@ -76,7 +76,7 @@
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <form method="POST" action="{{ route('updateself') }}">
+                                        <form method="POST" action="{{ route('updateself.admin') }}">
                                             @csrf
                                             <div class="accordion-body">
                                                 <input type="hidden" class="form-control" name="id"
@@ -92,11 +92,13 @@
                                                     <input type="text" class="form-control" name="lastname"
                                                         value="{{ Auth::user()->lastname }}">
                                                 </div>
+                                                @can('do_transaction')
                                                 <div class="mb-3">
                                                     <label for="exampleInputPassword1" class="form-label">Age</label>
                                                     <input type="number" class="form-control" name="age"
                                                         value="{{ Auth::user()->age }}">
-                                                </div>
+                                                </div>                                                    
+                                                @endcan
                                                 <div class="mb-3">
                                                     <label for="exampleInputPassword1" class="form-label">Email</label>
                                                     <input type="email" class="form-control" name="email"

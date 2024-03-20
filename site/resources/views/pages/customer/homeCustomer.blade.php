@@ -106,22 +106,26 @@
 
                         </thead>
                         <tbody class="rounded">
-                            <tr class=" ">
-                                <td class="  border-bottom-0">
-                                    <h6 class="fw-semibold mb-0"> <img src="{{ asset('assets/images/Bitcoin.png') }}"
-                                            alt="" class=" "></h6>
-                                </td>
-                                <td class="border-bottom-0">
-                                    <h6 class="fw-semibold fz-5 mb-1"></h6>
+                          @foreach ($cryptos as $crypto)
 
-                                </td>
-                                <td class="border-bottom-0 ">
-                                    <p class="mb-0 fw-normal">10 000 $</p>
-                                </td>
+                          <tr class=" ">
+                            <td class="  border-bottom-0">
+                                <h6 class="fw-semibold mb-0"> <img src="{{ asset("storage/img/$crypto->image") }}"
+                                        alt="" class=" "></h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold fz-5 mb-1">{{ $crypto->label }} </h6>
 
-                            </tr>
+                            </td>
+                            <td class="border-bottom-0 ">
+                                <p class="mb-0 fw-normal">{{$crypto->cotations()->latest( 'date' )->first()->cours_actuel}} $</p>
+                            </td>
 
-                            <tr>
+                        </tr>
+
+                          @endforeach
+
+                            {{-- <tr>
                                 <td class="border-bottom-0">
                                     <h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ethereum.png') }}"
                                             class=" mb-3" alt=""></h6>
@@ -175,7 +179,7 @@
                                 <td class="border-bottom-0">
                                     <p class="mb-0 fw-normal">10 000 $</p>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>

@@ -13,9 +13,15 @@ class Crypto extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'label',
+        'image',
+    ];
+
     /**
      *@var bool 
      */
+
 
     public $timestamps = false;
 
@@ -32,4 +38,12 @@ class Crypto extends Model
     {
         return $this->belongsToMany(Wallet::class)->withPivot('qte_crypto');
     }
+
+    public static function getCoursActuel($cryptoId)
+    {
+    
+        return Crypto::find($cryptoId)->cotations()->latest( 'date' )->first()->cours_actuel;
+
+    }
+
 }

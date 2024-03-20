@@ -41,10 +41,10 @@ class Transaction extends Model
     }
     public function wallet(): BelongsTo
     {
-        return $this->belongsTo(Wallet::class);
+        return $this->belongsTo(Wallet::class)->withPivot('qte_crypto');
     }
-    public function account(): BelongsTo
-    {
-        return $this->belongsTo(Account::class);
-    }
+    // public function account(): BelongsTo
+    // {
+    //     return $this->belongsTo(Account::class);
+    // }
 }

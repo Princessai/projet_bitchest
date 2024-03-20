@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CryptoController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\WalletController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,9 +45,7 @@ Route::prefix('customer')->middleware('auth:customers')->group(function () {
         return view('pages.customer.homeCustomer');
     })->name('dashboard.customer');
 
-    Route::get('/wallet', function () {
-        return view('pages.customer.wallet');
-    })->name('wallet');
+    Route::get('/wallet', [WalletController::class, 'showInfoWallet'])->name('wallet');
 
     Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto.customer');
 

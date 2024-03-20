@@ -5,7 +5,7 @@
     <div class="col-md-12 text-start mt-5 text-light">
      <h2 class="opacity-75 text-info">My Balance</h2>
 
-     <h3 class="mt-3 ms-5 text-muted">500$</h3>
+     <h3 class="mt-3 ms-5 text-light"> {{ Auth::user()->wallet->solde }} €  </h3>
     </div>
     <div class="col-md-12 text-start mt-5 text-light">
       <h2 class="mb-4 text-info">News</h2>
@@ -18,7 +18,7 @@
     <div class=" col-lg-6 col-md-12 col-sm-12">
       <div class="card-body">
         <h5 class="card-title text-info">ELON MUSK & BITCOIN</h5>
-        <p class="card-text text-muted" >Tesla a investi 1,5 milliard de dollars dans le bitcoin et prévoit d'accepter la devise virtuelle 
+        <p class="card-text text-light" >Tesla a investi 1,5 milliard de dollars dans le bitcoin et prévoit d'accepter la devise virtuelle 
           comme moyen de paiement pour ses voitures, Il suffit donc en théorie d'un seul bitcoin pour acheter la
            voiture Model Y de Tesla, un 4 x 4 de ville (SUV), vendue au prix de base de 41.990 dollars sans crédit d'impôt.</p>
         <p class="card-text"><small >
@@ -37,7 +37,7 @@
     <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="card-body">
         <h5 class="card-title text-info">SHIBA COIN</h5>
-        <p class="card-text text-muted">Dans le monde fascinant et parfois imprévisible des cryptomonnaies, Shiba Inu (SHIB)
+        <p class="card-text text-light">Dans le monde fascinant et parfois imprévisible des cryptomonnaies, Shiba Inu (SHIB)
            fait parler de lui. Malgré ses efforts pour se frayer un chemin au-delà du seuil de 0,000008 $, le vent ne 
            semble pas tourner en sa faveur depuis le début de l’année. Pourtant, une lueur d’espoir brille à l’horizon grâce aux prévisions d’une […]</p>
 
@@ -58,7 +58,7 @@
     <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="card-body">
         <h5 class="card-title text-info">SOLANA INCREASING</h5>
-        <p class="card-text text-muted">The token behind Solana, a layer-1 blockchain that’s competitive with the Ethereum blockchain, has been through the wringer after it plummeted from a high of about $260 in late 2021 to a low around $8 in early 2023.
+        <p class="card-text text-light">The token behind Solana, a layer-1 blockchain that’s competitive with the Ethereum blockchain, has been through the wringer after it plummeted from a high of about $260 in late 2021 to a low around $8 in early 2023.
            But like every good movie with a character redemption arc, Solana has one too.</p>
 
            <p class="card-text"><small >
@@ -92,7 +92,7 @@
                       <tr class=" ">
                         <td class="  border-bottom-0"><h6 class="fw-semibold mb-0"> <img src="{{ asset('assets/images/Bitcoin.png') }}" alt="" class=" "></h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold fz-5 mb-1">Bitcoin</h6>
+                            <h6 class="fw-semibold fz-5 mb-1"></h6>
                                                     
                         </td>
                         <td class="border-bottom-0 ">
@@ -100,6 +100,7 @@
                         </td>
                        
                       </tr> 
+                     
                       <tr>
                         <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><img src="{{ asset('assets/images/ethereum.png') }}" class=" mb-3" alt=""></h6></td>
                         <td class="border-bottom-0">

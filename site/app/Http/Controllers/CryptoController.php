@@ -18,6 +18,12 @@ class CryptoController extends Controller
 {
     //
 
+
+    public function addcrypto() {
+    
+        return view('pages.admin.addCrypto');
+       }
+    
     public function courCrypto(Request $request, $crypto_id)
     {
         $cours = Cotation::select('cours_actuel', 'date')

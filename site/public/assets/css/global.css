@@ -1,7 +1,7 @@
 
 body{
     
-  background-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, #e6f3ff 100%) !important;
+  background-image: linear-gradient(90deg, #38618B 0%, #1C3146 100%) !important;
   
 }
 
@@ -12,16 +12,12 @@ body{
 
 
 
-.navbarr{
-  background-image: linear-gradient(to bottom,#38618B,#1C3146);
-
-}
-
+/* 
 .sidebar{
     background-image: linear-gradient(to bottom, #38618B,#1C3146);
     height: 100%;
     
-}
+} */
 
 h1,h2,h3,h4,h5,h6{
   font-family: celias;

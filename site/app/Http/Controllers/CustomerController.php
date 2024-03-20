@@ -22,6 +22,12 @@ class CustomerController extends Controller
   }
 
 
+  public function deposit($id)
+  {
+    $customer = Customer::find($id);
+    return view('pages.admin.customerDeposit', compact(('customer')));
+  }
+
   public function update($id)
   {
     $customer = Customer::find($id);

@@ -6,19 +6,19 @@
         <div class="row">
             <div class="col-md-12 d-flex  align-items-center ">
                 <img src="{{ asset('assets/images/bitcoin.png') }}" class="me-5" width="5%" alt="">
-                <h1>{{ $cryptoname }}</h1>
+                <h1 class="text-light">{{ $cryptoname }}</h1>
             </div>
             <div class=" col-md-12 mt-5 mb-4  d-flex">
                 <h3><button class="shadoww__btn">Overview</button></h3>
             </div>
-            <div class="col-md-12 shadow-sm p-3 mb-5 bg-body rounded">
+            <div class="col-md-12 shadow-sm p-3 mb-5 bg-dark rounded">
                 <div class="courbeCrypto">
                     <canvas id="myChart"></canvas>
                 </div>
 
             </div>
             @can('do_transaction')
-                <div class="col-md-12">
+                <div class="col-md-12 text-light">
                     <h3>Transactions</h3>
                     <div>
                         @if ($transactions->count() > 0)
@@ -76,7 +76,7 @@
                         @csrf
                         <div class="">
                             <div>
-                                <h5> Votre solde: {{ $solde }}</h5>
+                                <h5 class="text-light"> Votre solde: {{ $solde }}</h5>
                             </div>
 
                             @error('qte')

@@ -76,6 +76,8 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
 
     Route::get('/customers-list', [CustomerController::class, 'list'])->name('list.customers');
 
+    Route::get('/deposit-customer/{id}', [CustomerController::class, 'deposit'])->name('deposit.customer');
+
     Route::get('/modify-customer/{id}', [CustomerController::class, 'update'])->name('modify.customer');
 
     Route::post('/update/traitement', [CustomerController::class, 'update_traitement'])->name('update.treatment');
@@ -84,13 +86,15 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
 
     Route::get('/add-customer', [CustomerController::class, 'add'])->name('add.customer');
 
+    Route::get('/add-crypto', [CryptoController::class, 'addcrypto'])->name('addcrypto');
+
     Route::get('/view-customer/{id}', [CustomerController::class, 'view'])->name('view.customer');
 
-    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto');
+    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCryptoAdmin'])->name('cours.crypto');
 
     Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto');
 
-    
+    Route::post('/updateselfAdmin/traitement', [UserProfileController::class, 'update_self_traitement_admin'])->name('updateselfadmin');
 });
 
 

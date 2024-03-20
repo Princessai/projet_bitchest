@@ -10,7 +10,7 @@
       </div>
             </div >
             <div class="col-lg-12 d-flex align-items-start">
-            <div class="mt-4"><a href="{{route('profil.customer')}}"><button class="shadoww__btn">MY PROFILE</button> </a></div>
+            <div class="mt-4"><a href=""><button class="shadoww__btn">MY PROFILE</button> </a></div>
            </div>
 
     <div class="col-lg-12 mt-5 shadow p-3 mb-5 bg-body rounded">
@@ -34,7 +34,7 @@
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
-      <form method="POST" action="{{route('updateself')}}">
+      <form method="POST" action="{{route('updateselfadmin')}}">
        @csrf
       <div class="accordion-body">
       <input type="hidden" class="form-control" name="id" value="{{Auth::user()->id}}" id="exampleInputEmail1" aria-describedby="emailHelp">

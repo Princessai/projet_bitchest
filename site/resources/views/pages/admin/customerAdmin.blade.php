@@ -34,8 +34,9 @@
                                 <td>
 
                                 <a href="{{ route('modify.customer', ['id' => $items->id]) }}" class="me-3"><button class="shadowe__btn">EDIT</button></a>
-                                <a href="{{ route('delete.customer', ['id' => $items->id]) }}" class="me-3"><button class="shadowd__btn">DELETE</button></a>
-                                <a href="{{ route('view.customer', ['id' => $items->id]) }}"><button class="shadows__btn">SEE</button></a>
+                               <button class="shadowd__btn me-3" onclick="return confirm('are you sure you want to delete this user?');"> <a href="{{ route('delete.customer', ['id' => $items->id]) }}" >DELETE</a></button>
+                                <a href="{{ route('view.customer', ['id' => $items->id]) }}"  class="me-3"><button class="shadows__btn">SEE</button></a>
+                                <a href="{{ route('deposit.customer', ['id' => $items->id]) }}"><button class="shadowm__btn">DEPOSIT</button></a>
                                 </td>
 
                             </tr>

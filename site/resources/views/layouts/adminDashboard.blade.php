@@ -2,8 +2,10 @@
 
 
 @section('walletbutton')
+<a href="{{route('list.customers')}}">
     <img src="{{ asset('assets/images/customer_icon.png') }}" alt="" class="butside"><br>
     <span class="text-light">Customers</span>
+</a>
 @endsection
 
 

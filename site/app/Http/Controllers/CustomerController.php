@@ -21,14 +21,18 @@ class CustomerController extends Controller
 {
 
 
-  public function list(): view
+  public function list()
   {
     // $customer = Customer::paginate(4);
     $customer = Customer::all();
     return view('pages.admin.customerAdmin', compact('customer'));
   }
 
-
+  public function deposit($id)
+  {
+    $customer = Customer::find($id);
+    return view('pages.admin.customerDeposit', compact(('customer')));
+  }
   public function update($id)
   {
     $customer = Customer::find($id);

@@ -2,8 +2,10 @@
 @extends('base')
 
 @section('walletbutton')
+<a href="{{route('list.customers')}}">
     <img src="{{ asset('assets/images/customer_icon.png') }}" alt="" class="butside"><br>
     <span class="text-light">Customers</span>
+</a>
 @endsection
 
 
@@ -25,8 +27,12 @@
 include(base_path('documents/utils.php'))
     
 @endphp
+<div class="d-flex flex-column">
+<h3 class=" mt-3 text-light text-start   ms-2  fw-semibold mb-4">List Crypto</h3>
+<a href="{{route('addcrypto')}}" class="align-self-start"><button class="shadoww__btn mb-5 ">Add Crypto</button></a>
+</div>
 
-<h3 class=" mt-3 text-info text-start  ms-4  fw-semibold mb-4">List Crypto</h3>
+
     <div class="table-responsive rounded shadow p-3 mb-5 bg-body  rounded ">
         <table class="table text-nowrap   mb-5 mb-0 align-middle">
             <thead class="text-light fs-4">

@@ -1,7 +1,7 @@
 @extends('layouts.adminDashboard')
 @section('bodycontent')
     <h2 class="text-light text-start mt-3 ms-3">Liste Des Clients</h2>
-    <button type="submit" class="btn btn-primary bg-gradient  w-25 mb-3"><a href="{{ route('add.customer') }}"
+    <button type="submit" class="btn btn-secondary bg-gradient  w-25 mb-3"><a href="{{ route('add.customer') }}"
             class="butt text-light ">Add</a></button>
     <div class="container text-center">
         <div class="row">
@@ -32,13 +32,11 @@
                                 <td>{{ $items->age }}</td>
                                 <td>{{ $items->email }}</td>
                                 <td>
-                                    <a href="{{ route('modify.customer', ['id' => $items->id]) }}"><img
-                                            src="{{ asset('assets/images/edit.png') }}" alt="" width="5%"></a>
-                                    <a href="{{ route('delete.customer', ['id' => $items->id]) }}"><img
-                                            src="{{ asset('assets/images/recycle-bin.png') }}" alt=""
-                                            width="5%"></a>
-                                    <a href="{{ route('view.customer', ['id' => $items->id]) }}"><img
-                                            src="{{ asset('assets/images/eye.png') }}" alt="" width="5%"></a>
+
+                                <a href="{{ route('modify.customer', ['id' => $items->id]) }}" class="me-3"><button class="shadowe__btn">EDIT</button></a>
+                               <button class="shadowd__btn me-3" onclick="return confirm('are you sure you want to delete this user?');"> <a href="{{ route('delete.customer', ['id' => $items->id]) }}" >DELETE</a></button>
+                                <a href="{{ route('view.customer', ['id' => $items->id]) }}"  class="me-3"><button class="shadows__btn">SEE</button></a>
+                                <a href="{{ route('deposit.customer', ['id' => $items->id]) }}"><button class="shadowm__btn">DEPOSIT</button></a>
                                 </td>
 
                             </tr>

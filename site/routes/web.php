@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserProfileController;
 use App\Models\Crypto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,16 +37,16 @@ Route::get('/logout', [CustomerController::class, 'logout'])->name('logout');
 
 //? customer routes
 
-Route::prefix('customer')->middleware('auth:customers')->group(function () {
+Route::prefix('customer')->middleware('auth:customers')->group(function (){
+
+    Route::post('/updateself/traitement', [UserProfileController::class, 'update_self_traitement'])->name('updateself');
 
     Route::get('/dashboard', function (Request $request) {
 
         return view('pages.customer.homeCustomer');
     })->name('dashboard.customer');
 
-    Route::get('/wallet', function () {
-        return view('pages.customer.wallet');
-    })->name('wallet');
+    // Route::get('/marche', function (Request $request) {
 
     Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto.customer');
 
@@ -68,6 +69,8 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
 
     Route::get('/customers-list', [CustomerController::class, 'list'])->name('list.customers');
 
+    Route::get('/deposit-customer/{id}', [CustomerController::class, 'deposit'])->name('deposit.customer');
+
     Route::get('/modify-customer/{id}', [CustomerController::class, 'update'])->name('modify.customer');
 
     Route::post('/update/traitement', [CustomerController::class, 'update_traitement'])->name('update.treatment');
@@ -77,9 +80,12 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
     Route::get('/add-customer', [CustomerController::class, 'add'])->name('add.customer');
     Route::post('/add-customer', [CustomerController::class, 'create'])->name('create.customer');
 
+    Route::get('/add-crypto', [CryptoController::class, 'addcrypto'])->name('addcrypto');
+
     Route::get('/view-customer/{id}', [CustomerController::class, 'view'])->name('view.customer');
 
     Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCrypto'])->name('cours.crypto.admin');
+    Route::get('/courcrypto/{crypto_id}', [CryptoController::class, 'courCryptoAdmin'])->name('cours.crypto');
 
     Route::get('/all-crypto', [CryptoController::class, 'listCrypto'])->name('list.crypto.admin');
 
@@ -88,6 +94,7 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
     })->name('profil.admin');
     
 
+    Route::post('/updateselfAdmin/traitement', [UserProfileController::class, 'update_self_traitement_admin'])->name('updateselfadmin');
 });
 
 

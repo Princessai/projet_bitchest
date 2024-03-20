@@ -16,10 +16,10 @@
 @section('body')
     <div class="container text-center">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-lg-7">
+            <div class="col-md-12 col-sm-12 col-lg-8">
                 @yield('bodycontent')
             </div>
-            <div class="col-md-12 col-md-12 col-lg-5 shadow-sm p-3 mb-5 rounded ">
+            <div class="col-md-12 col-md-12 col-lg-4 shadow-sm p-3 mb-5 rounded ">
                 @yield('sidecontent')
             </div>
         </div>

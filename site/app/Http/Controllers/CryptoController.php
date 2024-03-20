@@ -116,7 +116,7 @@ class CryptoController extends Controller
 
             if ($qte_initial < $qte_transaction) {
                 $validTransaction = false;
-                $error = "Vous ne possédez pas suffisamment de $crypto->label";
+                $error = "You don't have enough $crypto->label";
             } else {
                 $qte_possede = $qte_initial - $qte_transaction;
                 $solde_actuel = $solde_initial + $montant;
@@ -126,7 +126,7 @@ class CryptoController extends Controller
             if ($solde_initial < $montant) {
 
                 $validTransaction = false;
-                $error = "Votre solde est insuffisant pour effectuer cette opération";
+                $error = "Your balance is insufficient for this transaction";
             } else {
                 $solde_actuel = $solde_initial - $montant;
                 $qte_possede = $qte_initial + $qte_transaction;
@@ -156,7 +156,7 @@ class CryptoController extends Controller
             return back()->with('success', "Transaction réussie ! Votre portefeuille a  été mis à jour");
         } else {
 
-            return back()->withErrors(['transaction_error' => $error]) // Pass the error bag to the redirected page
+            return back()->withErrors(['qte' => $error]) // Pass the error bag to the redirected page
                 ->withInput();
         }
     }

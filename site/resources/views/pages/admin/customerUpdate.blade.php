@@ -13,6 +13,7 @@
         <form method="POST" action="{{route('update.treatment')}}" class="d-flex flex-column" >
         @csrf
       <h3><strong>Edit info</strong></h3>
+      wtfffffffffffffffff
       <hr>
       <input type="hidden" id="TextInput" name="id"  class="form-control" value="{{ $customer->id }}">
       <div class="d-flex justify-content-between align-items-center"><h5>Firstname</h5>  <input type="text"   class="form-control w-50"  name="firstname" value="{{ $customer->firstname }}" ></div>

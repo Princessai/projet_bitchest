@@ -1,31 +1,35 @@
 @extends('layouts.adminDashboard')
 @section('bodycontent')
-    <div class="container">
-            <div class="row">
-            <div class="col-lg-12 d-flex align-items-center mt-5">
-    <img src="{{ asset('assets/images/user2.png') }}" class="shadoww__btn" alt="" >
-        <div><h3 class="ms-4 text-light">Update Customer : <strong>{{ $customer->firstname }}</strong>  </h3>
-              <small class="ms-4 text-light opacity-75"></small>
-      </div>
-            </div >
+    <div class="container w-50
+ mt-3 profile shadow p-3 mb-5 rounded rounded text-center">
+        <div class="row">
+            <div class="col-md-12 d-flex flex-column  mt-3  ">
+                <h2 class="text-light">Update</h2>
+                <form method="POST" action="/update/traitement">
+                    @csrf
 
-    <div class="col-lg-12 mt-5 shadow p-3  mb-5 bg-body rounded">
-        <form method="POST" action="{{route('update.treatment')}}" class="d-flex flex-column" >
-        @csrf
-      <h3><strong>Edit info</strong></h3>
-      <hr>
-      <input type="hidden" id="TextInput" name="id"  class="form-control" value="{{ $customer->id }}">
-      <div class="d-flex justify-content-between align-items-center"><h5>Firstname</h5>  <input type="text"   class="form-control w-50"  name="firstname" value="{{ $customer->firstname }}" ></div>
-      <hr>
-      <div class="d-flex justify-content-between align-items-center"><h5>Lastname</h5>  <input type="text"   class="form-control w-50" name="lastname"  value="{{ $customer->lastname }}" ></div>
-      <hr>
-      <div class="d-flex justify-content-between align-items-center"><h5>Age</h5>  <input type="number"   class="form-control w-50" name="age" value="{{ $customer->age }}" ></div>
-      <hr>
-      <div class="d-flex justify-content-between align-items-center"><h5>Email</h5>  <input type="email"   class="form-control w-50" name="email" value="{{ $customer->email }}" ></div>
-
-        <input type="submit"  class="form-control align-self-center w-25 but-update  mt-5 " value="update">
-    </form>
+                    <h6 class="text-light">Customer : {{ $customer->firstname }}</h6>
+                    <input type="text" id="TextInput" name="id" style="display: none;" class="form-control"
+                        value="{{ $customer->id }}">
+                    <div class="mb-3">
+                        <input type="text" id="TextInput" name="firstname" class="form-control"
+                            value="{{ $customer->firstname }}">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" id="disabledTextInput" name="lastname" class="form-control"
+                            value="{{ $customer->lastname }}">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" id="disabledTextInput" name="age" class="form-control"
+                            value="{{ $customer->age }}">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" id="disabledTextInput" name="email" class="form-control"
+                            value="{{ $customer->email }}">
+                    </div>
+                    <input type="submit" id="TextInput" class="form-control align-self-center" value="update">
+                </form>
+            </div>
+        </div>
     </div>
- </div>
-</div>
 @endsection

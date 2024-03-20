@@ -2,38 +2,26 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Admin;
 use App\Models\Wallet;
 use App\Models\Customer;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
-
-
-
-
-
 
 class CustomerController extends Controller
 {
 
 
-  public function list()
+  public function list(): view
   {
     // $customer = Customer::paginate(4);
     $customer = Customer::all();
     return view('pages.admin.customerAdmin', compact('customer'));
   }
 
-  public function deposit($id)
-  {
-    $customer = Customer::find($id);
-    return view('pages.admin.customerDeposit', compact(('customer')));
-  }
+
   public function update($id)
   {
     $customer = Customer::find($id);
@@ -59,7 +47,6 @@ class CustomerController extends Controller
 
     return redirect()->route('list.customers');
   }
-
 
   public function delete($id)
   {
@@ -116,16 +103,7 @@ class CustomerController extends Controller
   {
     $customer = Customer::find($id);
     return view('pages.admin.customerView', compact('customer'));
-
-
-
   }
-
-
-public function profilecustomer (){
-   return view('pages.customer.profil');
-}
-
 
   public function login(Request $request)
   {

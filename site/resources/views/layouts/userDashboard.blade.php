@@ -13,16 +13,6 @@
     </a>
 @endsection --}}
 
-
-@section('profilebutton')
-<a class="nav-link  align-self-center" href="{{route('profil.customer')}}" >
-<img src="{{ asset('assets/images/user.png') }}" alt="">
-</a>
-@endsection
-
-
-
-
 @section('body')
     <div class="container text-center">
         <div class="row">

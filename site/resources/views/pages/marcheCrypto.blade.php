@@ -1,3 +1,4 @@
+@extends('layouts.userDashboard')
 
 @section('bodycontent')
     @php
@@ -247,8 +248,5 @@
                       </tr>         --}}
     </tbody>
     </table>
-    </div>
-            </div>
-        </div>
     </div>
 @endsection

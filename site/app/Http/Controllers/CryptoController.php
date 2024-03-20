@@ -18,11 +18,6 @@ class CryptoController extends Controller
 {
     //
 
-   public function addcrypto() {
-    
-    return view('pages.admin.addCrypto');
-   }
-
     public function courCrypto(Request $request, $crypto_id)
     {
         $cours = Cotation::select('cours_actuel', 'date')
@@ -62,59 +57,11 @@ class CryptoController extends Controller
     }
 
 
-    public function courCryptoAdmin(Request $request, $crypto_id)
-    {
-        //dd($crypto_id);
-        $cours = Cotation::select('cours_actuel', 'date')
-            ->where("crypto_id", $crypto_id)
-            ->orderBy('date')
-            ->get();
-
-        $dates = [];
-        $cours->transform(function ($item, $key) use (&$dates) {
-            // var_dump($item->cours_actuel);
-            $dates[] = $item->date;
-            return $item->cours_actuel;
-        });
-
-        $cours = json_encode($cours->all());
-        $dates = json_encode($dates);
-
-        $cryptoname = Crypto::findOrFail($crypto_id)->label;
-        // $cryptoname = $cryptoname->label;
-
-        // $customer = Customer::find($request->session()->get('user')['user_id']);
-        $guard = "customers";
-
-        if ($request->session()->get('isadmin')) {
-            $guard = "admins";
-        }
-        return view('pages.admin.courCryptoAdmin', compact('crypto_id', 'cours', 'dates', 'cryptoname', ));
-    }
-
-
-
-
-
-
-
-
-
-
     public function listCrypto()
     {
         $cryptos = Crypto::all();
-        return view('pages.admin.AdminMarcheCrypto', compact('cryptos'));
+        return view('pages.marcheCrypto', compact('cryptos'));
     }
-
-
-    public function walletCrypto()
-    {
-        $cryptos = Crypto::all();
-        return view('pages.customer.wallet', compact('cryptos'));
-    }
-
-
 
     public function transaction(Request $request, $crypto_id)
     {

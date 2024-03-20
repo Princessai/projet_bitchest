@@ -22,8 +22,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('no_transaction', function ($user) {
-            return  $user->isadmin();
+        Gate::define('do_transaction', function ($user) {
+            return  !$user->isadmin();
         });
         // Gate::define('admin', function ($user) {
         //     return $user->isadmin();

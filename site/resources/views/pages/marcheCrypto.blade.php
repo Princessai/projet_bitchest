@@ -2,7 +2,7 @@
 
 @section('bodycontent')
     @php
-        include base_path('documents/utils.php');
+        use App\Models\Cotation;
 
     @endphp
 
@@ -51,7 +51,7 @@
                             <h6 class="fw-semibold mb-1">{{ $crypto->label }}</h6>
                         </td>
                         <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{ getCoursActuel($crypto->id) }} €</p>
+                            <p class="mb-0 fw-normal">{{ Cotation::getCoursActuel($crypto->id) }} €</p>
                         </td>
                         <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">

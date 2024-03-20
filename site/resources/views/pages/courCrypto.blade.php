@@ -1,14 +1,8 @@
 @extends('layouts.userDashboard')
 
 @section('bodycontent')
-    {{-- {{$cours}} --}}
-    @php
-        // dump($cours);
-    @endphp
 
-    {{-- {{ $cours}} --}}
-
-    <div class="container mt-5 text-center">
+<div class="container mt-5 text-center">
         <div class="row">
             <div class="col-md-12 d-flex  align-items-center ">
                 <img src="{{ asset('assets/images/bitcoin.png') }}" class="me-5" width="5%" alt="">
@@ -23,81 +17,86 @@
                 </div>
 
             </div>
-
-
-            <div class="col-md-12">
-                <h3>Transactions</h3>
-                <div>
-                    @if ($transactions->count() > 0)
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Crypto</th>
-                                    <th>Purchased rate</th>
-                                    <th>Type</th>
-                                    <th>Date</th>
-                                    <th>Quantity</th>
-                                    <th>amount</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                @foreach ($transactions as $transaction)
+            @can('do_transaction')
+                <div class="col-md-12">
+                    <h3>Transactions</h3>
+                    <div>
+                        @if ($transactions->count() > 0)
+                            <table>
+                                <thead>
                                     <tr>
-                                        <td> {{ $cryptoname }} </td>
-                                        <td> {{ $transaction->cours_achat }} </td>
-                                        <td> {{ $transaction->type }} </td>
-                                        <td> {{ $transaction->date }} </td>
-                                        <td> {{ $transaction->quantite }} </td>
-                                        <td> {{ $transaction->montant }} </td>
+                                        <th>Crypto</th>
+                                        <th>Purchased rate</th>
+                                        <th>Type</th>
+                                        <th>Date</th>
+                                        <th>Quantity</th>
+                                        <th>amount</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
+                                </thead>
+
+                                <tbody>
+                                    @foreach ($transactions as $transaction)
+                                        <tr>
+                                            <td> {{ $cryptoname }} </td>
+                                            <td> {{ $transaction->cours_achat }} </td>
+                                            <td> {{ $transaction->type }} </td>
+                                            <td> {{ $transaction->date }} </td>
+                                            <td> {{ $transaction->quantite }} </td>
+                                            <td> {{ $transaction->montant }} </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
 
 
 
-                        </table>
-                    @else
-                        <p>
-                            You don't have any transaction yet. Please add a new one to see it here!
-                        </p>
-                    @endif
+                            </table>
+                        @else
+                            <p>
+                                You don't have any transaction yet. Please add a new one to see it here!
+                            </p>
+                        @endif
+                    </div>
+                </div>
+            @endcan
+
+
+        </div>
+
+    </div>
+@endsection
+
+
+@can('do_transaction')
+    @section('sidecontent')
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12 mt-5">
+
+                    <form action="{{ route('transaction', ['crypto_id' => $crypto_id]) }}" method="POST">
+                        @csrf
+                        <div class="">
+                            <div>
+                                <h5> Votre solde: {{ $solde }}</h5>
+                            </div>
+
+                            @error('qte')
+                                {{ $message }}
+                            @enderror
+                            <input type="text" class="cleaninput mt-4" name="qte" value="{{ old('qte') }}">
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="shadoww__btn" name="type" value="buy">Buy</button>
+                            <button type="submit" class="shadoww__btn" name="type" value="sell">Sell</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
+    @endsection
 
-    </div>
-@endsection
+@endcan
 
-
-
-@section('sidecontent')
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-12 mt-5">
-
-                <form action="{{ route('transaction', ['crypto_id' => $crypto_id]) }}" method="POST">
-                    @csrf
-                    <div class="">
-                        <div>
-                            <h5> Votre solde: {{ $solde }}</h5>
-                        </div>
-
-                        @error('qte')
-                            {{ $message }}
-                        @enderror
-                        <input type="text" class="cleaninput mt-4" name="qte" value="{{ old('qte') }}">
-                    </div>
-                    <div class="mt-3">
-                        <button type="submit" class="shadoww__btn" name="type" value="buy">Buy</button>
-                        <button type="submit" class="shadoww__btn" name="type" value="sell">Sell</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-@endsection
 
 
 

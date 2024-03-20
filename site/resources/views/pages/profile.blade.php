@@ -1,4 +1,4 @@
-{{-- @extends('base')
+{{-- 
         @section('homeButton')
         <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
             <img src="{{ asset('assets/images/accueil.png') }}" alt=""  class="w-75 butside"> <br>
@@ -11,7 +11,7 @@
     <span class="text-light">Wallet</span>
 @endsection --}}
 
-
+@extends('base')
 @section('profilebutton')
 <img src="{{ asset('assets/images/user.png') }}" alt="">
 @endsection

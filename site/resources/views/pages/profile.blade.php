@@ -76,7 +76,7 @@
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <form method="POST" action="{{ route('updateself.admin') }}">
+                                        <form method="POST" action="{{ route($updateself) }}">
                                             @csrf
                                             <div class="accordion-body">
                                                 <input type="hidden" class="form-control" name="id"

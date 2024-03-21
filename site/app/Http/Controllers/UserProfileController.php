@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 namespace App\Http\Controllers;
@@ -14,66 +14,68 @@ use Illuminate\Support\Facades\Hash;
 
 
 
-class UserProfileController extends Controller {
+class UserProfileController extends Controller
+{
 
-    public function update_self_traitement(Request $request)
-    {
+  public function update_self_traitement(Request $request)
+  {
 
-$user = Auth::user();
+    $user = Auth::user();
 
 
-$rules = [
-  'firstname' => 'required|string',
-        'lastname' => 'required|string',
- 'email' => 'required|email:rfc,dns',
- 'password' => 'required',
-];
+    $rules = [
+      'firstname' => 'required|string',
+      'lastname' => 'required|string',
+      'email' => 'required|email:rfc,dns',
+      'password' => 'required',
+    ];
 
-     if ($user->isAdmin() == FALSE  ) {
+    if ($user->isAdmin() == FALSE) {
       $customerRules = [
-          'age' => 'required',
+        'age' => 'required',
       ];
-      $rules += $customerRules ; 
-
-     }
-
-
-
-      $request->validate($rules);
-
-
-  $oldPassword =  $request->password;
-
-$hash = $user->password ;
-
-
- $check = Hash::check($oldPassword,$hash);
-
-    if($check == FALSE){
-     return redirect()->back()->with('error', 'incorrect password');
-      } else {
-         if(($request->input('new-password') !=NULL) and ($request->input('confirm-new-password') !=NULL)){
-           if ($request->input('new-password') == $request->input('confirm-new-password')){
-            $user->password = Hash::make($request->input('new-password')) ;
-           } else {
-            return redirect()->back()->with('error' , 'put the same password please');
-           }
-         } 
-    }
-
-      // $user->firstname =$request->input('firstname');
-      // $user->lastname = $request->input('lastname');
-      // $user->age = $request->input('age');
-      // $user->email = $request->input('email');
-      
-  
-      $user->update($request->all()); 
-  
-          return redirect()->route('profil.customer');
+      $rules += $customerRules;
     }
 
 
+
+    $request->validate($rules);
+
+
+    $oldPassword =  $request->password;
+
+    $hash = $user->password;
+
+
+    $check = Hash::check($oldPassword, $hash);
+
+    if ($check == FALSE) {
+      return redirect()->back()->with('error', 'incorrect password');
+    } else {
+      if (($request->input('new-password') != NULL) and ($request->input('confirm-new-password') != NULL)) {
+        if ($request->input('new-password') == $request->input('confirm-new-password')) {
+          $user->password = Hash::make($request->input('new-password'));
+        } else {
+          return redirect()->back()->with('error', 'put the same password please');
+        }
+      }
+    }
+
+    // $user->firstname =$request->input('firstname');
+    // $user->lastname = $request->input('lastname');
+    // $user->age = $request->input('age');
+    // $user->email = $request->input('email');
+
+
+    $user->update($request->all());
+
+    if ($user->isAdmin()) {
+
+      return redirect()->route('profil.admin');
+    }
+    return redirect()->route('profil.customer');
   }
+}
 //     public function update_self_traitement_admin(Request $request)
 //     {
 //       $request->validate([

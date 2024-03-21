@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-12 d-flex flex-column mt-5 soldeAccount">
                 <h6 class=" mt-3 align-self-start text-info ">My crypto</h6>
-                <h4 class="text-light align-self-start text-muted">{{ $couts_totaux }} €</h4>
+                <h4 class="text-light align-self-start text-light">{{ $couts_totaux }} €</h4>
                 <div class="shadow p-3 mb-5 bg-body rounded me-5 ">
                     @if (!$isWalletEmpty)
                         <table class=" table align-middle  mb-5 mb-0 ">

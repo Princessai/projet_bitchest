@@ -18,9 +18,10 @@
 
             </div>
             @can('do_transaction')
-                <div class="col-md-12 text-light">
+                <div class="col-md-12 bg-body bg-gradient text-dark shadow-sm p-3 mb-5 rounded  ">
                     <h3>Transactions</h3>
-                    <div>
+
+                    <div class=" ">
                         @if ($transactions->count() > 0)
                             <table>
                                 <thead>
@@ -76,11 +77,12 @@
                         @csrf
                         <div class="">
                             <div>
-                                <h5 class="text-light"> Votre solde: {{ $solde }}</h5>
+                                <h5 class="text-light"> Votre solde: {{ $solde }} €</h5>
                             </div>
 
                             @error('qte')
-                                {{ $message }}
+                             <div class="text-light px-5 bg-danger bg-gradient shadow p-3 mb-2 mt-2  rounded ">
+                           <strong> {{ $message }} </strong>   </div>   
                             @enderror
                             <input type="text" class="cleaninput mt-4" name="qte" value="{{ old('qte') }}">
                         </div>

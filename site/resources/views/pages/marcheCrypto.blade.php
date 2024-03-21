@@ -9,7 +9,7 @@
     <h5 class=" mt-3 text-info  ms-4  fw-semibold mb-4">BUY & SELL</h5>
     @cannot('do_transaction')
         <div>
-            <a href="{{ route('addcrypto') }}"><button class="shadoww__btn">Add crypto</button></a>
+            <a href="{{ route('addcrypto') }}"><button class="shadoww__btn mb-3">Add crypto</button></a>
         </div>
     @endcannot
     <div class="table-responsive rounded shadow p-3 mb-5 bg-body  rounded ">

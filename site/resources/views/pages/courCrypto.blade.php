@@ -5,8 +5,8 @@
 <div class="container mt-5 text-center">
         <div class="row">
             <div class="col-md-12 d-flex  align-items-center ">
-                <img src="{{ asset('assets/images/bitcoin.png') }}" class="me-5" width="5%" alt="">
-                <h1 class="text-light">{{ $cryptoname }}</h1>
+                <img src="{{ asset("storage/img/$crypto->image") }}" class="me-5" width="5%" alt="">
+                <h1 class="text-light">{{ $crypto->label }}</h1>
             </div>
             <div class=" col-md-12 mt-5 mb-4  d-flex">
                 <h3><button class="shadoww__btn">Overview</button></h3>
@@ -37,7 +37,7 @@
                                 <tbody>
                                     @foreach ($transactions as $transaction)
                                         <tr>
-                                            <td> {{ $cryptoname }} </td>
+                                            <td> {{ $crypto->label }} </td>
                                             <td> {{ $transaction->cours_achat }} </td>
                                             <td> {{ $transaction->type }} </td>
                                             <td> {{ $transaction->date }} </td>
@@ -139,7 +139,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'Cours actuel: {{ $cryptoname }}'
+                        text: 'Cours actuel: {{ $crypto->label }}'
                     }
                 }
             },

@@ -8,10 +8,12 @@ use App\Models\Wallet;
 use App\Models\Cotation;
 use App\Models\Customer;
 use App\Models\Transaction;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class CryptoController extends Controller
@@ -19,11 +21,38 @@ class CryptoController extends Controller
     //
 
 
-    public function addcrypto() {
-    
+    public function addcrypto()
+    {
+
         return view('pages.admin.addCrypto');
-       }
-    
+    }
+    public function createcrypto(Request $request)
+    {
+        require base_path('/documents/cotation_generator.php');
+        $validated = $request->validate([
+            'label' => 'required|string|unique:cryptos',
+            'logo' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        // $logo=$request->file('logo');
+
+        $file = $request->file('logo');
+
+        if ($file == null || $file->getError()) {
+            back()->withErrors('logo', 'Error with file');
+        }
+
+        $fileName =  Storage::disk('local')->put('public/img', $file);
+        $fileName = Str::remove('public/img/', $fileName);
+
+
+        $crypto = Crypto::create(['label' => $request->label, 'image' => $fileName]);
+        $date = Carbon::today();
+        $cours_actuel = getFirstCotation($request->label);
+        Cotation::create(['crypto_id' => $crypto->id, 'cours_actuel' => $cours_actuel, 'date' => $date]);
+
+        return back()->with('message', 'New crypto added !');
+    }
+
     public function courCrypto(Request $request, $crypto_id)
     {
         $cours = Cotation::select('cours_actuel', 'date')
@@ -41,10 +70,11 @@ class CryptoController extends Controller
         $cours = json_encode($cours->all());
         $dates = json_encode($dates);
 
-        $cryptoname = Crypto::findOrFail($crypto_id)->label;
+        $crypto = Crypto::findOrFail($crypto_id);
 
 
-        $view_data = ['crypto_id', 'cryptoname', 'cours', 'dates'];
+
+        $view_data = ['crypto_id', 'crypto', 'cours', 'dates'];
 
         if (Gate::allows('do_transaction')) {
 
@@ -52,12 +82,12 @@ class CryptoController extends Controller
             $wallet_id = $customer->wallet_id;
 
             $solde = $customer->wallet->solde;
-         
+
             $transactions = Transaction::where(["wallet_id" => $wallet_id, "crypto_id" => $crypto_id])->get();
-            $view_data =  [...$view_data , ...['transactions', 'solde']];
+            $view_data =  [...$view_data, ...['transactions', 'solde']];
             // dd($view_data);
         }
-       
+
 
         return view('pages.courCrypto', compact(...$view_data));
     }
@@ -98,7 +128,7 @@ class CryptoController extends Controller
         $customer = Auth::user();
         $wallet = $customer->wallet;
         $solde_initial = $wallet->solde;
-        $cours_achat = Cotation::getCoursActuel($crypto_id);
+        $cours_achat = Crypto::getCoursActuel($crypto_id);
         // dd($cours_achat);
         $montant = $cours_achat * $qte_transaction;
         // var_dump($crypto_id);

@@ -77,6 +77,16 @@
                                                 value="{{ Auth::user()->password }}">
                                         </div>
 
+                                        <div class="mb-3">
+                                                    <label for="exampleInputPassword1" class="form-label"> new Password</label>
+                                                    <input type="text" class="form-control" name="new-password"
+                                                        value="">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPassword1" class="form-label">confirm Password</label>
+                                                    <input type="text" class="form-control" name="confirm-new-password"
+                                                        value="">
+                                                </div>
                                         <input type="submit" id="TextInput"
                                             class="form-control shadoww__btn align-self-center" value="Edit">
 

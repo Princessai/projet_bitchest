@@ -18,61 +18,94 @@ class UserProfileController extends Controller {
 
     public function update_self_traitement(Request $request)
     {
-      $validationRule = ['firstname', 'lastname', 'email'];
-      $request->validate([
-        'firstname' => 'required|string',
+
+$user = Auth::user();
+
+
+$rules = [
+  'firstname' => 'required|string',
         'lastname' => 'required|string',
-        'age' => 'required|numeric',
-        'email' => 'required|email:rfc,dns',
-        'password' => 'required',
-  
-      ]);
-  
-      $user_id = Auth::user()->id;
+ 'email' => 'required|email:rfc,dns',
+ 'password' => 'required',
+];
+
+     if ($user->isAdmin() == FALSE  ) {
+      $customerRules = [
+          'age' => 'required',
+      ];
+      $rules += $customerRules ; 
+
+     }
+
+
+
+      $request->validate($rules);
+
+
+  $oldPassword =  $request->password;
+
+$hash = $user->password ;
+
+
+ $check = Hash::check($oldPassword,$hash);
+
+    if($check == FALSE){
+     return redirect()->back()->with('error', 'incorrect password');
+      } else {
+         if(($request->input('new-password') !=NULL) and ($request->input('confirm-new-password') !=NULL)){
+           if ($request->input('new-password') == $request->input('confirm-new-password')){
+            $user->password = Hash::make($request->input('new-password')) ;
+           } else {
+            return redirect()->back()->with('error' , 'put the same password please');
+           }
+         } 
+    }
+
+      // $user->firstname =$request->input('firstname');
+      // $user->lastname = $request->input('lastname');
+      // $user->age = $request->input('age');
+      // $user->email = $request->input('email');
       
-    $customer = Customer::find($user_id);
-      $customer->firstname = $request->firstname ?? $customer->firstname;
-      $customer->lastname = $request->lastname ?? $customer->lastname;
-      $customer->age = $request->age ?? $customer->age;
-      $customer->email = $request->email ?? $customer->email;
-          $customer->password = Hash::make($request->password); 
   
-  
-          $customer->update(); 
+      $user->update($request->all()); 
   
           return redirect()->route('profil.customer');
     }
 
 
-
-    // public function update_self_traitement_admin(Request $request)
-    // {
-    //   $request->validate([
-    //     'firstname' => 'required|string',
-    //     'lastname' => 'required|string',
-    //     'email' => 'required|email:rfc,dns',
-    //     'password' => 'required',
+  }
+//     public function update_self_traitement_admin(Request $request)
+//     {
+//       $request->validate([
+//         'firstname' => 'required|string',
+//         'lastname' => 'required|string',
+//         'email' => 'required|email:rfc,dns',
+//         'password' => 'required',
   
-    //   ]);
+//       ]);
   
-    //   $user_id = Auth::user()->id;
+//       $user_id = Customer::find(Auth::user()->id);
+//       $oldPassword = Hash::make($request->password);
+    
+//         if($oldPassword !== $user_id->password){
+//          return redirect()->back()->with('error', 'incorrect password');
+//           } else {
+//              if(($request->input('new-password') !=NULL) and ($request->input('confirm-new-password') !=NULL)){
+//                if ($request->input('new-password') == $request->input('confirm-new-password')){
+//                 $user_id->password = $request->input('new-password');
+//                } else {
+//                 return redirect()->back()->with('error' , 'put the same password please');
+//                }
+//              } 
+//         }
       
-    // $customer = Admin::find($user_id);
-    //   $customer->firstname = $request->firstname ?? $customer->firstname;
-    //   $customer->lastname = $request->lastname ?? $customer->lastname;
-    //   $customer->email = $request->email ?? $customer->email;
-    //       $customer->password = Hash::make($request->password); 
+//         $user_id->firstname = $request->firstname ;
+//         $user_id->lastname = $request->lastname ;
+//       $user_id->email = $request->email ;
+       
+//       $user_id->update(); 
   
-  
-    //       $customer->update(); 
-  
-    //       return redirect()->route('dashboard.admin');
-    // }
+//           return redirect()->route('dashboard.admin');
+//     }
 
-
-
-
-
-
-
-}
+// }

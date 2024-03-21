@@ -15,13 +15,16 @@
         <form method="POST"action="{{ route('create.customer') }}" class="d-flex flex-column" >
         @csrf
         
-        @if (session()->has('success') && session()->get('success') == true)
-                        <div class="pop-up text-green border-radius-5 ">
-                          <p>Customer added successfully !</p>
-                          <p>Generated password : {{session()->get('generatedPassword')}} !</p>
+    
+      <h3><strong>Add info</strong></h3>
+          @if (session()->has('success') && session()->get('success') == true)
+                        <div class="pop-up  d-flex flex-column  ">
+                     
+                           <div class="text-success h5 mb-3"> <strong>Customer added successfully !</strong></div>
+                           <div class="shadow p-3 mb-5  bg-success bg-gradient rounded "> <p class="text-light">(Generated password) <br> <h3 class="text-light">[{{session()->get('generatedPassword')}}]</h3></p> </div>
+                         
                         </div>
                     @endif
-      <h3><strong>Add info</strong></h3>
       <hr>
       
       @error('firstname')

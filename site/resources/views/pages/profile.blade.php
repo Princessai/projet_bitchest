@@ -79,33 +79,40 @@
                                         <form method="POST" action="{{ route('updateself') }}">
                                             @csrf
                                             <div class="accordion-body">
-                                                <input type="hidden" class="form-control" name="id"
-                                                    value="{{ Auth::user()->id }}" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp">
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Firstname</label>
-                                                    <input type="text" class="form-control" name="firstname"
+                                                    <input type="text" class="form-control" name="firstname" 
                                                         value="{{ Auth::user()->firstname }}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputPassword1" class="form-label">Lastname</label>
-                                                    <input type="text" class="form-control" name="lastname"
+                                                    <input type="text" class="form-control" name="lastname" 
                                                         value="{{ Auth::user()->lastname }}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputPassword1" class="form-label">Age</label>
-                                                    <input type="number" class="form-control" name="age"
+                                                    <input type="number" class="form-control" name="age" 
                                                         value="{{ Auth::user()->age }}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputPassword1" class="form-label">Email</label>
-                                                    <input type="email" class="form-control" name="email"
+                                                    <input type="email" class="form-control" name="email" 
                                                         value="{{ Auth::user()->email }}">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                                                    <input type="password" class="form-control" name="password"
-                                                        value="{{ Auth::user()->password }}">
+                                                    <label for="exampleInputPassword1" class="form-label">  Password</label>
+                                                    <input type="text" class="form-control" name="password" 
+                                                        value="">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPassword1" class="form-label"> new Password</label>
+                                                    <input type="text" class="form-control" name="new-password"
+                                                        value="">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPassword1" class="form-label">confirm Password</label>
+                                                    <input type="text" class="form-control" name="confirm-new-password"
+                                                        value="">
                                                 </div>
 
                                                 <input type="submit" id="TextInput"

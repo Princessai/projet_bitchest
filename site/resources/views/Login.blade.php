@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bfff4e75c6.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -122,8 +123,8 @@
                 @enderror
             </div>
             <div class="input-container d-flex mb-3 justify-content-center">
-                <input class="but-input w-75 m-auto" placeholder=" password" name="password" type="password">
-                <img src="{{ asset('assets/images/oeil.png') }}" height="20px" class="hidden-password" alt="">
+                <input class="but-input psw w-75 m-auto" placeholder=" password" name="password" type="password">
+                <i class="fas fa-eye mee "></i>
                 @error('password')
                     {{ $message }}
                 @enderror
@@ -138,19 +139,27 @@
     </div>
 
     <div class="position-absolute bottom-0 start-50 translate-middle-x"> @include('sections.footer') </div>
+<script>
 
+let input = document.querySelector('.psw');
+
+let showBtn = document.querySelector('.mee');
+
+showBtn.onclick = function() {
+    if (input.type === "password") {
+        input.type = "text"; 
+        showBtn.classList.add('active');
+    } else {
+        input.type = "password";
+        showBtn.classList.remove('active');
+    }
+};
+
+
+
+</script>
 </body>
 
 </html>
 
 
-<script>
-
-  let input = document.querySelector('.but-input');
-
-  let showBtn = doxument.querySelector('hidden-passworrd');
-
-  
-
-
-</script>

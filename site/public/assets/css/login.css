@@ -172,26 +172,37 @@ h2{
  
 
 
- .hidden-password{
+ .mee{
   position: absolute;
-   margin-top: 20px;
+   margin-top: 17px;
    margin-left: 135px;
+  cursor: pointer;
 
  }
 
+
+.mee:hover{
+  color: #4698e5;
+}
+ 
+
+
+
+
+
  @media only screen and (max-width: 800px) {
-  .hidden-password{
+  .mee{
     position: absolute;
-     margin-top: 20px;
+     margin-top: 17px;
      margin-left: 120px;
   
    }
 
    @media only screen and (max-width: 470px) {
-    .hidden-password{
+    .mee{
       position: absolute;
        margin-top: 20px;
-       margin-left: 80px;
+       margin-left: 70px;
     
      }
     }

@@ -26,7 +26,7 @@ class CustomerFactory extends Factory
             'firstname' => fake()->firstName(),
             'lastname' => fake()->lastName(),
             'age' => fake()->numberBetween(18,35),
-            'email' => fake()->email(),
+            'email' => fake()->unique()->email(),
             'password' =>  Hash::make('azerty12'),
             'wallet_id' => $wallet,
         ];

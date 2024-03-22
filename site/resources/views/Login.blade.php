@@ -115,21 +115,19 @@
                             The user is not authenticated
                         @endguest --}}
 
-            <div class="input-container mb-3 d-flex justify-content-center">
-                <input class="but-input w-75" placeholder="email" name="email" type="email">
-
-                @error('email')
-                    {{ $message }}
-                @enderror
+            <div class="input-container mb-1 d-flex justify-content-center">
+                <input class="but-input w-75" placeholder="email" name="email" type="email"> <br>
             </div>
-            <div class="input-container d-flex mb-3 justify-content-center">
+               @error('email')
+               <div class="mb-2 bg-danger bg-danger px-1 py-1 rounded text-light text-center"> <strong>{{ $message }}</strong> </div>  
+                @enderror
+            <div class="input-container d-flex mb-2 justify-content-center">
                 <input class="but-input psw w-75 m-auto" placeholder=" password" name="password" type="password">
-                <i class="fas fa-eye mee "></i>
-                @error('password')
-                    {{ $message }}
-                @enderror
+                <i class="fas fa-eye mee "></i> 
             </div>
-
+        @error('password')
+                 <div class="mb-2 bg-danger bg-danger px-1 py-1 rounded text-light text-center"> <strong>{{ $message }}</strong> </div>  
+                @enderror
             <button class="submit but-login w-75 m-auto " value="Log in" type="submit">
                 Sign in
             </button>

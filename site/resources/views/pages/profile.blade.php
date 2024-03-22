@@ -9,11 +9,14 @@ $updateself = route('updateself.admin');
 }
 @endphp
 
+
 @extends('base')
 @section('profilebutton')
 <img src="{{ asset('assets/images/user.png') }}" alt="">
 @endsection
 @section('body')
+
+
 <div class="container text-center">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-lg-12">
@@ -65,7 +68,7 @@ $updateself = route('updateself.admin');
                 <!-- edit your profile -->
 
                 <div class="col-lg-12 mb-5">
-                    <div class="accordion accordion-flush " id="accordionFlushExample">
+                    <div class="accordion accordion-flush mb-3 " id="accordionFlushExample">
                         <div class="accordion-item ">
                             <h2 class="accordion-header">
                                 <button class="accordion-button btn-52 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -80,95 +83,129 @@ $updateself = route('updateself.admin');
                                     </div>
                                 </button>
                             </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div id="flush-collapseOne" class="accordion-collapse collapse mb-3" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <form method="POST" action="{{ route('updateself.customer') }}">
                                         @csrf
                                         <div class="accordion-body">
                                             <div class="mb-3">
-                                                <label for="exampleInputEmail1" class="form-label">Firstname</label>
-                                                <input type="text" class="form-control" name="firstname" value="{{ Auth::user()->firstname }}">
+                                                <label for="exampleInputEmail1" class="form-label"> <strong>Firstname</strong> </label>
+                                                <input type="text" class="form-control input-profile" name="firstname" value="{{ Auth::user()->firstname }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Lastname</label>
-                                                <input type="text" class="form-control" name="lastname" value="{{ Auth::user()->lastname }}">
+                                                <label for="exampleInputPassword1" class="form-label"> <strong>Lastname</strong> </label>
+                                                <input type="text" class="form-control input-profile" name="lastname" value="{{ Auth::user()->lastname }}">
                                             </div>
                                             @can('do_transaction')
                                             <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Age</label>
-                                                <input type="number" class="form-control" name="age" value="{{ Auth::user()->age }}">
+                                                <label for="exampleInputPassword1" class="form-label"><strong>Age</strong></label>
+                                                <input type="number" class="form-control input-profile" name="age" value="{{ Auth::user()->age }}">
                                             </div>
                                             @endcan
                                             <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Email</label>
-                                                <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
+                                                <label for="exampleInputPassword1" class="form-label"> <strong>Email</strong> </label>
+                                                <input type="email" class="form-control input-profile" name="email" value="{{ Auth::user()->email }}">
                                             </div>
+
                                             <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label"> Password</label>
-                                                <input type="text" class="form-control" name="password" value="">
+                                                   <label for="exampleInputPassword1" class="form-label"> <strong>Password</strong> </label>
+                                                <div  class="d-flex align-items-center ">
+                                                       <input type="text" class="form-control input-profile w-50" name="password" value="">
+                                                       
+                                                </div>
+                                             
+                                             
                                             </div>
                                             <input type="submit" id="TextInput" class="form-control shadoww__btn align-self-center" value="Edit">
                                     </form>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-                            <!-- change your password -->
-
                         </div>
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button btn-53 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                        <div class="original">Change your Password</div>
-                                        <div class="letters">
 
-                                            <span>C</span>
-                                            <span>H</span>
-                                            <span>A</span>
-                                            <span>N</span class="me-2">
-                                            <span>G</span class="me-2">
-                                            <span>E</span class="me-2">
+                    </div>
+
+                </div>
+                <!--  change your password -->
+
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button btn-53 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                <div class="original">Change your Password</div>
+                                <div class="letters">
+
+                                    <span>C</span>
+                                    <span>H</span>
+                                    <span>A</span>
+                                    <span>N</span class="me-2">
+                                    <span>G</span class="me-2">
+                                    <span>E</span class="me-2">
 
 
-                                        </div>
-
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <div class="mb-3">
-                                        <form method="POST" action="{{ route('updateself.customer') }}">
-                                        @csrf
-                                            <label for="exampleInputPassword1" class="form-label"> Password</label>
-                                            <input type="text" class="form-control" name="password" value="">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputPassword1" class="form-label"> new Password</label>
-                                            <input type="text" class="form-control" name="new-password" value="">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputPassword1" class="form-label">confirm Password</label>
-                                            <input type="text" class="form-control" name="confirm-new-password" value="">
-                                        </div>
-
-                                        <input type="submit" id="TextInput" class="form-control shadoww__btn align-self-center" value="Edit">
-                                        </form>
-                                    </div>
                                 </div>
+
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="mb-3">
+                                    <form method="POST" action="{{ route('updateself.customer') }}">
+                                        @csrf
+
+                                        <div class="mb-3">
+                                             <label for="exampleInputPassword1" class="form-label"> Password</label>
+                                            <div class="d-flex align-items-center ">
+                                            <input type="text" class="form-control w-50 psw input-profile" name="password" value="">
+                                           
+                                            </div>  
+                                        </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label"> new Password</label>
+                                    <div class="d-flex align-items-center ">
+                                        <input type="password" class="form-control psw  w-50 input-profile" name="new-password" value="">
+                                     
+                                    </div>
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">confirm Password</label>
+                                    <div class="d-flex align-items-center ">
+                                        <input type="password" class="form-control w-50 psw input-profile" name="confirm-new-password" value="">
+                                      
+                                    </div>
+
+                                </div>
+
+                                <input type="submit" id="TextInput" class="form-control shadoww__btn align-self-center" value="Edit">
+                                </form>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
+<!-- <script>
+    let input = document.querySelector('.psw');
+
+let showBtn = document.querySelector('.mee');
+
+showBtn.onclick = function() {
+    if (input.type === "password") {
+        input.type = "text"; 
+        showBtn.classList.add('active');
+    } else {
+        input.type = "password";
+        showBtn.classList.remove('active');
+    }
+};
+</script> -->
         </div>
     </div>
 </div>
 </div>
+
 @endsection
+
+

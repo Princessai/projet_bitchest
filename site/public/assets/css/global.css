@@ -473,3 +473,16 @@ height: 100%;
 .btn-52:hover span:nth-child(6) {
   transition-delay: 0.5s;
 }
+
+
+
+.mee{
+  cursor: pointer;
+
+ }
+
+
+.mee:hover{
+  color: #4698e5;
+}
+ 

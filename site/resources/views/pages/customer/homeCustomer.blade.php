@@ -100,7 +100,7 @@
                     <a href="{{route('list.crypto.customer')}}"><button class="shadow__btn">See All</button> </a>
                 </div>
 
-                <div class=" w-100 mt-5 align-self-center  shadow p-3 mb-5 bg-body rounded ">
+                <div class=" w-100 mt-5 align-self-center  shadow p-1 mb-5 bg-body rounded ">
                     <table class=" table align-middle  mb-5 mb-0 ">
                         <thead class="text-light fs-4">
 

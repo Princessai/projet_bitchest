@@ -37,11 +37,12 @@ class CustomerController extends Controller
 
   public function update_traitement(Request $request)
   {
+
     $request->validate([
       'firstname' => 'required|string',
       'lastname' => 'required|string',
       'age' => 'required|numeric',
-      'email' => 'required|email:rfc,dns',
+      'email' => 'required|email:rfc,dns|unique:customers',
 
     ]);
 
@@ -77,7 +78,7 @@ class CustomerController extends Controller
       'firstname' => 'required|string',
       'lastname' => 'required|string',
       'age' => 'required|numeric|gt:15',
-      'email' => 'required|email:rfc,dns',
+      'email' => 'required|email:rfc,dns|unique:customers',
     ]);
 
 

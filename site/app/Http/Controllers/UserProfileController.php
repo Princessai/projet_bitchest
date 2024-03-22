@@ -21,12 +21,12 @@ class UserProfileController extends Controller
   {
 
     $user = Auth::user();
-
+    $userTable = $user->getTable();
 
     $rules = [
       'firstname' => 'required|string',
       'lastname' => 'required|string',
-      'email' => 'required|email:rfc,dns',
+      'email' => "required|email:rfc,dns|unique:$userTable",
       'password' => 'required',
     ];
 

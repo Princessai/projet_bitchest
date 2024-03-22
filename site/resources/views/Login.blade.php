@@ -123,6 +123,7 @@
             </div>
             <div class="input-container d-flex mb-3 justify-content-center">
                 <input class="but-input w-75 m-auto" placeholder=" password" name="password" type="password">
+                <img src="{{ asset('assets/images/oeil.png') }}" height="20px" class="hidden-password" alt="">
                 @error('password')
                     {{ $message }}
                 @enderror
@@ -141,3 +142,15 @@
 </body>
 
 </html>
+
+
+<script>
+
+  let input = document.querySelector('.but-input');
+
+  let showBtn = doxument.querySelector('hidden-passworrd');
+
+  
+
+
+</script>

@@ -172,3 +172,28 @@ h2{
  
 
 
+ .hidden-password{
+  position: absolute;
+   margin-top: 20px;
+   margin-left: 135px;
+
+ }
+
+ @media only screen and (max-width: 800px) {
+  .hidden-password{
+    position: absolute;
+     margin-top: 20px;
+     margin-left: 120px;
+  
+   }
+
+   @media only screen and (max-width: 470px) {
+    .hidden-password{
+      position: absolute;
+       margin-top: 20px;
+       margin-left: 80px;
+    
+     }
+    }
+  
+}

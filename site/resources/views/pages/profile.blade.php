@@ -143,6 +143,8 @@ $updateself = route('updateself.admin');
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="mb-3">
+                                        <form method="POST" action="{{ route('updateself.customer') }}">
+                                        @csrf
                                             <label for="exampleInputPassword1" class="form-label"> Password</label>
                                             <input type="text" class="form-control" name="password" value="">
                                         </div>
@@ -156,6 +158,7 @@ $updateself = route('updateself.admin');
                                         </div>
 
                                         <input type="submit" id="TextInput" class="form-control shadoww__btn align-self-center" value="Edit">
+                                        </form>
                                     </div>
                                 </div>
                             </div>

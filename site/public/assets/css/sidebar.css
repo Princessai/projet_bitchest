@@ -8,6 +8,11 @@
 
 
 
+.midd{
+  display: none;
+}
+
+
 
    .butside {
     cursor: pointer;
@@ -30,3 +35,40 @@
      0 8px 0 -4px #00cf2d,
      0 12px 10px -3px #39a2db;
    }
+
+   @media screen and (max-width: 1100px) {
+    .midd{
+      display: block;
+
+
+    } 
+     .mid{
+    display: none;
+  }
+
+  .sidebar{
+    background-image: linear-gradient(90deg, #38618B 0%, #1C3146 100%) ;
+    min-height: 1000px;
+
+}
+  }
+
+  @media screen and (max-width: 1700px) {
+ 
+
+  .sidebar{
+    background-image: linear-gradient(90deg, #38618B 0%, #1C3146 100%) ;
+    min-height: 1750px;
+
+}
+  }
+
+  @media screen and (max-width: 5000px) {
+ 
+
+    .sidebar{
+      background-image: linear-gradient(90deg, #38618B 0%, #1C3146 100%) ;
+      min-height: 1300px;
+  
+  }
+    }

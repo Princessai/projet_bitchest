@@ -14,14 +14,21 @@
 @endphp
 
 
-<div class="col-md-12 sidebar shadow  mid   col-lg-2 col-sm-12" style=" z-index:1;">
-<div class="container text-center">
-  <div class="row">
-    <div class="col-md-12 mt-3 ">
-    <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" class="w-75">
-    </div>
-    <div class="col-md-12 mt-5 mb-5">
-    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+<div class="midd">
+          <nav class="navbar  ">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header " style="background-image: linear-gradient(90deg, #38618B 0%, #1C3146 100%) ;">
+                <img src="{{ asset('assets/images/bitchest_logo.png') }}" alt="" class="w-50  ">
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body "  style=" background-image: linear-gradient(90deg, #38618B 0%, #1C3146 100%) ;">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     @can('do_transaction')
                         <li class="nav-item  d-flex justify-content-center ">
                             <a href="{{ route('dashboard.customer') }}" class="text-decoration-none text-white">
@@ -70,7 +77,14 @@
                     <a href="{{ route('logout') }}" class="btx">Logout</a>
 
                 </ul>
-    </div>
-  </div>
-</div>
-    </div>
+                 
+                </div>
+              </div>
+            </div>
+          </nav>
+
+
+
+
+
+        </div>

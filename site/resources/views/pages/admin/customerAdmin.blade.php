@@ -1,7 +1,8 @@
 @extends('layouts.adminDashboard')
 @section('bodycontent')
     <h2 class="text-light text-start mt-3 ms-3">Liste Des Clients</h2>
-   <a href="{{ route('add.customer') }}" class="butt text-light "> <button type="submit" class="btn btn-secondary bg-gradient  w-25 mb-3">Add</button></a>
+    <a href="{{ route('add.customer') }}" class="butt text-light "> <button type="submit"
+            class="btn btn-secondary bg-gradient  w-25 mb-3">Add</button></a>
     <div class="container text-center">
         <div class="row">
 
@@ -32,10 +33,14 @@
                                 <td>{{ $items->email }}</td>
                                 <td>
 
-                                <a href="{{ route('modify.customer', ['id' => $items->id]) }}" class="me-3"><button class="shadowe__btn">EDIT</button></a>
-                               <button class="shadowd__btn me-3" onclick="return confirm('are you sure you want to delete this user?');"> <a href="{{ route('delete.customer', ['id' => $items->id]) }}" >DELETE</a></button>
-                                <a href="{{ route('view.customer', ['id' => $items->id]) }}"  class="me-3"><button class="shadows__btn">SEE</button></a>
-                               
+                                    <a href="{{ route('modify.customer', ['id' => $items->id]) }}" class="me-3"><button
+                                            class="shadowe__btn">EDIT</button></a>
+                                    <button class="shadowd__btn me-3"
+                                        onclick="return confirm('are you sure you want to delete this user?');"> <a
+                                            href="{{ route('delete.customer', ['id' => $items->id]) }}">DELETE</a></button>
+                                    <a href="{{ route('view.customer', ['id' => $items->id]) }}" class="me-3"><button
+                                            class="shadows__btn">SEE</button></a>
+
                                 </td>
 
                             </tr>

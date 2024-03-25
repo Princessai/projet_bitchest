@@ -15,11 +15,9 @@
     <img src="{{ asset('assets/images/user.png') }}" alt="">
 @endsection
 @section('body')
-
-
-<div class="container text-center">
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
 
                 <div class="container text-start">
                     <div class="row">
@@ -89,33 +87,52 @@
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <form method="POST" action="{{ route('updateself.customer') }}">
+                                        <form method="POST" action="{{ $updateself }}">
                                             @csrf
                                             <div class="accordion-body">
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Firstname</label>
+                                                    @error('firstname')
+                                                        {{ $message }}
+                                                    @enderror
                                                     <input type="text" class="form-control" name="firstname"
                                                         value="{{ Auth::user()->firstname }}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputPassword1" class="form-label">Lastname</label>
+                                                    @error('lastname')
+                                                        {{ $message }}
+                                                    @enderror
+
                                                     <input type="text" class="form-control" name="lastname"
                                                         value="{{ Auth::user()->lastname }}">
                                                 </div>
                                                 @can('do_transaction')
                                                     <div class="mb-3">
                                                         <label for="exampleInputPassword1" class="form-label">Age</label>
+                                                        @error('age')
+                                                            {{ $message }}
+                                                        @enderror
+
                                                         <input type="number" class="form-control" name="age"
                                                             value="{{ Auth::user()->age }}">
                                                     </div>
                                                 @endcan
                                                 <div class="mb-3">
                                                     <label for="exampleInputPassword1" class="form-label">Email</label>
+                                                    @error('email')
+                                                        {{ $message }}
+                                                    @enderror
+
                                                     <input type="email" class="form-control" name="email"
                                                         value="{{ Auth::user()->email }}">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleInputPassword1" class="form-label"> Password</label>
+                                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                                    @error('password')
+                                                        {{ $message }}
+                                                    @enderror
+
                                                     <input type="text" class="form-control" name="password"
                                                         value="">
                                                 </div>
@@ -192,26 +209,23 @@
                 </div>
             </div>
 
-<!-- <script>
-    let input = document.querySelector('.psw');
+            <!-- <script>
+                let input = document.querySelector('.psw');
 
-let showBtn = document.querySelector('.mee');
+                let showBtn = document.querySelector('.mee');
 
-showBtn.onclick = function() {
-    if (input.type === "password") {
-        input.type = "text"; 
-        showBtn.classList.add('active');
-    } else {
-        input.type = "password";
-        showBtn.classList.remove('active');
-    }
-};
-</script> -->
+                showBtn.onclick = function() {
+                    if (input.type === "password") {
+                        input.type = "text";
+                        showBtn.classList.add('active');
+                    } else {
+                        input.type = "password";
+                        showBtn.classList.remove('active');
+                    }
+                };
+            </script> -->
         </div>
     </div>
-</div>
-</div>
-
+    </div>
+    </div>
 @endsection
-
-

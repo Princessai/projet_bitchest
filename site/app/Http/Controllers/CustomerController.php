@@ -37,20 +37,29 @@ class CustomerController extends Controller
 
   public function update_traitement(Request $request)
   {
-
-    $request->validate([
+    $rules = [
       'firstname' => 'required|string',
       'lastname' => 'required|string',
       'age' => 'required|numeric',
-      'email' => 'required|email:rfc,dns|unique:customers',
+      'email' => 'required',
 
-    ]);
-
+    ];
     $customer =  Customer::find($request->id);
+
+    if ($customer->email != $request->email) {
+      $rules['email'] .= "|email:rfc,dns|unique:customers";
+    }
+
+
+    $request->validate($rules);
+
     $customer->firstname = $request->firstname;
     $customer->lastname = $request->lastname;
     $customer->age = $request->age;
-    $customer->email = $request->email;
+    // dd($customer->email != $request->email);
+    if ($customer->email != $request->email) {
+      $customer->email = $request->email;
+    }
     $customer->update();
 
     return redirect()->route('list.customers');
@@ -113,8 +122,9 @@ class CustomerController extends Controller
     return view('pages.admin.customerView', compact('customer'));
   }
 
-  public function showDashboard() {
-      
+  public function showDashboard()
+  {
+
     $cryptos = Crypto::limit(5)->get();
     // dd($crypto);
 

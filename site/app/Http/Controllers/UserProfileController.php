@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -21,15 +22,30 @@ class UserProfileController extends Controller
   {
 
     $user = Auth::user();
+    // dd($user);
     $userTable = $user->getTable();
 
     $rules = [
       'firstname' => 'required|string',
       'lastname' => 'required|string',
-      'email' => "required|email:rfc,dns|unique:$userTable",
+      'email' => "required|email:rfc,dns",
       'password' => 'required',
     ];
 
+
+
+    if ($user->email != $request->email) {
+      $rules['email'] .= "|unique:$userTable";
+    }
+    $validator = Validator::make($request->all(), $rules);
+
+    if ($validator->fails()) {
+      return back()->withErrors($validator)
+        ->withInput();
+    }
+
+
+    // dd($validator->safe()->except(["email"]));
     if ($user->isAdmin() == FALSE) {
       $customerRules = [
         'age' => 'required',
@@ -39,7 +55,7 @@ class UserProfileController extends Controller
 
 
 
-    $request->validate($rules);
+    // $request->validate($rules);
 
 
     $oldPassword =  $request->password;
@@ -49,17 +65,17 @@ class UserProfileController extends Controller
 
     $check = Hash::check($oldPassword, $hash);
 
-    if ($check == FALSE) {
-      return redirect()->back()->with('error', 'incorrect password');
-    } else {
-      if (($request->input('new-password') != NULL) and ($request->input('confirm-new-password') != NULL)) {
-        if ($request->input('new-password') == $request->input('confirm-new-password')) {
-          $user->password = Hash::make($request->input('new-password'));
-        } else {
-          return redirect()->back()->with('error', 'put the same password please');
-        }
-      }
-    }
+    // if ($check == FALSE) {
+    //   return redirect()->back()->with('error', 'incorrect password');
+    // } else {
+    //   if (($request->input('new-password') != NULL) && ($request->input('confirm-new-password') != NULL)) {
+    //     if ($request->input('new-password') == $request->input('confirm-new-password')) {
+    //       $user->password = Hash::make($request->input('new-password'));
+    //     } else {
+    //       return redirect()->back()->with('error', 'put the same password please');
+    //     }
+    //   }
+    // }
 
     // $user->firstname =$request->input('firstname');
     // $user->lastname = $request->input('lastname');
@@ -67,7 +83,15 @@ class UserProfileController extends Controller
     // $user->email = $request->input('email');
 
 
-    $user->update($request->all());
+    // dd($request->validated());
+    if ($user->email == $request->email) {
+      $validatedInput = $validator->safe()->except(["email", 'password']);
+    } else {
+      $validatedInput = $validator->safe()->except(['password']);
+
+    }
+    // dd($user->update($validatedInput));
+    $user->update($validatedInput);
 
     if ($user->isAdmin()) {
 
@@ -76,38 +100,3 @@ class UserProfileController extends Controller
     return redirect()->route('profil.customer');
   }
 }
-//     public function update_self_traitement_admin(Request $request)
-//     {
-//       $request->validate([
-//         'firstname' => 'required|string',
-//         'lastname' => 'required|string',
-//         'email' => 'required|email:rfc,dns',
-//         'password' => 'required',
-  
-//       ]);
-  
-//       $user_id = Customer::find(Auth::user()->id);
-//       $oldPassword = Hash::make($request->password);
-    
-//         if($oldPassword !== $user_id->password){
-//          return redirect()->back()->with('error', 'incorrect password');
-//           } else {
-//              if(($request->input('new-password') !=NULL) and ($request->input('confirm-new-password') !=NULL)){
-//                if ($request->input('new-password') == $request->input('confirm-new-password')){
-//                 $user_id->password = $request->input('new-password');
-//                } else {
-//                 return redirect()->back()->with('error' , 'put the same password please');
-//                }
-//              } 
-//         }
-      
-//         $user_id->firstname = $request->firstname ;
-//         $user_id->lastname = $request->lastname ;
-//       $user_id->email = $request->email ;
-       
-//       $user_id->update(); 
-  
-//           return redirect()->route('dashboard.admin');
-//     }
-
-// }

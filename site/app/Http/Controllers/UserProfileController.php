@@ -7,11 +7,13 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Middleware\IsAdmin;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 
 
@@ -29,7 +31,18 @@ class UserProfileController extends Controller
       'firstname' => 'required|string',
       'lastname' => 'required|string',
       'email' => "required|email:rfc,dns",
-      'password' => 'required',
+      'password' => [
+        'required',
+
+        function (string $attribute,  $value, $fail) use ($user) {
+
+          $check = Hash::check($value, $user->password);
+
+          if ($check == false) {
+            $fail("The {$attribute} is invalid.");
+          }
+        }
+      ]
     ];
 
 
@@ -58,12 +71,10 @@ class UserProfileController extends Controller
     // $request->validate($rules);
 
 
-    $oldPassword =  $request->password;
+    // $oldPassword =  $request->password;
 
-    $hash = $user->password;
+    // $hash = $user->password;
 
-
-    $check = Hash::check($oldPassword, $hash);
 
     // if ($check == FALSE) {
     //   return redirect()->back()->with('error', 'incorrect password');
@@ -88,7 +99,6 @@ class UserProfileController extends Controller
       $validatedInput = $validator->safe()->except(["email", 'password']);
     } else {
       $validatedInput = $validator->safe()->except(['password']);
-
     }
     // dd($user->update($validatedInput));
     $user->update($validatedInput);
@@ -98,5 +108,26 @@ class UserProfileController extends Controller
       return redirect()->route('profil.admin');
     }
     return redirect()->route('profil.customer');
+  }
+
+  public function update_password(Request $request)
+
+  {
+    $user = Auth::user();
+
+    $guard = Auth::getDefaultDriver();
+
+    $request->validate([
+      "password" => "required|current_password:$guard",
+      "new-password" => ['required', Password::min(8)
+        ->letters()
+        ->symbols()],
+      "confirm-new-password" => "required|same:new-password",
+    ]);
+
+    $user->password = Hash::make($request->input('new-password'));
+    $user->save();
+
+    return back()->with('success', true);
   }
 }

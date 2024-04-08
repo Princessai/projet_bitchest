@@ -3,9 +3,11 @@
 
     // dd(Auth::user());
     $updateself = route('updateself.customer');
+    $changePassword = route('updatePassword.customer');
 
     if ($isAdmin) {
         $updateself = route('updateself.admin');
+        $changePassword = route('updatePassword.admin');
     }
 @endphp
 
@@ -175,28 +177,53 @@
                                     <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body">
-                                            <form method="POST" action="{{ $updateself }}">
+                                            <form method="POST" action="{{ $changePassword }}">
                                                 @csrf
+                                               
+                                                @if (session()->has('success') && session()->get('success') == true)
+                                                    <div class="pop-up d-flex flex-column  ">
+
+                                                        <div class="text-success h5 mb-3"> <strong>Password changed
+                                                                successfully !</strong></div>
+
+                                                    </div>
+                                                @endif
+
                                                 <div class="accordion-body">
                                                     <div class="mb-3">
                                                         <label for="exampleInputPassword1" class="form-label">
                                                             Password</label>
+                                                        @error('password')
+                                                            {{ $message }}
+                                                        @enderror
                                                         <input type="text" class="form-control" name="password"
                                                             value="">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputPassword1" class="form-label"> new
                                                             Password</label>
+                                                        @error('new-password')
+                                                            {{ $message }}
+                                                        @enderror
+
                                                         <input type="text" class="form-control" name="new-password"
                                                             value="">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputPassword1" class="form-label">confirm
                                                             Password</label>
+                                                        @error('confirm-new-password')
+                                                            {{ $message }}
+                                                        @enderror
+
                                                         <input type="text" class="form-control"
                                                             name="confirm-new-password" value="">
                                                     </div>
                                                     <div class="mb-3">
+                                                        <input type="submit" id="TextInput"
+                                                            class="form-control shadoww__btn align-self-center"
+                                                            value="Edit">
+
                                                     </div>
                                                 </div>
                                         </div>

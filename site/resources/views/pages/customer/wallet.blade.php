@@ -106,7 +106,8 @@
                 </div>
                 <div class="mt-4"><a href="{{ route('profil.customer') }}"><button class="shadoww__btn">MY
                             PROFILE</button> </a></div>
-                <div class="mt-4"> <a href=""><button class="shadoww__btn">MY TRANSACTIONS</button> </a> </div>
+                <div class="mt-4"> <a href="{{ route('ajouterCredit') }}"><button class="shadoww__btn">Credit my
+                            account</button> </a> </div>
 
 
             </div>

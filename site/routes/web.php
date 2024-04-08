@@ -56,7 +56,13 @@ Route::prefix('customer')->middleware('auth:customers')->group(function () {
     })->name('profil.customer');
 
     Route::post('/transaction/{crypto_id}', [CryptoController::class, 'transaction'])->name('transaction');
-    
+    Route::post('/update-password', [UserProfileController::class, 'update_password'])->name('updatePassword.customer');
+    Route::post('/credit-account', [WalletController::class, 'addToWallet'])->name('creditAccount');
+
+    Route::get('/credit-account', function () {
+        return view('pages.customer.deposit');
+    })->name('ajouterCredit');
+
 });
 
 
@@ -95,6 +101,9 @@ Route::prefix('admin')->middleware('auth:admins')->group(function () {
     Route::get('/profile', function () {
         return view('pages.profile');
     })->name('profil.admin');
+
+    Route::post('/update-password', [UserProfileController::class, 'update_password'])->name('updatePassword.admin');
+    
     
 
 });

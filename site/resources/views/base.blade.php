@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/bfff4e75c6.js" crossorigin="anonymous"></script>
-  <script src="{{ asset('/assetsjs/global.js') }}"></script>
+  <script src="{{ asset('assets/js/global.js') }}"></script>
   <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/sidebar.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/wallet.css') }}" rel="stylesheet">
